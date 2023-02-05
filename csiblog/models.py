@@ -8,12 +8,10 @@ from ckeditor.fields import RichTextField
 
 
 # Create your models here.
+STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
-    STATUS_CHOICES = (
-                ('draft', 'Draft'),
-                ('published', 'Published'))
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200)
     contributor = models.ForeignKey(
@@ -25,7 +23,7 @@ class Post(models.Model):
     no_of_likes = models.ManyToManyField(
         User, related_name="csiblog_no_of_likes")
     excerpt = models.TextField()
-    status = models.CharField(max_length=10)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ['-date']

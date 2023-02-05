@@ -5,4 +5,4 @@ from django.urls import path
 # urlpatterns = [
 
 #     path("<slug:slug>", PostDetailView.as_view(), name="postadd"),
-]
+# ]
