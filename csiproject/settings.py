@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # apps
     'csiblog',
-
+    'djrichtextfield',
 ]
 
 MIDDLEWARE = [
