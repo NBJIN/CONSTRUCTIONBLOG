@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # apps
     'csiblog',
     'djrichtextfield',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

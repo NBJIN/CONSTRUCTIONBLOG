@@ -3,8 +3,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
-from djrichtextfield.models import RichTextField
-# from ckeditor.fields import RichTextField
+# from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 
@@ -16,7 +17,7 @@ STATUS = (
 
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="csiblog_posts")
     date = models.DateTimeField(auto_created=True)
@@ -34,9 +35,8 @@ class Post(models.Model):
     def __str__(self):
         return self.name + ' |  ' + (str(self.contributor))
 
-    def no_of_likes(self):
-        return self.no_of_likes.count()
-
+    # def no_of_likes(self):
+    #     return self.no_of_likes.count()
 
 
 class Comment(models.Model):
@@ -55,5 +55,4 @@ class Comment(models.Model):
     def __str__(self):
         return self.name + ' | ' + (str(self.post_contributor))
 
-    def no_of_likes(self):
-        return self.no_of_likes.count()
+
