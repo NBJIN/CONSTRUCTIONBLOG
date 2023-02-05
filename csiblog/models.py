@@ -17,7 +17,7 @@ STATUS = (
 
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(null=False, unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="csiblog_posts")
     date = models.DateTimeField(auto_created=True)
@@ -34,6 +34,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name + ' |  ' + (str(self.contributor))
+
+    def get_absolute_url(self):
+        return reverse("postadd", kwargs={"slug": self.slug})
 
     # def no_of_likes(self):
     #     return self.no_of_likes.count()
@@ -54,5 +57,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.name + ' | ' + (str(self.post_contributor))
-
-
