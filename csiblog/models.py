@@ -36,3 +36,24 @@ class Post(models.Model):
 
     def no_of_likes(self):
         return self.no_of_likes.count()
+
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="csiblog_comment")
+    title = models.CharField(max_length=200, unique=True)
+    author = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="csiblog_posts")
+    added = models.DateTimeField(auto_created=True)
+    mainbody = RichTextField(max_length=5000, blank=True, null=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-added']
+
+    def __str__(self):
+        return self.name + ' | ' + (str(self.post_contributor))
+
+    def no_of_likes(self):
+        return self.no_of_likes.count()
