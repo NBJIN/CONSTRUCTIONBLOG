@@ -9,15 +9,13 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
-STATUS = (
-    (0, "Draft"),
-    (1, "Published")
-)
-
 
 class Post(models.Model):
+    STATUS_CHOICES = (
+                ('draft', 'Draft'),
+                ('published', 'Published'))
     name = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(null=False, unique=True)
+    slug = models.SlugField(max_length=200)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="csiblog_posts")
     date = models.DateTimeField(auto_created=True)
@@ -27,7 +25,7 @@ class Post(models.Model):
     no_of_likes = models.ManyToManyField(
         User, related_name="csiblog_no_of_likes")
     excerpt = models.TextField()
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.CharField(max_length=10)
 
     class Meta:
         ordering = ['-date']
@@ -35,8 +33,8 @@ class Post(models.Model):
     def __str__(self):
         return self.name + ' |  ' + (str(self.contributor))
 
-    def get_absolute_url(self):
-        return reverse("postadd", kwargs={"slug": self.slug})
+    # def get_absolute_url(self):
+    #     return reverse("postadd", kwargs={"slug": self.slug})
 
     # def no_of_likes(self):
     #     return self.no_of_likes.count()
