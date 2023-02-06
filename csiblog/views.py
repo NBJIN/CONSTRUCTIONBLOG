@@ -30,16 +30,10 @@ class PostAddView(CreateView):
     model = Post
     template_name = "postcreate.html"
     fields = ('name', 'slug', 'contributor', 'date', 'image', 'content', 'excerpt', 'status')
-    # fields = (
-    # name = models.CharField(max_length=200, unique=True)
-    # slug = models.SlugField(max_length=200)
-    # contributor = models.ForeignKey(
-    #     User, on_delete=models.CASCADE, related_name="csiblog_posts")
-    # date = models.DateTimeField(auto_created=True)
-    # image = CloudinaryField('image', default='placeholder')
-    # content = RichTextField(max_length=5000, blank=True, null=True)
-    # no_of_likes = models.ManyToManyField(
-    #     User, related_name="csiblog_no_of_likes")
-    # excerpt = models.TextField()
 
-    # )
+
+class PostUpdate(UpdateView):
+    model = Post
+    template_name = "postupdate.html"
+    fields = ('name', 'date', 'content',)
+    # success_url = reverse_lazy('postread.html')

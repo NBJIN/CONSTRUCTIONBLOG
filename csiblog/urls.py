@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
+from django.http import HttpResponse
 from . import views
-from .views import PostView, PostDetailView, PostAddView
+from .views import PostView, PostDetailView, PostAddView, PostUpdate
 
 
 urlpatterns = [
@@ -8,9 +9,5 @@ urlpatterns = [
     path('', PostView.as_view(), name="postread"),
     path('postdetail/<int:pk>', PostDetailView.as_view(), name='postdetail'),
     path('create/<int:pk>', PostAddView.as_view(), name='postcreate'),
+    path('update/<int:pk>', PostUpdate.as_view(), name='postupdate'),
 ]
-
-# class PostAddView(CreateView):
-#     model = Post
-#     template_name = "postcreate.html"
-#     success_url = reverse_lazy('postread.html')
