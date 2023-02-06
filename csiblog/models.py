@@ -32,7 +32,7 @@ class Post(models.Model):
         return self.name + ' |  ' + (str(self.contributor))
 
     def get_absolute_url(self):
-        return reverse('postupdate', kwargs={'pk': self.pk})
+        return reverse('postread', kwargs={'pk': self.pk})
 
     # def get_absolute_url(self):
     #     return reverse("postadd", kwargs={"slug": self.slug})

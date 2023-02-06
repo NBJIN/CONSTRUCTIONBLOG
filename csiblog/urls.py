@@ -10,5 +10,5 @@ urlpatterns = [
     path('postdetail/<int:pk>', PostDetailView.as_view(), name='postdetail'),
     path('create/<int:pk>', PostAddView.as_view(), name='postcreate'),
     path('update/<int:pk>', PostUpdate.as_view(), name='postupdate'),
-    path('delete/<int:pk>', PostDelete.as_view(), name='postdelete')
+    path('csiblog/postdelete/<int:pk>', PostDelete.as_view(), name='postdelete'),
 ]
