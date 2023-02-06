@@ -52,4 +52,4 @@ class Comment(models.Model):
         ordering = ['-added']
 
     def __str__(self):
-        return self.name + ' | ' + (str(self.post_contributor))
+        return self.title + ' | ' + (str(self.author))

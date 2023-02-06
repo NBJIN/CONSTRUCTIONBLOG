@@ -14,8 +14,12 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'contributor', 'date', 'status')
     list_filter = ('name', 'contributor', 'date',  'status')
     search_fields = ('name', 'content')
-    # raw_id_fields = ('contributor', 'no_of_likes')
     date_hierarchy = 'date'
 
-# admin.site.register(Post)
-# admin.site.register(Comment)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'title', 'author', 'added', 'mainbody', 'approved')
+    list_filter = ('post', 'title', 'added',  'approved')
+    search_fields = ('title', 'added')
+    date_hierarchy = 'added'
