@@ -10,18 +10,17 @@
     {% for post in object_list %}
     
     <a href="{% url 'postdetail' post.pk %}">    
-    {{ post.name | safe }}
+    {{ post.name | safe }}  
     </a>
     
     <br>
-    {{ post.contributor| safe  }}
+    {{ post.contributor| safe }}  |&nbsp; {{ post.date | safe }}  |&nbsp;
     <br>
-    {{ post.date | safe }}
     <br>
-    {{ post.content | safe }}
+    <p>{{ post.content | slice:":400" | safe }}...</p> 
     <br>
-    
+    <hr>
+  
     {% endfor %}
-    </div> -->
    
 {% endblock %}
