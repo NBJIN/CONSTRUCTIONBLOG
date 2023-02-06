@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}    
+
+<h1>Construction Safety Information Blog Detailed Posts</h1> 
+
+<div>
+
+<a href="{% url 'postread' %}">    
+{{ post.name | safe }}</a>
+<br>
+{{ post.contributor| safe  }}
+<br>
+{{ post.date | safe }}
+<br>
+{{ post.content | safe }}
+<br>
+<a href="{% url 'postread' %}"><button type="button" class="btn btn-warning">Home</button></a>
+{% endblock %}
+</div> 
+
+
+
