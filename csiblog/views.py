@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from .models import Post
 from django import forms
 
+
 # # Create your views here.
 
 
@@ -30,13 +31,13 @@ class PostAddView(CreateView):
     model = Post
     template_name = "postcreate.html"
     fields = ('name', 'slug', 'contributor', 'date', 'image', 'content', 'excerpt', 'status')
-
+    success_url = reverse_lazy('postread')
 
 class PostUpdate(UpdateView):
     model = Post
     template_name = "postupdate.html"
     fields = ('name', 'date', 'content',)
-    # success_url = reverse_lazy('postread.html')
+    success_url = reverse_lazy('postread')
 
 
 class PostDelete(DeleteView):
