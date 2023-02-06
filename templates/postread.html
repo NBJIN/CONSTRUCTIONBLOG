@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>View List of Posts</h1>
+
+<div>
+    <br>
+    {% for postadd in object_list %}
+    
+    <a href="{% url 'postread' post.pk %}">    
+    {{ post.name | safe }}
+    </a>
+    
+    <br>
+    {{ post.contributor| safe  }}
+    <br>
+    {{ post.date | safe }}
+    <br>
+    {{ post.content | safe }}
+    <br>
+    {% endfor %}
+    
+    </div>
+
+
+
+{% endblock %}
