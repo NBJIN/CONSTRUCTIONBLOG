@@ -15,9 +15,13 @@
 <br>
 {{ post.content | safe }}
 <br>
-<a href="{% url 'postread' %}"><button type="button" class="btn btn-warning">Home</button></a>
+<div>
+    <a href="{% url 'postcreate' post.pk %}">Create Post</a> 
+
+</div>
 {% endblock %}
 </div> 
+
 
 
 

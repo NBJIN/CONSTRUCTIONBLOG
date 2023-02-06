@@ -45,10 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     # apps
+    'crispy_forms',
     'csiblog',
     'djrichtextfield',
     'ckeditor',
+
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
