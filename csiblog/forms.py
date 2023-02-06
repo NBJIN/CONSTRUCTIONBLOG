@@ -1,2 +1,2 @@
-from .models import Post 
+from .models import Post
 from django import forms

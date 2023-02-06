@@ -22,7 +22,6 @@ class PostDetailView(DetailView):
     #     queryset = Post.objects.filter(status=1)
     #     post = get_object_or_404(queryset, slug=slug)
     model = Post
-    
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
 
@@ -42,5 +41,5 @@ class PostAddView(CreateView):
     # no_of_likes = models.ManyToManyField(
     #     User, related_name="csiblog_no_of_likes")
     # excerpt = models.TextField()
-    
+
     # )
