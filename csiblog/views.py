@@ -24,8 +24,6 @@ class PostAddView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.contributor = self.request.user
         return super(PostAddView, self).form_valid(form)
-        if not request.user.is_authenticated:
-
 
 # class PostUpdate(LoginRequiredMixin,  UserPassesTestMixin, UpdateView):
 
