@@ -25,8 +25,14 @@
     {% block content %}
     <!-- Content Goes here -->
 
-
-
+    {% if user.is_authenticated %}
+     <h1>Welcome to the Construction Safety and Information Blog</h1>
+     <a href="logout">logout</a>
+     {% else %}
+     <a href="Login">Login</a>
+     <a href="Sign Up">Sign Up</a>
+       
+    {% endif %}
     
     {% endblock content %}
 
