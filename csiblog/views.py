@@ -36,9 +36,9 @@ class PostAddView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     success_url = reverse_lazy('postread')
 
-    # def form_valid(self, form):
-    #     form.instance.user = self.request.user
-    #     return super(PostAddView, self).form_valid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PostAddView, self).form_valid(form)
 
 
 # class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -55,6 +55,9 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
     #     return queryset
     # def test_func(self):
     #     return self.request.user == self.get_object().user
+
+    def test_func(self):
+        return 1 + 1 == 2
 
 
 class PostDelete(DeleteView):
