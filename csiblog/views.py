@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
 # from django import forms
-from django.contrib.auth.mixins import (LoginRequiredMixin, UserPassesTestMixin)
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
 from .forms import PostForm
 
@@ -27,36 +27,41 @@ class PostAddView(LoginRequiredMixin, CreateView):
         if not request.user.is_authenticated:
 
 
+# class PostUpdate(LoginRequiredMixin,  UserPassesTestMixin, UpdateView):
+
+
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = "postupdate.html"
     # fields = ('name', 'contributor', 'date', 'content',)
     form_class = PostForm
+    login_url = 'postread'
     success_url = reverse_lazy('postread')
 
     def test_func(self):
-        return self.request.user == self.get_object().contributor
+        return self.request.contributor == self.get_object().user
 
 
-class PostDelete(DeleteView):
+    # def test_func(self):
+    #     self.object = self.get_object()
+    #     return self.request.user == self.object.contributor
+
+
+class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "postdelete.html"
     success_url = reverse_lazy('postread')
 
     def test_func(self):
-        return self.request.user == self.get_object().contributor
+        return self.request.user == self.get_object().user
 
 
 class PostView(ListView):
     model = Post
     template_name = "postread.html"
-    success_url = reverse_lazy('postcreate.html')
 
 
 class PostDetailView(DetailView):
-
-    # def get(self, request, slug, *args, **kwargs):
-    #     queryset = Post.objects.filter(status=1)
-    #     post = get_object_or_404(queryset, slug=slug)
     model = Post
     template_name = "postdetail.html"
+    success_url = reverse_lazy('postread.html')

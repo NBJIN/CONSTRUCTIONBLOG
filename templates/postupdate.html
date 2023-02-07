@@ -27,7 +27,7 @@
   <br>
   {{ post.excerpt | safe }}</a>
 
-  <form method="post">
+  <form method="POST" enctype="multipart/form-data" >
 
     {% csrf_token %}
     {{ form.as_p }}
