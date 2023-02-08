@@ -48,10 +48,11 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "postdelete.html"
+    login_url = 'postread'
     success_url = reverse_lazy('postread')
 
     def test_func(self):
-        return self.request.user == self.get_object().user
+        return self.request.contributor == self.get_object().user
 
 
 class PostView(ListView):
