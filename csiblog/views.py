@@ -9,6 +9,7 @@ from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
 from .forms import PostForm
+# from django.contrib.messages.views import SuccessMessageMixin
 
 
 # # Create your views here.
@@ -18,12 +19,17 @@ class PostAddView(LoginRequiredMixin, CreateView):
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = PostForm
     login_url = 'postread'
-    permission_denied_message = 'You are not allowed access here'
+    # permission_denied_message = 'You are not allowed access here'
     success_url = reverse_lazy('postread')
+
 
     def form_valid(self, form):
         form.instance.contributor = self.request.user
         return super(PostAddView, self).form_valid(form)
+
+    # def get_success_url(self, cleaned_data):
+    #     print(cleaned_data)
+    #     return "Your form has been successfully submitted"
 
 # class PostUpdate(LoginRequiredMixin,  UserPassesTestMixin, UpdateView):
 
