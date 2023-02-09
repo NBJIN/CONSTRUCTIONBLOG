@@ -13,6 +13,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 # # Create your views here.
+
+class Login(LoginRequiredMixin, View):
+    login_url = 'login'
+    
 class PostAddView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "login.html"
@@ -20,11 +24,10 @@ class PostAddView(LoginRequiredMixin, CreateView):
 
     # template_name = "postcreate.html"
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
-
-    
+   
     form_class = PostForm
     login_url = 'postread'
-    permission_denied_message = 'You are not allowed access here please login'
+    # permission_denied_message = 'You are not allowed access here please login'
     success_url = reverse_lazy('postread')
 
     def form_valid(self, form):
