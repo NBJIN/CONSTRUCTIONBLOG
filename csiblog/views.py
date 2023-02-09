@@ -9,7 +9,7 @@ from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
 from .forms import PostForm
-# from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 # # Create your views here.
@@ -21,7 +21,6 @@ class PostAddView(LoginRequiredMixin, CreateView):
     login_url = 'postread'
     # permission_denied_message = 'You are not allowed access here'
     success_url = reverse_lazy('postread')
-
 
     def form_valid(self, form):
         form.instance.contributor = self.request.user
@@ -45,7 +44,6 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
     def test_func(self):
         return self.request.contributor == self.get_object().user
 
-
     # def test_func(self):
     #     self.object = self.get_object()
     #     return self.request.user == self.object.contributor
@@ -58,7 +56,7 @@ class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('postread')
 
     def test_func(self):
-        return self.request.contributor == self.get_object().user
+        return self.request.user == self.get_object().user
 
 
 class PostView(ListView):
