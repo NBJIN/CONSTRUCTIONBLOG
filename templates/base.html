@@ -47,11 +47,14 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" >
               <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
-              <a href="{% url 'signup' %}">Sign Up</a>
+              <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
             
           </ul>
@@ -68,9 +71,9 @@
 
     {% if user.is_authenticated %}
      <h1>Welcome to the Construction Safety and Information Blog</h1>
-     <a href="logout">logout</a>
+     <a href="{% url 'logout' %}">logout</a>
      {% else %}
-     <a href="Login">Login</a>
+     <!-- <a href="{% url 'login' %}">Login</a> -->
      <a href="{% url 'signup' %}">Sign Up</a>
       {% endif %}
     

@@ -42,6 +42,10 @@ class UserLoginView(CreateView):
     success_url = reverse_lazy = "postread.html"
 
 
+class UserLogoutView(CreateView):
+    template_name = "logout.html"
+
+
 class PostAddView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "login.html"
