@@ -45,13 +45,13 @@
         <form class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-4">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a href="{% url 'signup' %}">Sign Up</a>
             </li>
             
           </ul>
@@ -71,9 +71,13 @@
      <a href="logout">logout</a>
      {% else %}
      <a href="Login">Login</a>
-     <a href="Sign Up">Sign Up</a>
+     <a href="{% url 'signup' %}">Sign Up</a>
       {% endif %}
     
+
+       
+
+
    
 </div>
 

@@ -7,22 +7,15 @@
 <div class="form-group">
   <form method="POST">
     {% csrf_token %}
-    {{ form.ap_p }}
+    {{ form.as_table }}
   
       <div>
-      <a href="{% url 'postcreate' post.pk %}">Create Post</a> 
-      <a href="{% url 'postupdate' post.pk %}">Update Post</a> 
-      <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
-  
-  
-  </div>
+      <a href="{% url 'postread' %}">Login</a> 
+ 
+    </div>
   </form>
 </div>
 
-  <!-- <ul>
-    <li><a href="{{ postadd.get_absolute_url }}">{{ postadd.name }}</a></li>
-  </ul> -->
+  
 
-
- 
   {% endblock %}

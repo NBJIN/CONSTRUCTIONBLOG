@@ -1,28 +1,19 @@
 {% extends "base.html" %}
-
+<!-- {% block title %}Signup{% endblock %} -->
 {% block content %}
-
-<h1>Construction Safety Information Blog - Sign-up  </h1>
+ 
+<h1>Sign-up  </h1>
 
 <div class="form-group">
   <form method="POST">
     {% csrf_token %}
-    {{ form.ap_p }}
+
+    {{ form.as_table }}
   
-      <div>
-      <a href="{% url 'postcreate' post.pk %}">Create Post</a> 
-      <a href="{% url 'postupdate' post.pk %}">Update Post</a> 
-      <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
-  
-  
-  </div>
+    <li class="nav-item">
+        <a href="{% url 'postread' %}">Sign Up</a>
+      </li>
   </form>
 </div>
-
-  <!-- <ul>
-    <li><a href="{{ postadd.get_absolute_url }}">{{ postadd.name }}</a></li>
-  </ul> -->
-
-
  
   {% endblock %}
