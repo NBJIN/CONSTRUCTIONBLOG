@@ -51,3 +51,28 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 </form>
 
 {% endblock %}
+
+
+
+<!--Taken from orignal login file now deleted  {% extends "base.html" %}
+
+{% block content %}
+
+<h1>Construction Safety Information Blog - Login </h1>
+
+<div class="form-group">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+  
+      <div>
+      <a href="{% url 'postread' %}">Login</a> 
+ 
+    </div>
+  </form>
+</div>
+
+  
+
+  {% endblock %} -->
+

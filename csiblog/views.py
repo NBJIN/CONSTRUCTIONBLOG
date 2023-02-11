@@ -22,7 +22,7 @@ class UserSignup(SuccessMessageMixin, CreateView):
     template_name = "signup.html"
     success_url = reverse_lazy = "login.html"
     # successmessage = "You have successfully signed up please login"
-    add_message(request, messages.INFO, 'Congratulations your registration was successful')
+    # add_message(request, messages.INFO, 'Congratulations your registration was successful')
     # def get_success_message(self, cleaned_data):
     #     return "Your registration was successful."
 
@@ -79,7 +79,7 @@ class UserLogoutView(CreateView):
     # )
 
 
-class PostAddView(LoginRequiredMixin, CreateView):
+class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
     template_name = "postcreate.html"
 
@@ -90,10 +90,26 @@ class PostAddView(LoginRequiredMixin, CreateView):
     login_url = 'postread'
     # permission_denied_message = 'You are not allowed access here please login'
     success_url = reverse_lazy('postread')
+    success_message = "You have successfully added your post.."
 
-    def form_valid(self, form):
-        form.instance.contributor = self.request.user
-        return super(PostAddView, self).form_valid(form)
+
+# def PostForm(request):
+#     if request.method == "POST":
+#         form = PostForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Post has been submitted successfully.')
+#             return render(request, 'postcreate.html', {'form': PostForm(request.GET)})
+#         else:
+#             messages.error(request, 'Error Post Failed.')
+#             # messages.error(request, form.errors)
+#     else:
+#         form = PostForm()
+#     return render(request, 'postcreate.html', {'form': form})
+
+    # def form_valid(self, form):
+    #     form.instance.contributor = self.request.user
+    #     return super(PostAddView, self).form_valid(form)
 
     # def get_success_url(self, cleaned_data):
     #     print(cleaned_data)

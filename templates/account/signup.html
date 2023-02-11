@@ -17,7 +17,7 @@
 </div>
 
 {% endif %} -->
-
+{% include 'messages.html' %}
 
 
 <h1>{% trans "Sign Up" %}</h1>
@@ -34,3 +34,29 @@
 </form>
 
 {% endblock %}
+
+
+
+
+
+<!-- taken from original sign up file now deleted 
+
+{% extends "base.html" %}
+<!-- {% block title %}Signup{% endblock %} -->
+<!-- {% block content %}
+ 
+<h1>Sign-up  </h1>
+
+<div class="form-group">
+  <form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_table }}
+  
+    <li class="nav-item">
+        <a href="{% url 'account_login' %}">Sign Up</a>
+      </li>
+  </form>
+</div>
+ 
+  {% endblock %} --> -->
