@@ -17,10 +17,17 @@ from django.contrib import messages
 # # Create your views here.
 
 
-class UserSignup(CreateView):
+class UserSignup(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
     template_name = "signup.html"
     success_url = reverse_lazy = "login.html"
+    # successmessage = "You have successfully signed up please login"
+    add_message(request, messages.INFO, 'Congratulations your registration was successful')
+    # def get_success_message(self, cleaned_data):
+    #     return "Your registration was successful."
+
+    # if form_class.is_valid():
+    #     message = "You have successfully signed up please login"
 
     # def register(request):
     #     if register.POST == 'POST':
@@ -36,10 +43,22 @@ class UserSignup(CreateView):
     # return render(request, 'signup.html', context)
 
 
-class UserLoginView(CreateView):
-    form_class = UserCreationForm
+class UserLoginView(SuccessMessageMixin, CreateView):
+    # form_class = UserCreationForm
     template_name = "login.html"
+    success_url = "/success/"
     success_url = reverse_lazy = "postread.html"
+    success_message = "You have successfully logged in"
+
+    # def get_success_url(self):
+    #     messages.success(self.request, 'You have successfully logged in')
+    #     # return reverse('contact')
+    # def form_valid(self, form):
+    #     user = form.get_contributor()
+    #     auth_login(self.request, contributor)
+    #     messages.add_message(
+    #         self.request, messages.SUCCESS, 'Logged in Successfully')
+    #     return super(UserLoginView, self).form_valid(form)
 
 
 class UserLogoutView(CreateView):
@@ -47,10 +66,10 @@ class UserLogoutView(CreateView):
     model = Post
     fields = ['contributor']
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            messages.info(request, "You have successfully logged out.")
-            return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         messages.info(request, "You have successfully logged out.")
+    #         return super().dispatch(request, *args, **kwargs)
 
     # def get_next_page(self):
     #     next_page = super(UserLogoutView, self).get_next_page()
