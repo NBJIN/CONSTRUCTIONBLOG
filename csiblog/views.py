@@ -8,10 +8,10 @@ from django.urls import reverse_lazy
 from .models import Post
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
 from django.views.generic import TemplateView
 from .forms import PostForm
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 # # Create your views here.
@@ -20,7 +20,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 class UserSignup(CreateView):
     form_class = UserCreationForm
     template_name = "signup.html"
-    success_url = reverse_lazy = "postread.html"
+    success_url = reverse_lazy = "login.html"
 
     # def register(request):
     #     if register.POST == 'POST':
@@ -46,6 +46,18 @@ class UserLogoutView(CreateView):
     template_name = "logout.html"
     model = Post
     fields = ['contributor']
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            messages.info(request, "You have successfully logged out.")
+            return super().dispatch(request, *args, **kwargs)
+
+    # def get_next_page(self):
+    #     next_page = super(UserLogoutView, self).get_next_page()
+    #     messages.add_message(
+    #         self.request, messages.SUCCESS,
+    #         'You have successfully logged out'
+    # )
 
 
 class PostAddView(LoginRequiredMixin, CreateView):

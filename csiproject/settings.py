@@ -49,8 +49,14 @@ INSTALLED_APPS = [
     'csiblog',
     'djrichtextfield',
     'ckeditor',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
 ]
+
+SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
