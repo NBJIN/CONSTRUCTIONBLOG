@@ -44,11 +44,13 @@ class UserLoginView(CreateView):
 
 class UserLogoutView(CreateView):
     template_name = "logout.html"
+    model = Post
+    fields = ['contributor']
 
 
 class PostAddView(LoginRequiredMixin, CreateView):
     model = Post
-    template_name = "login.html"
+    template_name = "postcreate.html"
 
     # template_name = "postcreate.html"
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']

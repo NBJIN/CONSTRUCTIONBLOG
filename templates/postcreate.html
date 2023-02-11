@@ -13,26 +13,27 @@
 <div> -->
   <div>
   <a href="{% url 'postread' %}">    
-  {{ post.name | safe }}</a>
-  <br>
-  {{ post.slug | safe }}
-  <br>
-  {{ post.contributor| safe  }}
-  <br>
-  {{ post.date | safe }}
-  <br>
-  {{ post.image | safe }}
-  <br>
-  {{ post.content | safe }}
-  <br>
-  {{ post.excerpt | safe }}</a>
+    {{ post.name | safe }}</a>
+    <br>
+    {{ post.slug | safe }}
+    <br>
+    {{ post.contributor| safe  }}
+    <br>
+    {{ post.date | safe }}
+    <br>
+    {{ post.image | safe }}
+    <br>
+    {{ post.content | safe }}
+    <br>
+    {{ post.excerpt | safe }}</a>
+
 
   <form method="post">
 
     {% csrf_token %}
-    {{ form.as_p }}
-
-  <input type="submit" value="Submit" />
+    {{ form.as_table }}
+    
+  <input type="submit" value="Submit"/>
 
   </form>
   <br>

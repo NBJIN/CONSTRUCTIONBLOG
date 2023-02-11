@@ -29,21 +29,22 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-          
-        </ul> -->
+      
         <form class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-4">
+
+            {% if user.is_authenticated %}
+            Welcome {{ 'user.first_name' }}
+            <a href="{% url 'logout' %}">logout</a>
+           
+
+            {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">Log in</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+
+            {% endif %}
+<!--           
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
             </li>
@@ -57,7 +58,7 @@
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
             
-          </ul>
+          </ul> -->
           <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button> -->
         </form>
@@ -68,15 +69,8 @@
 <div>
     {% block content %}
     <!-- Content Goes here -->
-
-    {% if user.is_authenticated %}
-     <h1>Welcome to the Construction Safety and Information Blog</h1>
-     <a href="{% url 'logout' %}">logout</a>
-     {% else %}
-     <!-- <a href="{% url 'login' %}">Login</a> -->
-     <a href="{% url 'signup' %}">Sign Up</a>
-      {% endif %}
-    
+<!-- 
+  
 
        
 
