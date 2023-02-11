@@ -26,7 +26,9 @@ class UserSignup(SuccessMessageMixin, CreateView):
     # def get_success_message(self, cleaned_data):
     #     return "Your registration was successful."
 
-    # if form_class.is_valid():
+    # if form.is_valid():
+         user = form.save()
+         messages.success(request, )
     #     message = "You have successfully signed up please login"
 
     # def register(request):
