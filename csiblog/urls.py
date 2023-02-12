@@ -15,6 +15,7 @@ urlpatterns = [
     path('csiblog/postdelete/<int:pk>', PostDelete.as_view(), name='postdelete'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
     path('Comment/', CommentAddView.as_view(), name='comment'),
+    path('commentadd/', CommentAddView.as_view(), name='commentadd'),
 
 ]
 #     path('create/', PostAddView.as_view(), name='postcreate'),

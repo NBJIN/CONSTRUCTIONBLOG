@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Construction Safety Information Blog</h1>
+<h3>Add Comment</h3>
+<form method="post">
+    {% csrf_token %}
+    
+    <input type="Submit" value="Submit">
+    <!-- {% include 'messages.html' %} -->
+</form>
+
+
+{% endblock %}

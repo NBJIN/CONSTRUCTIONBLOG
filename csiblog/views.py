@@ -9,7 +9,7 @@ from .models import Post, Comment
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -90,5 +90,6 @@ class PostDetailView(DetailView):
 
 class CommentAddView(CreateView):
     model = Comment
+    form_class = CommentForm
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')

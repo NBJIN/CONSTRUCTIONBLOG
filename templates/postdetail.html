@@ -29,7 +29,7 @@
     <h2>Comment On The Post Above....</h2>
 
     {% if not post.csiblog_comment.all %}
-       No Comments Added As Of Yet    <a href="#">
+       No Comments Added As Of Yet    <a href="{% url 'commentadd' post.pk %}">
         Comment
        </a>
        
