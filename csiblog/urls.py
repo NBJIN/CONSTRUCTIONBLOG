@@ -1,7 +1,8 @@
 from django.urls import path, include
 from django.http import HttpResponse
 from . import views
-from .views import PostView, PostDetailView, PostAddView, PostUpdate, PostDelete, UserSignup, UserLoginView, UserLogoutView
+from .views import PostView, PostDetailView, PostAddView, PostUpdate, PostDelete
+from .views import UserSignup, UserLoginView, UserLogoutView, CommentAddView
 
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     path('update/<int:pk>', PostUpdate.as_view(), name='postupdate'),
     path('csiblog/postdelete/<int:pk>', PostDelete.as_view(), name='postdelete'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('Comment/', CommentAddView.as_view(), name='comment'),
 
 ]
 #     path('create/', PostAddView.as_view(), name='postcreate'),

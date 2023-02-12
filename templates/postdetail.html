@@ -2,7 +2,8 @@
 
 {% block content %}    
 
-<h1>Construction Safety Information Blog Detailed Posts</h1> 
+<h1>Construction Safety Information Blog</h1> 
+<h2> Detailed Posts </h2>
 
 <div>
 
@@ -21,6 +22,30 @@
     <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
 
 
+</div>
+
+<div>
+   <hr> 
+    <h2>Comment On The Post Above....</h2>
+
+    {% if not post.csiblog_comment.all %}
+       No Comments Added As Of Yet    <a href="#">
+        Comment
+       </a>
+       
+       {% else %}
+            {% for comment in post.csiblog_comment.all %}
+
+
+                {{ comment.post | safe }} | {{ comment.title | safe }} | {{ comment.author | safe }} | {{ comment.added | safe }}
+                <br>
+                <br>
+                {{ comment.mainbody | safe }}
+                <br>
+                <br>
+                <hr>
+            {% endfor %}
+       {% endif %}
 </div>
 {% endblock %}
 </div> 

@@ -5,7 +5,7 @@ from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Comment
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
@@ -84,5 +84,11 @@ class PostView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+    template_name = "postdetail.html"
+    success_url = reverse_lazy('postread.html')
+
+
+class CommentAddView(CreateView):
+    model = Comment
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
