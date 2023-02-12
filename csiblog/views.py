@@ -26,9 +26,9 @@ class UserSignup(SuccessMessageMixin, CreateView):
     # def get_success_message(self, cleaned_data):
     #     return "Your registration was successful."
 
-    # if form.is_valid():
-         user = form.save()
-         messages.success(request, )
+    # # if form.is_valid():
+    #      user = form.save()
+    #      messages.success(request, )
     #     message = "You have successfully signed up please login"
 
     # def register(request):
@@ -46,15 +46,24 @@ class UserSignup(SuccessMessageMixin, CreateView):
 
 
 class UserLoginView(SuccessMessageMixin, CreateView):
-    # form_class = UserCreationForm
+    form_class = UserCreationForm
     template_name = "login.html"
-    success_url = "/success/"
+    # success_url = "/success/"
     success_url = reverse_lazy = "postread.html"
-    success_message = "You have successfully logged in"
+    # success_message = "%(contributor)s was created successfully"
+
+    def get(self, request):
+        UserLoginView(request)
+        return redirect('postread.html')
+        messages.success(request, 'Your login was successfull.')
+
+    # def test_func(self):
+    #     return self.request.user == self.get_object().contributor
+    #     messages.success(self.request, 'You have successfully logged in')
 
     # def get_success_url(self):
     #     messages.success(self.request, 'You have successfully logged in')
-    #     # return reverse('contact')
+        # return reverse('contact')
     # def form_valid(self, form):
     #     user = form.get_contributor()
     #     auth_login(self.request, contributor)

@@ -1,14 +1,20 @@
-{% if messages %}
-    {% for message in messages %}
-    <div class=""alert alert dismissible alert-success">
-    <button type="button" class="close" data-dismiss="alert">
+{% load i18n %}
 
-    </button>
-<strong>{{message}}</strong>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>
+        {{ message }}
+    </div>
+    {% endfor %}"
 </div>
-{% endfor %}
 {% endif %}
 
-
-
-
+<script>
+    setTimeout(function () {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000);
+</script>
