@@ -6,10 +6,12 @@
 <h3>Add Comment</h3>
 <form method="post">
     {% csrf_token %}
+   
+    {{ form.as_p }}
     
     <input type="Submit" value="Submit">
-    <!-- {% include 'messages.html' %} -->
+ 
 </form>
-
+<a href="{% url 'postread' %}"> 
 
 {% endblock %}

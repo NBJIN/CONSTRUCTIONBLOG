@@ -29,21 +29,17 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['post', 'title', 'author', 'added', 'mainbody', 'approved']
-
+        fields = ['post', 'author', 'added', 'mainbody']
         labels = {
-            'post': 'Name of Post:',
-            'title': 'Title of Comment:',
+            'Post': 'Name of Post:',
             'author': 'Author of Comment:',
             'added': 'Date of Comment',
             'mainbody': 'Content',
-            'no_of_like': 'Likes',
                   }
         widgets = {
             'post': forms.TextInput,
-            'title': forms.TextInput,
             'author': forms.TextInput,
-            'added': forms.DateTimeField,
+            'added': forms.DateInput(format='%d/%m/%Y'),
             'mainbody': forms.Textarea,
         }
         success_message = "You have successfully added your comment.."

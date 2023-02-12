@@ -88,8 +88,19 @@ class PostDetailView(DetailView):
     success_url = reverse_lazy('postread.html')
 
 
-class CommentAddView(CreateView):
+class CommentView(CreateView):
     model = Comment
-    form_class = CommentForm
+    # form_class = CommentForm
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
+
+
+class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Comment
+    template_name = "commentadd.html"
+    # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
+    form_class = CommentForm
+    login_url = 'postread'
+    # permission_denied_message = 'You are not allowed access here please login'
+    success_url = reverse_lazy('postread')
+    success_message = "You have successfully added your comment.."

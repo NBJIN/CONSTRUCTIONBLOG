@@ -29,13 +29,19 @@
     <h2>Comment On The Post Above....</h2>
 
     {% if not post.csiblog_comment.all %}
-       No Comments Added As Of Yet    <a href="{% url 'commentadd' post.pk %}">
-        Comment
+       No Comments Added As Of Yet    
+       <a href="{% url 'commentadd' post.pk %}">
+        Add Comment
        </a>
        
        {% else %}
+       <br>
+       <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+       <br>
+
             {% for comment in post.csiblog_comment.all %}
 
+         
 
                 {{ comment.post | safe }} | {{ comment.title | safe }} | {{ comment.author | safe }} | {{ comment.added | safe }}
                 <br>
@@ -47,7 +53,11 @@
             {% endfor %}
        {% endif %}
 </div>
+<br>
+<a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+<br>
 {% endblock %}
+
 </div> 
 
 
