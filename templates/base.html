@@ -61,8 +61,16 @@
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li> -->
 
-            {% include 'messages.html' %}
-            
+          {% if messages %}
+          <div class="messages">
+              {% for message in messages %}
+              <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}>
+                  {{ message | safe  }}
+              </div>
+              {% endfor %}"
+          </div>
+          {% endif %}
+      
             {% if user.is_authenticated %}
             <li>Welcome {{ user.username }}</li>
             <li class="nav-item">
@@ -128,9 +136,16 @@
     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button> -->
   <!-- </form> -->
-
+  {% endblock content %}
+  <script>
+    setTimeout(function () {
+        let messages = document.getElementById("mess");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000);
+  </script>
 </footer>
-{% endblock content %}
+
 
 </html>
 
