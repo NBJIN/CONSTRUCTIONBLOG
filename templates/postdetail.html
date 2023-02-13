@@ -41,15 +41,16 @@
 
             {% for comment in post.csiblog_comment.all %}
 
-         
+           
 
-                {{ comment.post | safe }} | {{ comment.title | safe }} | {{ comment.author | safe }} | {{ comment.added | safe }}
+                {{ comment.author | safe }} | {{ comment.added | safe }}
                 <br>
                 <br>
                 {{ comment.mainbody | safe }}
                 <br>
                 <br>
                 <hr>
+
             {% endfor %}
        {% endif %}
 </div>

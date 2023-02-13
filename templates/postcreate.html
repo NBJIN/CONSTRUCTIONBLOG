@@ -25,12 +25,15 @@
     <br>
     {{ post.content | safe }}
     <br>
-    {{ post.excerpt | safe }}</a>
+   </a>
 
 
   <form method="post">
 
     {% csrf_token %}
+
+
+
     {{ form.as_p }}
     
   <input type="submit" value="Submit"/>

@@ -50,6 +50,7 @@ class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     # permission_denied_message = 'You are not allowed access here please login'
     success_url = reverse_lazy('postread')
     success_message = "You have successfully added your post.."
+    queryset = Post.objects.filter(status=1).order_by('-date')
 
 
 class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -100,7 +101,11 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = "commentadd.html"
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = CommentForm
-    login_url = 'postread'
+    # login_url = 'postread'
     # permission_denied_message = 'You are not allowed access here please login'
-    success_url = reverse_lazy('postread')
-    success_message = "You have successfully added your comment.."
+    # success_url = reverse_lazy('postread')
+    # success_message = "You have successfully added your comment.."
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)

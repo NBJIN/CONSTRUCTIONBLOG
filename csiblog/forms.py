@@ -9,7 +9,7 @@ from django.contrib import messages
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
+        fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes']
 
         labels = {
             'name': 'Name of Post:',
@@ -19,8 +19,19 @@ class PostForm(forms.ModelForm):
             'image': 'Post Image',
             'content': 'Post Content',
             'no_of_like': 'Likes',
-            'excerpt': 'Excerpt',
-            'status': 'Status'
+        
+        }
+
+        widgets = {
+           
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            'contributor': forms.TextInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
+            # 'image': forms.ImageField,
+            'content': forms.Textarea(attrs={'class': 'form-control'})
+            
+            
         }
         success_message = "You have successfully added your post.."
         # content = RichTextField(max_length=5000, blank=True, null=True)
@@ -29,18 +40,18 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['post', 'author', 'added', 'mainbody']
+        fields = ['author', 'added', 'mainbody']
         labels = {
-            'Post': 'Name of Post:',
+            # 'Post': 'Name of Post:',
             'author': 'Author of Comment:',
             'added': 'Date of Comment',
             'mainbody': 'Content',
                   }
         widgets = {
-            'post': forms.TextInput,
-            'author': forms.TextInput,
-            'added': forms.DateInput(format='%d/%m/%Y'),
-            'mainbody': forms.Textarea,
+            # 'post': forms.TextInput,
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
+            'mainbody': forms.Textarea(attrs={'class': 'form-control'})
         }
         success_message = "You have successfully added your comment.."
         # content = RichTextField(max_length=5000, blank=True, null=True)
