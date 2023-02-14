@@ -124,14 +124,26 @@ class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def test_func(self):
         return self.request.contributor == self.get_object().user
 
-class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+# class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+#     model = Comment
+#     template_name = "commentupdate.html"
+#     # fields = ('name', 'contributor', 'date', 'content',)
+#     form_class = CommentUpdateForm
+#     # login_url = 'postread'
+#     success_message = "You have successfully updated your comment.."
+#     success_url = reverse_lazy('postread')
+
+    # def test_func(self):
+    #     return self.request.author == self.get_object().user
+
+
+class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
     model = Comment
-    template_name = "commentupdate.html"
-    # fields = ('name', 'contributor', 'date', 'content',)
-    form_class = CommentUpdateForm
-    # login_url = 'postread'
-    success_message = "You have successfully updated your comment.."
+    template_name = "commentdelete"
+    login_url = 'postread'
+    success_message = "You have successfully deleted your comment.."
     success_url = reverse_lazy('postread')
+    # success_url = "/"
 
     def test_func(self):
-        return self.request.author == self.get_object().user
+        return self.request.user == self.get_object().author 

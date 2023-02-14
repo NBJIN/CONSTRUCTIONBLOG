@@ -38,6 +38,7 @@
        <br>
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
        <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
+       <a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
        <br>
 
             {% for comment in post.csiblog_comment.all %}
@@ -58,6 +59,7 @@
 <br>
 <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
 <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
+<a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
 <br>
 {% endblock %}
 
