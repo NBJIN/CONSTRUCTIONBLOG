@@ -9,7 +9,7 @@ from .models import Post, Comment
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, CommentUpdateForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -109,3 +109,29 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+
+
+class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Comment
+    template_name = "postupdate.html"
+    # fields = ('name', 'contributor', 'date', 'content',)
+    form_class = PostForm
+    # login_url = 'postread'
+    success_message = "You have successfully updated your post.."
+    success_url = reverse_lazy('postread')
+
+    def test_func(self):
+        return self.request.contributor == self.get_object().user
+
+class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Comment
+    template_name = "commentupdate.html"
+    # fields = ('name', 'contributor', 'date', 'content',)
+    form_class = CommentUpdateForm
+    # login_url = 'postread'
+    success_message = "You have successfully updated your comment.."
+    success_url = reverse_lazy('postread')
+
+    def test_func(self):
+        return self.request.author == self.get_object().user

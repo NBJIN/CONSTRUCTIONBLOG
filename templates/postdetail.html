@@ -37,6 +37,7 @@
        {% else %}
        <br>
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+       <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
        <br>
 
             {% for comment in post.csiblog_comment.all %}
@@ -56,6 +57,7 @@
 </div>
 <br>
 <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+<a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
 <br>
 {% endblock %}
 

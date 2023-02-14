@@ -22,10 +22,9 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'title', 'author', 'added', 'approved')
     list_filter = ('post', 'title', 'added',  'approved')
     search_fields = ('title', 'added')
+    date_hierarchy = 'added'
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-    date_hierarchy = 'added'
-
-
+    
