@@ -1,6 +1,6 @@
 from django.contrib import admin
 # added code below
-from .models import Post, Comment
+from .models import Post, Comment, Category
 
 
 # Register your models here.
@@ -27,4 +27,11 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-    
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name'),
+
+    def __str__(self):
+        return self.name

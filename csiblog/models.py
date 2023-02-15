@@ -11,11 +11,22 @@ from ckeditor.fields import RichTextField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, default=1, related_name="csiblog_posts")
     slug = models.SlugField(max_length=200)
     contributor = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="csiblog_posts")
+        User, on_delete=models.CASCADE, default=1)
     date = models.DateTimeField(auto_created=True)
     revised = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
@@ -41,6 +52,8 @@ class Post(models.Model):
     #     return self.no_of_likes.count()
 
 
+
+
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_comment")
@@ -56,3 +69,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + (str(self.author))
+
