@@ -31,7 +31,8 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('catname'),
+    list_display = ('catname', 'slug'),
+    prepopulated_fields = {'slug': ('catname',)}
 
     def __str__(self):
         return self.catname

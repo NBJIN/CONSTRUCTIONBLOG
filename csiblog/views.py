@@ -24,7 +24,7 @@ class UserSignup(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form) 
+        return super().form_valid(form)
     # success_message = "Your login was successful"
 
 
@@ -60,7 +60,7 @@ class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.contributor = self.request.user
-        return super().form_valid(form) 
+        return super().form_valid(form)
 
 
 class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -119,7 +119,6 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
-
 
 
 class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -186,16 +185,26 @@ class CategoryUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 class CategoryDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
     model = Category
-    # template_name = "postcreate/postupdate/postread/postdetail/postdelete/commentupdate/commentdelete/commentadd.html"
     # form_class = CategoryAdd
-    fields = ['name']
+    fields = ['name', 'slug']
     template_name = "categorydelete.html"
-    success_message = "You have successfully deleted your category.."
-    success_url = reverse_lazy('postread')
+    success_message = "You have successfully Deleted this Category"
     # success_url = "/"
 
     def test_func(self):
         return self.request.user == self.get_object().contributor
+
+
+# class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
+#     model = Comment
+#     template_name = "commentdelete"
+#     login_url = 'postread'
+#     success_message = "You have successfully deleted your comment.."
+#     success_url = reverse_lazy('postread')
+#     # success_url = "/"
+
+#     def test_func(self):
+#         return self.request.user == self.get_object().author
 
 
 class CategoryView(ListView):

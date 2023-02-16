@@ -12,9 +12,11 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Category(models.Model):
     catname = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=150, unique=True)
     
+
     class Meta:
-        ordering = ('catname', 'catname')
+        ordering = ('catname',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
@@ -24,7 +26,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    catname = models.CharField(max_length=150, default=1)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
@@ -59,7 +61,7 @@ class Comment(models.Model):
     title = models.CharField(max_length=200, unique=True)
     author = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_posts")
-    catname = models.CharField(max_length=150, default=1)   
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)  
     added = models.DateTimeField(auto_created=True)
     mainbody = RichTextField(max_length=5000, blank=True, null=True)
     approved = models.BooleanField(default=False)

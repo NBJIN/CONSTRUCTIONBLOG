@@ -22,7 +22,7 @@ urlpatterns = [
     path('commentdelete/<int:pk>', PostDelete.as_view(), name='commentdelete'),
     path('categoryadd/', CategoryAdd.as_view(), name='categoryadd'),
     path('categoryview/', CategoryView.as_view(), name='categoryview'),
-    path('categorydelete/<int:pk>', CategoryDelete.as_view(), name='categorydelete'),
+    path('categorydelete/<slug:slug>', CategoryDelete.as_view(), name='categorydelete'),
 
 
 ]
