@@ -28,20 +28,18 @@
    </a>
 
 
-  <form method="post">
+  <form method="post"enctype="multipart/form-data" >
 
     {% csrf_token %}
-
-
-
     {{ form.as_p }}
-    <div>
-    
-      <input type="submit" value="Submit"/>
-    </div>
+   
+          <input type="submit" value="Submit"/>
+      <a href="{% url 'postread' %}"> 
+  
 
   </form>
  
   <br>
+
 </div> 
   {% endblock %}

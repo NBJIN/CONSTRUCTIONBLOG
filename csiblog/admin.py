@@ -1,6 +1,7 @@
 from django.contrib import admin
 # added code below
-from .models import Post, Comment, Category
+from .models import Post, Comment
+# from .models import Category
 
 
 # Register your models here.
@@ -29,10 +30,10 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('catname', 'slug'),
-    prepopulated_fields = {'slug': ('catname',)}
+# @admin.register(Category)
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ('catname', 'slug'),
+#     prepopulated_fields = {'slug': ('cat_name',)}
 
-    def __str__(self):
-        return self.catname
+#     def __str__(self):
+#         return self.cat_name
