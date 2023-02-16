@@ -22,6 +22,11 @@ class UserSignup(SuccessMessageMixin, CreateView):
     template_name = "signup.html"
     success_url = reverse_lazy = "login.html"
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form) 
+    # success_message = "Your login was successful"
+
 
 class UserLoginView(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
@@ -52,6 +57,10 @@ class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('postread')
     success_message = "You have successfully added your post.."
     queryset = Post.objects.filter(status=1).order_by('-date')
+
+    def form_valid(self, form):
+        form.instance.contributor = self.request.user
+        return super().form_valid(form) 
 
 
 class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -147,7 +156,7 @@ class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin
     # success_url = "/"
 
     def test_func(self):
-        return self.request.user == self.get_object().author 
+        return self.request.user == self.get_object().author
 
 
 class CategoryAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -155,7 +164,6 @@ class CategoryAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = "categoryadd.html"
     # fields = ['name']
     form_class = CategoryAdd
-  
     # login_url = 'postread'
     # permission_denied_message = 'You are not allowed access here please login'
     success_url = reverse_lazy('postread')
@@ -168,7 +176,6 @@ class CategoryUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     # template_name = 'postcreate.html', 'postupdate.html', 'postread.html', 'postdetail.html', 'postdelete.html', 'commentupdate.html', 'commentdelete.html',  'commentadd.html'
     # # fields = ('name', 'contributor', 'date', 'content',)
     form_class = CategoryAdd
- 
     # login_url = 'postread'
     success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postread')

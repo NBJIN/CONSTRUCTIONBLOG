@@ -60,6 +60,32 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li> -->
+
+<div>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <!-- <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}> -->
+        {{ message | safe  }}
+    <!-- </div> -->
+    {% endfor %}"
+<!-- </div> -->
+{% endif %}
+
+
+<script>
+    setTimeout(function () {
+        let messages = document.getElementById("mess");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000);
+</script>
+
+</div>
+
+
+
             <div>
           {% if messages %}
           <div class="messages">
