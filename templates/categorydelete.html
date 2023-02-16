@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Construction Safety Information Blog </h1>
+<h3>Delete Category</h3>
+
+
+<form method="post">
+    {% csrf_token %}
+    Are you sure you want to delete "{{ object }}" ?
+    <input type="Submit" value="Submit">
+
+</form>
+
+
+{% endblock %}

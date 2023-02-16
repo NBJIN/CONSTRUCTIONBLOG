@@ -81,6 +81,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'categoryview' %}">View Categories</a>
+            </li>
+            
             {% else %}
             <li class="nav-item" >
               <a class="nav-link" href="{% url 'account_login' %}">Login</a>
@@ -90,6 +94,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'categoryview' %}">Home</a>
             </li>
            {% endif %}
 

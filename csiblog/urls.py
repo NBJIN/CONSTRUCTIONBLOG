@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from . import views
 from .views import PostView, PostDetailView, PostAddView, PostUpdate, PostDelete
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
-from .views import CommentAddView,  CommentUpdate, CommentDelete 
+from .views import CommentAddView,  CommentUpdate, CommentDelete
+from .views import CategoryAdd, CategoryDelete, CategoryUpdate, CategoryView
 
 
 urlpatterns = [
@@ -19,6 +20,11 @@ urlpatterns = [
     path('commentadd/<int:pk>', CommentAddView.as_view(), name='commentadd'),
     path('commentupdate/<int:pk>', CommentUpdate.as_view(), name='commentupdate'),
     path('commentdelete/<int:pk>', PostDelete.as_view(), name='commentdelete'),
+    path('categoryadd/', CategoryAdd.as_view(), name='categoryadd'),
+    path('categoryview/', CategoryView.as_view(), name='categoryview'),
+    path('categorydelete/<int:pk>', CategoryDelete.as_view(), name='categorydelete'),
+
+
 ]
 
 #     path('create/', PostAddView.as_view(), name='postcreate'),

@@ -5,11 +5,12 @@ from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post, Comment
+from .models import Post, Comment, Category
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
 from .forms import PostForm, CommentForm, CommentUpdateForm
+from .forms import CategoryAdd
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -147,3 +148,50 @@ class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin
 
     def test_func(self):
         return self.request.user == self.get_object().author 
+
+
+class CategoryAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Category
+    template_name = "categoryadd.html"
+    # fields = ['name']
+    form_class = CategoryAdd
+  
+    # login_url = 'postread'
+    # permission_denied_message = 'You are not allowed access here please login'
+    success_url = reverse_lazy('postread')
+    success_message = "You have successfully added your post.."
+    # queryset = Post.objects.filter(status=1).order_by('-date')
+
+
+class CategoryUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Category
+    # template_name = 'postcreate.html', 'postupdate.html', 'postread.html', 'postdetail.html', 'postdelete.html', 'commentupdate.html', 'commentdelete.html',  'commentadd.html'
+    # # fields = ('name', 'contributor', 'date', 'content',)
+    form_class = CategoryAdd
+ 
+    # login_url = 'postread'
+    success_message = "You have successfully updated your post.."
+    success_url = reverse_lazy('postread')
+
+    def test_func(self):
+        return self.request.contributor == self.get_object().user
+
+
+class CategoryDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
+    model = Category
+    # template_name = "postcreate/postupdate/postread/postdetail/postdelete/commentupdate/commentdelete/commentadd.html"
+    # form_class = CategoryAdd
+    fields = ['name']
+    template_name = "categorydelete.html"
+    success_message = "You have successfully deleted your category.."
+    success_url = reverse_lazy('postread')
+    # success_url = "/"
+
+    def test_func(self):
+        return self.request.user == self.get_object().contributor
+
+
+class CategoryView(ListView):
+    model = Category
+    template_name = "categoryview.html"
+    form_class = CategoryAdd

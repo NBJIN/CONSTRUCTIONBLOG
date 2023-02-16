@@ -6,24 +6,25 @@ from django.urls import reverse
 # from djrichtextfield.models import RichTextField
 from ckeditor.fields import RichTextField
 
-
 # Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-
-
 class Category(models.Model):
-    name = models.CharField(max_length=150)
+    catname = models.CharField(max_length=150)
+    
+    class Meta:
+        ordering = ('catname', 'catname')
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
-        return self.name
+        return self.catname
 
 
 class Post(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, default=1, related_name="csiblog_posts")
+    catname = models.CharField(max_length=150, default=1)
     slug = models.SlugField(max_length=200)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
@@ -52,14 +53,13 @@ class Post(models.Model):
     #     return self.no_of_likes.count()
 
 
-
-
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_comment")
     title = models.CharField(max_length=200, unique=True)
     author = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_posts")
+    catname = models.CharField(max_length=150, default=1)   
     added = models.DateTimeField(auto_created=True)
     mainbody = RichTextField(max_length=5000, blank=True, null=True)
     approved = models.BooleanField(default=False)
@@ -69,4 +69,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + (str(self.author))
-

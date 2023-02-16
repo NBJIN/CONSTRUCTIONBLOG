@@ -31,7 +31,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name'),
+    list_display = ('catname'),
 
     def __str__(self):
-        return self.name
+        return self.catname
