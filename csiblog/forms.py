@@ -36,7 +36,8 @@ class PostForm(forms.ModelForm):
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'contributor': forms.Select(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-            'date': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
+            'date': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'datepicker'}),
+            # 'date': forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'})),
             # 'image': forms.ImageField,
             'content': forms.Textarea(attrs={'class': 'form-control'}),
 
@@ -86,6 +87,7 @@ class CommentUpdateForm(forms.ModelForm):
             'author': forms.TextInput(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
+
             'mainbody': forms.Textarea(attrs={'class': 'form-control'})
         }
         success_message = "You have successfully updated your comment.."

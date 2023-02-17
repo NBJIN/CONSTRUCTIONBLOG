@@ -24,4 +24,3 @@ urlpatterns = [
     # path('categorydelete/<slug:slug>', CategoryDelete.as_view(), name='categorydelete'),
 
 ]
-
