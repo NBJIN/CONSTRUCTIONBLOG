@@ -53,19 +53,25 @@ class Post(models.Model):
     # def no_of_likes(self):
     #     return self.no_of_likes.count()
 
-LIKE_CHOICES = (
-    ('Likes', 'Likes'),
-    ('Unlikes', 'Unlikes'),
 
-)
 
-class Likes(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
-    value = models.CharField(choices=LIKE_CHOICES, default='Likes', max_length=20)
 
-    def __str__(self):
-        return self.post
+# LIKE_CHOICES = (
+#     ('Likes', 'Likes'),
+# )
+
+
+# class Likes(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+#     value = models.CharField(choices=LIKE_CHOICES, default='Likes', max_length=20)
+
+#     def __str__(self):
+#         return str(self.user) + ':' + str(self.post) +':' + str(self.value)
+
+#     class Meta:
+#        unique_together = ("user", "post", "value")
+
 
 class Comment(models.Model):
     post = models.ForeignKey(

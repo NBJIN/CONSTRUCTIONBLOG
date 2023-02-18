@@ -5,7 +5,8 @@ from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post, Comment, Likes
+from .models import Post, Comment
+# from .models import Likes
 # from .models import Category
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -96,23 +97,67 @@ class PostView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
-    template_name = "postdetail.html"
+    template_name = "likes"
     success_url = reverse_lazy('postread.html')
 
 
-class LikesView(View):
-    model = Likes 
-    template_name = "Likes"
+# class LikesView(ListView):
+#     def post(self, request, pk, *args, **kwargs):
+#         post = Post.objects.get(pk=pk)
 
-    def get_success_url(self):
-        return reverse("Likes", kwargs={"pk": self.kwargs.get("pk")})
+#         is_like = False
 
-    def get(self, request, *args, **kwargs):
-        like = Likes()
-        like.post = get_object_or_404(Post, pk=self.kwargs.get("pk"))
-        like.user = self.request.user
-        like.save()
-        return redirect(self.get_success_url())
+#         for like in post.likes.all():
+#             if like == request.user:
+#                 is_like = True
+
+#                 break 
+
+#             If not is.like:
+#             post.likes.add(request.user)
+
+#             if is_like:
+#                 post.likes.remove(request.user)
+
+#                 next = request.POST.get('next', '/')
+#                 return HttpResponseRedirect(next)
+
+
+
+
+
+
+#     model = Likes 
+#     template_name = "likes"
+
+#     def LikesView(request, pk):
+#         post = get_object_or_404(Post, id=request.POST.get('post_id'))
+#         post.likes.add(request.user)
+#         success_url = reverse_lazy('likes', args=[str(pk)])
+
+
+
+
+# class Likes(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+#     value = models.CharField(choices=LIKE_CHOICES, default='Likes', max_length=20)
+
+#     def __str__(self):
+#         return str(self.user) + ':' + str(self.post) +':' + str(self.value)
+
+#     class Meta:
+#        unique_together = ("user", "post", "value")
+
+    # def get_success_url(self):
+    #     return reverse("Likes", kwargs={"pk": self.kwargs.get("pk")})
+
+    # def get(self, request, *args, **kwargs):
+    #     like = Likes()
+    #     like.post = get_object_or_404(Post, pk=self.kwargs.get("pk"))
+    #     like.user = self.request.user
+    #     like.save()
+    #     return redirect(self.get_success_url())
 
     
     

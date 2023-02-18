@@ -4,9 +4,7 @@
 
 <h1>Construction Safety Information Blog</h1> 
 <h2> Detailed Post </h2>
-    
- 
-       
+           
         <br>   
         {{ post.name | safe }}</a>
          <br>
@@ -29,19 +27,14 @@
 
                 <a href="{% url 'postcreate' post.pk %}">Create Post</a>   
                 
-                <!-- <a href="{% url 'likes' post.pk %}">
-                    <form method="POST">
-                     {% csrf_token %}
-                    </form></a>    -->
              {% endif %}   
                               
         {% else %}
+
         <a href="{% url 'postread' %}">Home</a>  
+
         {% endif %}
   
-       
-
-<div>
    <hr> 
     <h2>Comment On The Post Above....</h2>
 
@@ -71,3 +64,19 @@
 </div>
  
 {% endblock %}   
+
+     
+
+<!-- <div> -->
+<!-- 
+     <a href="{% url 'likes' post.pk %}">Likes</a>  -->
+
+    <!-- <form method="POST" action="{% url 'likes' post.pk %}">
+     {% csrf_token %} -->
+     
+<!-- <input type="Submit" value="{{ likes.id }}"> --> --> -->
+     <!-- <button style="background-color: transparent;" type="submit">
+    <i class="far fa-thumbs-up"></i>
+    
+    </button>
+</form>  --> 
