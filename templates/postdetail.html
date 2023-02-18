@@ -27,7 +27,12 @@
 
                 <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
 
-                <a href="{% url 'postcreate' post.pk %}">Create Post</a>      
+                <a href="{% url 'postcreate' post.pk %}">Create Post</a>   
+                
+                <!-- <a href="{% url 'likes' post.pk %}">
+                    <form method="POST">
+                     {% csrf_token %}
+                    </form></a>    -->
              {% endif %}   
                               
         {% else %}

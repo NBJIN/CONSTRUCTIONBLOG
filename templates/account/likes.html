@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}  
+
+
+{% if request.user.pk not in post.get_likes_users %}
+    <a href="{% url 'likes' pk=post.pk %}">
+        <i class="fa fa-thumbs-up"></i>
+        Like
+    </a>
+{% else %}
+    /* dislike implementation*/
+{% endif %}
+
+
+ 
+{% endblock %}  

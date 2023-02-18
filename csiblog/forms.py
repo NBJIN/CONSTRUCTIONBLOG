@@ -50,7 +50,7 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['author', 'added', 'mainbody']
+        fields = ['author', 'added', 'mainbody',]
         labels = {
             # 'Post': 'Name of Post:',
             'author': 'Author of Comment:',

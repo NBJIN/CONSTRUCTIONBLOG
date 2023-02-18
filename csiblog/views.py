@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post, Comment
+from .models import Post, Comment, Likes
 # from .models import Category
 # from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -100,11 +100,38 @@ class PostDetailView(DetailView):
     success_url = reverse_lazy('postread.html')
 
 
+class LikesView(View):
+    model = Likes 
+    template_name = "Likes"
+
+    def get_success_url(self):
+        return reverse("Likes", kwargs={"pk": self.kwargs.get("pk")})
+
+    def get(self, request, *args, **kwargs):
+        like = Likes()
+        like.post = get_object_or_404(Post, pk=self.kwargs.get("pk"))
+        like.user = self.request.user
+        like.save()
+        return redirect(self.get_success_url())
+
+    
+    
+
 class CommentView(CreateView):
     model = Comment
     # form_class = CommentForm
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
+
+    def likes(self, request, slug):
+        likes = get_object_or_404(likes)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+            return HttpResponseRedirect(reverse('postdetail', args=[slug]))
+
 
 
 class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

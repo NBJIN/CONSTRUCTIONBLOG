@@ -4,6 +4,7 @@ from . import views
 from .views import PostView, PostDetailView, PostAddView, PostUpdate, PostDelete
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
 from .views import CommentAddView,  CommentUpdate, CommentDelete
+from .views import LikesView
 # from .views import CategoryAdd, CategoryDelete, CategoryUpdate, CategoryView
 
 
@@ -19,6 +20,7 @@ urlpatterns = [
     path('commentadd/<int:pk>', CommentAddView.as_view(), name='commentadd'),
     path('commentupdate/<int:pk>', CommentUpdate.as_view(), name='commentupdate'),
     path('commentdelete/<int:pk>', PostDelete.as_view(), name='commentdelete'),
+    path('likes/<int:pk>', LikesView.as_view(), name= 'likes'),
     # path('categoryadd/', CategoryAdd.as_view(), name='categoryadd'),
     # path('categoryview/', CategoryView.as_view(), name='categoryview'),
     # path('categorydelete/<slug:slug>', CategoryDelete.as_view(), name='categorydelete'),
