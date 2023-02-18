@@ -1,28 +1,40 @@
 {% extends "base.html" %}
 
-{% block content %}    
+{% block content %}  
 
 <h1>Construction Safety Information Blog</h1> 
-<h2> Detailed Posts </h2>
+<h2> Detailed Post </h2>
+    
+ 
+       
+        <br>   
+        {{ post.name | safe }}</a>
+         <br>
+        {{ post.contributor| safe  }}
+        <br>
+        {{ post.date | safe }}
+         <br>
+         {{ post.content | safe }}
+         <br>
+        <br>
+      
+         <br>
+         
+         <br>
+        {% if user.is_authenticated %}
+            {% if user.id == post.contributor.id %}
+                <a href="{% url 'postupdate' post.pk %}">Update Post</a>
 
-<div>
+                <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
 
-<a href="{% url 'postread' %}">    
-{{ post.name | safe }}</a>
-<br>
-{{ post.contributor| safe  }}
-<br>
-{{ post.date | safe }}
-<br>
-{{ post.content | safe }}
-<br>
-<div>
-    <a href="{% url 'postcreate' post.pk %}">Create Post</a> 
-    <a href="{% url 'postupdate' post.pk %}">Update Post</a> 
-    <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
-
-
-</div>
+                <a href="{% url 'postcreate' post.pk %}">Create Post</a>      
+             {% endif %}   
+                              
+        {% else %}
+        <a href="{% url 'postread' %}">Home</a>  
+        {% endif %}
+  
+       
 
 <div>
    <hr> 
@@ -35,36 +47,22 @@
        </a>
        
        {% else %}
-       <br>
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
-       <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
-       <a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
-       <br>
-
-            {% for comment in post.csiblog_comment.all %}
-
-           
-
-                {{ comment.author | safe }} | {{ comment.added | safe }}
+       {% for comment in post.csiblog_comment.all %}
+                 {{ comment.author | safe }} | {{ comment.added | safe }}
                 <br>
                 <br>
                 {{ comment.mainbody | safe }}
                 <br>
                 <br>
-                <hr>
-
-            {% endfor %}
-       {% endif %}
+        {% endfor %}   
+        {% endif %}
 </div>
 <br>
-<a href="{% url 'commentadd' post.pk %}">Add Comment </a>
-<a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
-<a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
+    <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+    <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
+    <a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
 <br>
-{% endblock %}
-
-</div> 
-
-
-
-
+</div>
+ 
+{% endblock %}   

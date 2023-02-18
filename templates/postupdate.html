@@ -2,30 +2,12 @@
 
 {% block content %}
 
-<h1>Construction Safety Information Blog - Create Update</h1>
-<!-- <h1>Add Post</h1>
-{% for postadd in object_list %}
-  <ul>
-    <li><a href="{{ postadd.get_absolute_url }}">{{ postadd.name }}</a></li>
-  </ul>
-{% endfor %} -->
-<!-- 
-<div> -->
-  <div>
-    <a href="{% url 'postread' %}"> 
-  {{ post.name | safe }}</a>
-  <br>
-  {{ post.slug | safe }}
-  <br>
-  {{ post.contributor| safe  }}
-  <br>
-  {{ post.date | safe }}
-  <br>
-  {{ post.image | safe }}
-  <br>
-  {{ post.content | safe }}
-  <br>
-  {{ post.excerpt | safe }}</a>
+  <h1>Construction Safety Information Blog</h1>
+  <h3>Create Update</h3>
+
+  {% if user.is_authenticated %}
+    {% if user.id == post.contributor.id %}
+
 
   <form method="POST" enctype="multipart/form-data" >
 
@@ -34,17 +16,16 @@
 
   <input type="submit" value="Submit" />
   <a href="{% url 'postread' %}"> 
+    {% endif %}
+    {% else %}
+  Please Login to update post.  
 
+ {% endif %}
   </form>
   <br>
 
-  <!-- {% if user.is_authenticated %}
-  <h1>Welcome to the Construction Safety and Information Blog</h1>
-  <a href="logout">logout</a>
-  {% else %}
-  <a href="Login">Login</a>
-  <a href="Sign Up">Sign Up</a> -->
+ 
     
- {% endif %}
-</div> 
+
+
   {% endblock %}

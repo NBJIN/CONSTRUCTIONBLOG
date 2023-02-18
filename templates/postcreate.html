@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<h1>Construction Safety Information Blog - Create Post</h1>
+<h1>Construction Safety Information Blog</h1>
+<h3>Create Post</h3>
 <!-- <h1>Add Post</h1>
 {% for postadd in object_list %}
   <ul>
@@ -11,6 +12,9 @@
 {% endfor %} -->
 <!-- 
 <div> -->
+  
+  {% if user.is_authenticated %}
+    {% if user.id == post.contributor.id %}
   <div>
   <a href="{% url 'postread' %}">    
     {{ post.name | safe }}</a>
@@ -35,8 +39,10 @@
    
           <input type="submit" value="Submit"/>
       <a href="{% url 'postread' %}"> 
-  
-
+        {% else %}
+        Please Login to update post.  
+        {% endif %}
+        {% endif %}
   </form>
  
   <br>

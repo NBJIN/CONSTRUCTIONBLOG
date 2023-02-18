@@ -52,15 +52,15 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['author', 'added', 'mainbody']
         labels = {
-            'Post': 'Name of Post:',
+            # 'Post': 'Name of Post:',
             'author': 'Author of Comment:',
             # 'cat_name': 'Category',
             'added': 'Date of Comment',
             'mainbody': 'Content',
                   }
         widgets = {
-            'post': forms.TextInput,
-            'author': forms.Select(attrs={'class': 'form-control'}),
+            # 'post': forms.TextInput,
+           'author': forms.TextInput(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
@@ -73,10 +73,10 @@ class CommentForm(forms.ModelForm):
 class CommentUpdateForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['post', 'title', 'author', 'added', 'mainbody', 'approved']
+        fields = ['author', 'added', 'mainbody', 'approved']
         labels = {
-            'Post': 'Name of Post:',
-            'title': 'Title of Post',
+           
+         
             'author': 'Author of Comment:',
             # 'cat_name': 'Category',
             'added': 'Date of Comment',
@@ -84,8 +84,7 @@ class CommentUpdateForm(forms.ModelForm):
 
                   }
         widgets = {
-            'post': forms.TextInput,
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
+           
             'author': forms.TextInput(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),

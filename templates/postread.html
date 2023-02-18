@@ -15,7 +15,10 @@
     </a>
     
     <br>
-    {{ post.contributor| safe }}  |&nbsp; {{ post.date | safe }}  |&nbsp;
+    {{ post.contributor| safe }}  &nbsp; 
+    <br>
+    
+    {{ post.date | safe }}  &nbsp;
     <br>
     <br>
     <p>{{ post.content | slice:":400" | safe }}...</p> 
