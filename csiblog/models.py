@@ -1,26 +1,10 @@
 from django.db import models
-# added below
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
-# from djrichtextfield.models import RichTextField
 from ckeditor.fields import RichTextField
 
-# Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
-
-
-# class Category(models.Model):
-#     cat_name = models.CharField(max_length=150)
-#     slug = models.SlugField(max_length=150, unique=True)
-
-    # class Meta:
-    #     ordering = ('cat_name')
-    #     verbose_name = 'category'
-    #     verbose_name_plural = 'categories'
-
-    # def __str__(self):
-    #     return self.cat_name
 
 
 class Post(models.Model):
@@ -46,31 +30,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('postread', kwargs={'pk': self.pk})
-
-    # def get_absolute_url(self):
-    #     return reverse("postadd", kwargs={"slug": self.slug})
-
-    # def no_of_likes(self):
-    #     return self.no_of_likes.count()
-
-
-
-
-# LIKE_CHOICES = (
-#     ('Likes', 'Likes'),
-# )
-
-
-# class Likes(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
-#     value = models.CharField(choices=LIKE_CHOICES, default='Likes', max_length=20)
-
-#     def __str__(self):
-#         return str(self.user) + ':' + str(self.post) +':' + str(self.value)
-
-#     class Meta:
-#        unique_together = ("user", "post", "value")
 
 
 class Comment(models.Model):

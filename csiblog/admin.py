@@ -1,12 +1,5 @@
 from django.contrib import admin
-# added code below
 from .models import Post, Comment
-# from .models import Category
-
-
-# Register your models here.
-# @admin.register(Post)
-# class PostAdmin
 
 
 @admin.register(Post)
@@ -28,12 +21,3 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-
-
-# @admin.register(Category)
-# class CategoryAdmin(admin.ModelAdmin):
-#     list_display = ('catname', 'slug'),
-#     prepopulated_fields = {'slug': ('cat_name',)}
-
-#     def __str__(self):
-#         return self.cat_name

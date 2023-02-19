@@ -13,12 +13,10 @@
         {{ post.date | safe }}
          <br>
          {{ post.content | safe }}
-         <br>
         <br>
-      
-         <br>
-         
-         <br>
+        <br>
+        <br>
+        <br>
         {% if user.is_authenticated %}
             {% if user.id == post.contributor.id %}
                 <a href="{% url 'postupdate' post.pk %}">Update Post</a>
@@ -26,25 +24,21 @@
                 <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
 
                 <a href="{% url 'postcreate' post.pk %}">Create Post</a>   
-                
              {% endif %}   
                               
         {% else %}
-
         <a href="{% url 'postread' %}">Home</a>  
-
         {% endif %}
   
    <hr> 
     <h2>Comment On The Post Above....</h2>
 
-    {% if not post.csiblog_comment.all %}
-       No Comments Added As Of Yet    
-       <a href="{% url 'commentadd' post.pk %}">
+        {% if not post.csiblog_comment.all %}
+        No Comments Added As Of Yet    
+        <a href="{% url 'commentadd' post.pk %}">
         Add Comment
-       </a>
-       
-       {% else %}
+        </a>
+        {% else %}
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
        {% for comment in post.csiblog_comment.all %}
                  {{ comment.author | safe }} | {{ comment.added | safe }}
@@ -55,28 +49,10 @@
                 <br>
         {% endfor %}   
         {% endif %}
-</div>
+
 <br>
     <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
     <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
     <a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
 <br>
-</div>
- 
 {% endblock %}   
-
-     
-
-<!-- <div> -->
-<!-- 
-     <a href="{% url 'likes' post.pk %}">Likes</a>  -->
-
-    <!-- <form method="POST" action="{% url 'likes' post.pk %}">
-     {% csrf_token %} -->
-     
-<!-- <input type="Submit" value="{{ likes.id }}"> --> --> -->
-     <!-- <button style="background-color: transparent;" type="submit">
-    <i class="far fa-thumbs-up"></i>
-    
-    </button>
-</form>  --> 
