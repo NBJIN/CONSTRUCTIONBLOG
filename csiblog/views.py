@@ -48,7 +48,7 @@ class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = "postcreate.html"
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = PostForm
-    login_url = 'postread'
+    login_url = 'postread.html'
     # permission_denied_message = 'You are not allowed access here please login'
     success_url = reverse_lazy('postread')
     success_message = "You have successfully added your post.."
@@ -75,7 +75,7 @@ class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class PostDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = "postdelete.html"
-    login_url = 'postread'
+    login_url = 'postread.html'
     success_message = "You have successfully deleted your post.."
     success_url = reverse_lazy('postread')
     # success_url = "/"
@@ -91,7 +91,7 @@ class PostView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
-    template_name = "likes"
+    template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
 
 
