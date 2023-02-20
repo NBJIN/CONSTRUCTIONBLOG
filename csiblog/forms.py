@@ -8,9 +8,9 @@ from django.contrib import messages
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        
+
         fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes']
-        
+
         labels = {
             'name': 'Name of Post:',
             'slug': 'Slug:',
@@ -26,14 +26,14 @@ class PostForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'contributor': forms.Select(attrs={'class': 'form-control'}),
-            # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-            # 'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'datepicker'}),
+        #     # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+        #     # 'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'datepicker'}),
             'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-            # 'date': forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'})),
-            # 'image': forms.ImageField,
+        #     # 'date': forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'})),
+        #     # 'image': forms.ImageField,
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
-        
+
         success_message = "You have successfully added your post.."
         # content = RichTextField(max_length=5000, blank=True, null=True)
 
@@ -43,15 +43,16 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['author', 'added', 'mainbody',]
         labels = {
+
             'author': 'Author of Comment:',
             'added': 'Date of Comment',
             'mainbody': 'Content',
                   }
         widgets = {
-            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
-            'added': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select a date'}),
-            # 'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-            'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+
+        #     'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
+            'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
+        #     'mainbody': forms.Textarea(attrs={'class': 'form-control'})
         }
         success_message = "You have successfully added your comment.."
 

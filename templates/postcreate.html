@@ -20,7 +20,7 @@
   {% else %}
   <a href="{% url 'postread' %}">    
     {{ post.name | safe }}</a>
-    <!-- <br>
+    <br>
     {{ post.slug | safe }}
     <br>
     {{ post.contributor| safe  }}
@@ -29,7 +29,7 @@
     <br>
     {{ post.image | safe }}
     <br>
-    {{ post.content | safe }} -->
+    {{ post.content | safe }} 
     <br>
    </a>
 
@@ -48,4 +48,4 @@
         {% endif %}
         {% endif %}
  
-  {% endblock %}
+    {% endblock %}

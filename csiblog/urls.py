@@ -18,6 +18,7 @@ urlpatterns = [
     path('', PostView.as_view(), name="postread"),
     path('postdetail/<int:pk>', PostDetailView.as_view(), name='postdetail'),
     path('create/<int:pk>', PostAddView.as_view(), name='postcreate'),
+    path('<slug:slug>', PostAddView.as_view(), name='postcreate'),
     path('update/<int:pk>', PostUpdate.as_view(), name='postupdate'),
     path('postdelete/<int:pk>', PostDelete.as_view(), name='postdelete'),
     path('logout/', UserLogoutView.as_view(), name='logout'),

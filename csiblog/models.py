@@ -8,9 +8,9 @@ STATUS = ((0, 'Draft'), (1, 'Published'))
 
 
 class Post(models.Model):
-    name = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
     # category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
     date = models.DateField(auto_created=True)
@@ -32,10 +32,12 @@ class Post(models.Model):
         return reverse('postread', kwargs={'pk': self.pk})
 
   
+
+
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_comment")
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
     author = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_posts")
     # category = models.ForeignKey(Category, on_delete=models.CASCADE)

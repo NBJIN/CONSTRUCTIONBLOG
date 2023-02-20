@@ -67,6 +67,16 @@ class PostAddView(LoginRequiredMixin, CreateView):
         form.instance.contributor = self.request.user
         return super().form_valid(form)
 
+    def postaddview(reqeust):
+        if request.method == 'POST':
+            form = PostForm(request.POST)
+            if form.is_valid():
+                Post = form.save()
+                return redirect('postdetail', slug=post.slug)
+        else:
+            form = PostForm()
+        return render(request, 'postread.html', {'form': form})
+
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
@@ -107,15 +117,33 @@ class PostDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, D
 class PostView(ListView):
     model = Post
     template_name = "postread.html"
-
-    queryset = Post.objects.filter(status=1).order_by('-date')
-    paginate_by = 4
+    
+    # queryset = Post.objects.filter(status=1).order_by('-date')
+    # # paginate_by = 4
 
 
 class PostDetailView(DetailView):
     model = Post
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
+
+    # def get(self, reqeust, slug, *args, **kwargs):
+    #     queryset = Post.objects.filter(status=1)
+    #     post = get_object_or_404(queryset, slug=slug)
+    #     comments = post.comments.filter(approved=True).order_by('created_on')
+    #     liked = False
+    #     if post.likes.filter(id=self.request.user.id).exists():
+    #         liked = True
+
+    #         return render(
+    #             request,
+    #             "posdetail.html",
+    #             {
+    #                 "post": post,
+    #                 "comments": comments,
+    #                 "liked": liked
+    #             },
+            # )
 
 
 class CommentView(CreateView):
@@ -149,17 +177,25 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
+    
+
+
 class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Comment
-    template_name = "postupdate.html"
+    template_name = "commentupdate.html"
     # fields = ('name', 'contributor', 'date', 'content',)
-    form_class = PostForm
+    form_class = CommentUpdateForm
     # login_url = 'postread'
     success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postread')
 
     def test_func(self):
         return self.request.contributor == self.get_object().user
+
+    def form_valid(self, form):
+       form.instance.user = self.request.contributor
+       form.instance.post_id = self.kwargs['pk']
+       return super().form_valid(form)
 
 
 class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
