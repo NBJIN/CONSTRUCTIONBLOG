@@ -8,8 +8,9 @@ from django.contrib import messages
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
+        
         fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes']
-
+        
         labels = {
             'name': 'Name of Post:',
             'slug': 'Slug:',
@@ -32,7 +33,7 @@ class PostForm(forms.ModelForm):
             # 'image': forms.ImageField,
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
-
+        
         success_message = "You have successfully added your post.."
         # content = RichTextField(max_length=5000, blank=True, null=True)
 
@@ -56,11 +57,11 @@ class CommentForm(forms.ModelForm):
 
 class CommentUpdateForm(forms.ModelForm):
     class Meta:
-    
+
         model = Comment
         fields = ['author', 'added', 'mainbody', 'approved']
         labels = {
-            
+
             'author': 'Author of Comment:',
             # 'cat_name': 'Category',
             'added': 'Date of Comment',
@@ -68,7 +69,7 @@ class CommentUpdateForm(forms.ModelForm):
                   }
 
         widgets = {
-           
+
             'author': forms.TextInput(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),

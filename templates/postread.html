@@ -26,6 +26,32 @@
     <p>{{ post.content | slice:":400" | safe }}...</p> 
     <br>
     <hr>
+    <div class="col-12 mt-3 left">
+        <div class="row">
+            {% for post in post_list %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+            </div>
+            % if forloop.counter|divisibleby:2 %
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+        
+        </div>
+    {% for post in post_list %}
+   
+    % if forloop.counter|divisibleby:3 %
+
+   
+   
+   
+   
     {% endfor %}
  
 

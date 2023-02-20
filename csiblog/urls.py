@@ -1,7 +1,13 @@
 from django.urls import path, include
 from django.http import HttpResponse
 from . import views
-from .views import PostView, PostDetailView, PostAddView, PostUpdate, PostDelete
+from .views import (
+    PostView,
+    PostDetailView,
+    PostAddView,
+    PostUpdate,
+    PostDelete
+)
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
 from .views import CommentAddView,  CommentUpdate, CommentDelete
 

@@ -3,10 +3,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.views import generic, View
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import (
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from django.urls import reverse_lazy
 from .models import Post, Comment
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    UserPassesTestMixin
+)
 from django.views.generic import TemplateView
 from .forms import PostForm, CommentForm, CommentUpdateForm
 from django.contrib.messages.views import SuccessMessageMixin
@@ -43,9 +50,11 @@ class UserLogoutView(CreateView):
     fields = ['contributor']
 
 
-class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+# class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class PostAddView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "postcreate.html"
+    
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = PostForm
     login_url = 'postread.html'
@@ -59,7 +68,7 @@ class PostAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = "postupdate.html"
     # fields = ('name', 'contributor', 'date', 'content',)
@@ -68,8 +77,19 @@ class PostUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postread')
 
+    # # test for SuccessMessageMixin
+    # def test_func(self):
+    #     post = self.get_object()
+    #     if self.request.user == post.contributor:
+    #         return True
+    #     return False
+
     def test_func(self):
         return self.request.contributor == self.get_object().user
+
+    # def form_valid(self, form):
+    #     form.instance.contributor = self.request.user
+    #     return super().form_valid(form)
 
 
 class PostDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
@@ -87,6 +107,9 @@ class PostDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, D
 class PostView(ListView):
     model = Post
     template_name = "postread.html"
+
+    queryset = Post.objects.filter(status=1).order_by('-date')
+    paginate_by = 4
 
 
 class PostDetailView(DetailView):

@@ -15,11 +15,13 @@
   
   {% if user.is_authenticated %}
     {% if user.id == post.contributor.id %}
-  <div>
+    Please Login to update post. 
+ 
+  {% else %}
   <a href="{% url 'postread' %}">    
     {{ post.name | safe }}</a>
-    <br>
-    <!-- {{ post.slug | safe }}
+    <!-- <br>
+    {{ post.slug | safe }}
     <br>
     {{ post.contributor| safe  }}
     <br>
@@ -43,9 +45,7 @@
   </form>
 
   <br>
-  {% else %}
-        Please Login to update post.  
         {% endif %}
         {% endif %}
-</div> 
+ 
   {% endblock %}
