@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<h1>Construction Safety Information Blog</h1>
-<h3>Create Post</h3>
+{% block title %}<h3>Create Post</h3>{% endblock %} 
+
 <!-- <h1>Add Post</h1>
 {% for postadd in object_list %}
   <ul>
@@ -39,13 +39,13 @@
    
           <input type="submit" value="Submit"/>
       <a href="{% url 'postread' %}"> 
-        {% else %}
+       
+  </form>
+
+  <br>
+  {% else %}
         Please Login to update post.  
         {% endif %}
         {% endif %}
-  </form>
- 
-  <br>
-
 </div> 
   {% endblock %}

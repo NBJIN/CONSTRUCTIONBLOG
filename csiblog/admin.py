@@ -13,8 +13,8 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('post', 'title', 'author', 'added', 'approved')
-    list_filter = ('post', 'title', 'added',  'approved')
+    list_display = ('title', 'author', 'mainbody', 'added', 'approved')
+    list_filter = ('title', 'added', 'mainbody', 'added',  'approved')
     search_fields = ('title', 'added')
     date_hierarchy = 'added'
     actions = ['approve_comments']

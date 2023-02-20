@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 
-STATUS = ((0, "Draft"), (1, "Published"))
+STATUS = ((0, 'Draft'), (1, 'Published'))
 
 
 class Post(models.Model):

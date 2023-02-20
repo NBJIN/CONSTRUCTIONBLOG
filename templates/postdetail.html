@@ -2,17 +2,25 @@
 
 {% block content %}  
 
-<h1>Construction Safety Information Blog</h1> 
-<h2> Detailed Post </h2>
+{% block title %}<h3>Detailed Post</h3>{% endblock %} 
+
            
-        <br>   
+        <br> 
+        <strong>  
         {{ post.name | safe }}</a>
+        </strong>
          <br>
+         <strong>
         {{ post.contributor| safe  }}
+        </strong>
         <br>
+        <strong>
         {{ post.date | safe }}
+        </strong>
          <br>
+        
          {{ post.content | safe }}
+         
         <br>
         <br>
         <br>
@@ -24,6 +32,7 @@
                 <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
 
                 <a href="{% url 'postcreate' post.pk %}">Create Post</a>   
+
              {% endif %}   
                               
         {% else %}
@@ -46,8 +55,10 @@
         {% else %}
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
        {% for comment in post.csiblog_comment.all %}
+                 <strong>
                  {{ comment.author | safe }} | {{ comment.added | safe }}
-                <br>
+                </strong>
+                 <br>
                 <br>
                 {{ comment.mainbody | safe }}
                 <br>
@@ -58,7 +69,7 @@
 <br>
     <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
     <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
-    <a href="{% url 'commentdelete' post.pk %}">Update Comment </a>
+    <a href="{% url 'commentdelete' post.pk %}">Delete Comment </a>
 <br>
 {% endif %}
 {% else %}

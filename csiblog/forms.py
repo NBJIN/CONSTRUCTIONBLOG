@@ -46,22 +46,21 @@ class CommentForm(forms.ModelForm):
             'added': 'Date of Comment',
             'mainbody': 'Content',
                   }
-
         widgets = {
-            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
             'mainbody': forms.Textarea(attrs={'class': 'form-control'})
         }
         success_message = "You have successfully added your comment.."
-        # content = RichTextField(max_length=5000, blank=True, null=True)
 
 
 class CommentUpdateForm(forms.ModelForm):
     class Meta:
+    
         model = Comment
         fields = ['author', 'added', 'mainbody', 'approved']
         labels = {
+            
             'author': 'Author of Comment:',
             # 'cat_name': 'Category',
             'added': 'Date of Comment',
@@ -69,6 +68,7 @@ class CommentUpdateForm(forms.ModelForm):
                   }
 
         widgets = {
+           
             'author': forms.TextInput(attrs={'class': 'form-control'}),
             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
