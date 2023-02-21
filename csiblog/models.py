@@ -38,7 +38,6 @@ class Comment(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="csiblog_posts")
-    # author = models.CharField(max_length=200)
     # category = models.ForeignKey(Category, on_delete=models.CASCADE)
     added = models.DateTimeField(auto_created=True)
     mainbody = RichTextField(max_length=5000, blank=True, null=True)
