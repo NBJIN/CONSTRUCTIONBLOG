@@ -177,9 +177,6 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-    
-
-
 class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Comment
     template_name = "commentupdate.html"
@@ -192,10 +189,6 @@ class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def test_func(self):
         return self.request.contributor == self.get_object().user
 
-    def form_valid(self, form):
-       form.instance.user = self.request.contributor
-       form.instance.post_id = self.kwargs['pk']
-       return super().form_valid(form)
 
 
 class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
