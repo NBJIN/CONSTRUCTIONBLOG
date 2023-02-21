@@ -54,7 +54,6 @@ class UserLogoutView(CreateView):
 class PostAddView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "postcreate.html"
-    
     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = PostForm
     login_url = 'postread.html'
@@ -117,7 +116,6 @@ class PostDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, D
 class PostView(ListView):
     model = Post
     template_name = "postread.html"
-    
     # queryset = Post.objects.filter(status=1).order_by('-date')
     # # paginate_by = 4
 
@@ -143,7 +141,7 @@ class PostDetailView(DetailView):
     #                 "comments": comments,
     #                 "liked": liked
     #             },
-            # )
+    # )
 
 
 class CommentView(CreateView):
@@ -188,7 +186,6 @@ class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def test_func(self):
         return self.request.contributor == self.get_object().user
-
 
 
 class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
