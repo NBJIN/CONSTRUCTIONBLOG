@@ -35,6 +35,8 @@
 
   <form method="post"enctype="multipart/form-data" >
 
+    {% include 'messages.html' %}
+
     {% csrf_token %}
     {{ form.as_p }}
    

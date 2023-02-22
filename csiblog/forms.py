@@ -27,10 +27,9 @@ class PostForm(forms.ModelForm):
             # 'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'contributor': forms.Select(attrs={'class': 'form-control'}),
         #     # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-        #     # 'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'datepicker'}),
             'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
         #     # 'date': forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'})),
-        #     # 'image': forms.ImageField,
+            # 'image': forms.ImageField,
             'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
 

@@ -1,26 +1,32 @@
 <!-- {% load i18n %} -->
-<html>
+<!-- <html>
 <head>
 <title>Messages</title>
 </head>
-</body>
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-    <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}>
-        {{ message | safe  }}
-    </div>
-    {% endfor %}"
-</div>
-{% endif %}
-</body>
+</body> -->
 
+
+<!-- {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+      
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %} -->
+
+
+
+
+<!-- 
 <script>
     setTimeout(function () {
         let messages = document.getElementById("mess");
         let alert = new bootstrap.Alert(messages);
         alert.close();
     }, 3000);
-</script>
+</script> -->
 
-</html>
+<!-- </html> -->

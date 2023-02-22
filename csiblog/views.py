@@ -63,19 +63,30 @@ class PostAddView(LoginRequiredMixin, CreateView):
     # queryset = Post.objects.filter(status=1).order_by('-date')
 
 
-    def form_valid(self, form):
-        form.instance.contributor = self.request.user
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     form.instance.contributor = self.request.user
+    #     return super().form_valid(form)
 
-    def postaddview(reqeust):
-        if request.method == 'POST':
-            form = PostForm(request.POST)
-            if form.is_valid():
-                Post = form.save()
-                return redirect('postdetail', slug=post.slug)
-        else:
-            form = PostForm()
-        return render(request, 'postread.html', {'form': form})
+    # def get(self, request):
+    #     return render(request, 'postread.html')
+
+    # def post(self, request):
+    #     messages.success(request, 'Success')
+    #     return render(request, 'postread.html')
+
+    # def postaddview(reqeust):
+    #     if request.method == 'POST':
+    #         form = PostForm(request.POST)
+    #         if form.is_valid():
+    #             Post = form.save()
+    #             return redirect('postdetail', slug=post.slug)
+    #     else:
+    #         form = PostForm()
+    #     return render(request, 'postread.html', {'form': form})
+
+  
+
+
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
