@@ -62,6 +62,7 @@ class PostAddView(LoginRequiredMixin, CreateView):
     success_message = "You have successfully added your post.."
     # queryset = Post.objects.filter(status=1).order_by('-date')
 
+
     def form_valid(self, form):
         form.instance.contributor = self.request.user
         return super().form_valid(form)

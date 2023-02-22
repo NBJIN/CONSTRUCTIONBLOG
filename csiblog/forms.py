@@ -9,11 +9,11 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes']
-
+        fields = ['name',  'contributor', 'date', 'image', 'content', 'no_of_likes']
+        # 'slug',
         labels = {
             'name': 'Name of Post:',
-            'slug': 'Slug:',
+            # 'slug': 'Slug:',
             'contributor': 'Author of Post:',
             # 'cat_name': 'Category',
             'date': 'Date of Post',
@@ -24,7 +24,7 @@ class PostForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'contributor': forms.Select(attrs={'class': 'form-control'}),
         #     # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
         #     # 'date': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'datepicker'}),
