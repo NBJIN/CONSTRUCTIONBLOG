@@ -56,26 +56,26 @@ class CommentForm(forms.ModelForm):
         success_message = "You have successfully added your comment.."
 
 
-class CommentUpdateForm(forms.ModelForm):
-    class Meta:
+# class CommentUpdateForm(forms.ModelForm):
+#     class Meta:
 
-        model = Comment
-        fields = ['author', 'added', 'mainbody', 'approved']
-        labels = {
+#         model = Comment
+#         fields = ['author', 'added', 'mainbody']
+#         labels = {
 
-            'author': 'Author of Comment:',
-            # 'cat_name': 'Category',
-            'added': 'Date of Comment',
-            'mainbody': 'Content',
-                  }
+#             'author': 'Author of Comment:',
+#             # 'cat_name': 'Category',
+#             'added': 'Date of Comment',
+#             'mainbody': 'Content',
+#                   }
 
-        widgets = {
+#         widgets = {
 
-            'author': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-            # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
-            'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-            'mainbody': forms.Textarea(attrs={'class': 'form-control'})
-        }
+#             'author': forms.TextInput(attrs={'class': 'form-control'}),
+#             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+#             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
+#             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
+#             'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+#         }
 
-        success_message = "You have successfully updated your comment.."
+#         success_message = "You have successfully updated your comment.."

@@ -5,28 +5,13 @@
 <h1>Construction Safety Information Blog </h1>
 
 <h>Edit Comment</h>
-<!-- <h1>Add Post</h1>
-{% for postadd in object_list %}
-  <ul>
-    <li><a href="{{ postadd.get_absolute_url }}">{{ postadd.name }}</a></li>
-  </ul>
-{% endfor %} -->
-<!-- 
-<div> -->
+
   <div>
-    <a href="{% url 'postread' %}"> 
-  {{ comment.post | safe }}</a>
-  <br>
-  {{ comment.title | safe }}
-  <br>
-  {{ comment.author | safe  }}
-  <br>
-  {{ comment.added | safe }}
-  <br>
-  {{ comment.mainbody | safe }}
-  <br>
-  {{ comment.approved | safe }}
-  <br>
+
+
+  {% if user.is_authenticated %}
+  {% if user.id == post.contributor.id %}
+
   <form method="POST" enctype="multipart/form-data" >
 
     {% csrf_token %}
@@ -34,17 +19,15 @@
 
   <input type="submit" value="Submit" />
 
+   <a href="{% url 'postdetail' %}">Home</a>
+   {% endif %}
+   {% else %}
+ Please Login to update post.  
 
+{% endif %}
+    
   </form>
   <br>
 
-  <!-- {% if user.is_authenticated %}
-  <h1>Welcome to the Construction Safety and Information Blog</h1>
-  <a href="logout">logout</a>
-  {% else %}
-  <a href="Login">Login</a>
-  <a href="Sign Up">Sign Up</a> -->
-    
- {% endif %}
-</div> 
+  </div> 
   {% endblock %}

@@ -15,7 +15,7 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin
 )
 from django.views.generic import TemplateView
-from .forms import PostForm, CommentForm, CommentUpdateForm
+from .forms import PostForm, CommentForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -191,13 +191,29 @@ class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Comment
     template_name = "commentupdate.html"
     # fields = ('name', 'contributor', 'date', 'content',)
-    form_class = CommentUpdateForm
+    form_class = CommentForm
     # login_url = 'postread'
     success_message = "You have successfully updated your post.."
-    success_url = reverse_lazy('postread')
+    success_url = reverse_lazy('postdetail')
 
-    def test_func(self):
-        return self.request.contributor == self.get_object().user
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    def get(pk, request):
+        return render(request, 'commentupdate.html')
+
+    def post(pk, request):
+        messages.success(request, 'Success')
+        return render(request, 'commentupdate.html')
+
+
+    # def form_valid(self, form):
+    #     form.instance.post_id = self.kwargs['pk']
+    #     return super().form_valid(form)
+
+    # def test_func(self):
+    #     return self.request.contributor == self.get_object().user
 
 
 class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
