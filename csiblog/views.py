@@ -153,49 +153,59 @@ class PostDetailView(DetailView):
     # )
 
 
-class CommentView(CreateView):
+class DisplayPage(View):
     model = Comment
     # form_class = CommentForm
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
 
-    def likes(self, request, slug):
-        likes = get_object_or_404(likes)
 
-        if post.likes.filter(id=request.user.id).exists():
-            post.likes.remove(request.user)
-        else:
-            post.likes.add(request.user)
-            return HttpResponseRedirect(reverse('postdetail', args=[slug]))
+def CommentView(id):
+    comment = Comment.queryset.get(id=id)
+    comment.view()
 
+    # def likes(self, request, slug):
+    #     likes = get_object_or_404(likes)
 
-class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Comment
-    template_name = "commentadd.html"
-    # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
-    form_class = CommentForm
-    login_url = 'postread'
-    # permission_denied_message = 'You are not allowed access here please login'
-    success_url = reverse_lazy('postread')
-    success_message = "You have successfully added your comment.."
+    #     if post.likes.filter(id=request.user.id).exists():
+    #         post.likes.remove(request.user)
+    #     else:
+    #         post.likes.add(request.user)
+    #         return HttpResponseRedirect(reverse('postdetail', args=[slug]))
 
-    def form_valid(self, form):
-        form.instance.post_id = self.kwargs['pk']
-        return super().form_valid(form)
+def CommentAddView(id):
+    comment = Comment.queryset.get(id=id)
+    comment.addview()
 
+# class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+#     model = Comment
+#     template_name = "commentadd.html"
+#     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
+#     form_class = CommentForm
+#     login_url = 'postread'
+#     # permission_denied_message = 'You are not allowed access here please login'
+#     success_url = reverse_lazy('postread')
+#     success_message = "You have successfully added your comment.."
 
-class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    model = Comment
-    template_name = "commentupdate.html"
-    form_class = CommentUpdate
-    # login_url = 'postread'
-    # success_message = "You have successfully updated your post.."
-    success_url = reverse_lazy('postdetail')
+#     def form_valid(self, form):
+#         form.instance.post_id = self.kwargs['pk']
+#         return super().form_valid(form)
 
-    def form_valid(self, form):
-        form.instance.comment_id = self.kwargs['pk']
-        return super().form.valid
+# class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+#     model = Comment
+#     template_name = "commentupdate.html"
+#     form_class = CommentUpdate
+#     # login_url = 'postread'
+#     # success_message = "You have successfully updated your post.."
+#     success_url = reverse_lazy('postdetail')
 
+#     def form_valid(self, form):
+#         form.instance.comment_id = self.kwargs['pk']
+#         return super().form.valid
+
+def CommentUpdate(id):
+    comment = Comment.queryset.get(id=id)
+    comment.update()
 
 def CommentDelete(id):
     comment = Comment.queryset.get(id=id)
