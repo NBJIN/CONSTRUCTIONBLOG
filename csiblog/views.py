@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
@@ -15,7 +15,7 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin
 )
 from django.views.generic import TemplateView
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, CommentUpdate
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -83,9 +83,6 @@ class PostAddView(LoginRequiredMixin, CreateView):
     #     else:
     #         form = PostForm()
     #     return render(request, 'postread.html', {'form': form})
-
-  
-
 
 
 
@@ -190,11 +187,19 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Comment
     template_name = "commentupdate.html"
-    # fields = ('name', 'contributor', 'date', 'content',)
-    form_class = CommentForm
-    login_url = 'postread'
-    success_message = "You have successfully updated your post.."
+    form_class = CommentUpdate
+    # login_url = 'postread'
+    # success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postdetail')
+
+    def form_valid(self, form):
+        form.instance.comment_id = self.kwargs['pk']
+        return super().form.valid
+
+
+
+
+
 
 
 

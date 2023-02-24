@@ -42,40 +42,30 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['author', 'added', 'mainbody',]
         labels = {
-
             'author': 'Author of Comment:',
             'added': 'Date of Comment',
             'mainbody': 'Content',
                   }
         widgets = {
-
-        #     'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-        #     'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+            'mainbody': forms.Textarea(attrs={'class': 'form-control'})
         }
         success_message = "You have successfully added your comment.."
 
 
-# class CommentUpdateForm(forms.ModelForm):
-#     class Meta:
-
-#         model = Comment
-#         fields = ['author', 'added', 'mainbody']
-#         labels = {
-
-#             'author': 'Author of Comment:',
-#             # 'cat_name': 'Category',
-#             'added': 'Date of Comment',
-#             'mainbody': 'Content',
-#                   }
-
-#         widgets = {
-
-#             'author': forms.TextInput(attrs={'class': 'form-control'}),
-#             # 'cat_name': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
-#             # 'added': forms.DateInput(format='%d/%m/%Y', attrs={'class': 'form-control'}),
-#             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-#             'mainbody': forms.Textarea(attrs={'class': 'form-control'})
-#         }
-
-#         success_message = "You have successfully updated your comment.."
+class CommentUpdate(forms.ModelForm):
+   class Meta:
+        model = Comment
+        fields = ['author', 'added', 'mainbody',]
+        labels = {
+            'author': 'Author of Comment:',
+            'added': 'Date of Comment',
+            'mainbody': 'Content',
+                  }
+        widgets = {
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
+            'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
+            'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+        }
+        success_message = "You have successfully added your comment.."

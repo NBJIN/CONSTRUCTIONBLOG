@@ -4,30 +4,20 @@
 
 <h1>Construction Safety Information Blog </h1>
 
-<h>Edit Comment</h>
-
-  <div>
+<h>Update Comment</h>
 
 
-  {% if user.is_authenticated %}
-  {% if user.id == post.contributor.id %}
 
-  <form method="POST" enctype="multipart/form-data" >
+<form method="post"enctype="multipart/form-data" >
 
     {% csrf_token %}
     {{ form.as_p }}
 
-  <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" />
+    <a href="{% url 'postdetail' %}">Home</a> 
+   
 
-   <a href="{% url 'postdetail' %}">Home</a>
-   {% endif %}
-   {% else %}
- Please Login to update post.  
+</form>
 
-{% endif %}
-    
-  </form>
-  <br>
-
-  </div> 
-  {% endblock %}
+<br>
+{% endblock %}
