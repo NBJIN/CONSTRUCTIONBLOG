@@ -197,19 +197,6 @@ class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         return super().form.valid
 
 
-
-
-
-
-
-
-class CommentDelete(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
-    model = Comment
-    template_name = "commentdelete"
-    login_url = 'postread'
-    success_message = "You have successfully deleted your comment.."
-    success_url = reverse_lazy('postread')
-    # success_url = "/"
-
-    def test_func(self):
-        return self.request.user == self.get_object().author
+def CommentDelete(id):
+    comment = Comment.queryset.get(id=id)
+    comment.delete()

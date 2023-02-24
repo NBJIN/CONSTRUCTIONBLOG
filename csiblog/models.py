@@ -7,10 +7,16 @@ from django.utils.text import slugify
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
+class Category(models.Model):
+    name = models.CharField(max_length=250)
+
+         
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     name = models.CharField(max_length=200)
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200, unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
@@ -54,3 +60,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + (str(self.author))
+
+
+class Review(models.Model):
+    Score = models.IntegerField()
+
+    def __str__(self):
+        return self.Score

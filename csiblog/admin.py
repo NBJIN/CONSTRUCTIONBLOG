@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Category, Review
 
 
-@admin.register(Post)
+
+admin.site.register(Post)
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'slug', 'contributor', 'date', 'status')
@@ -11,7 +12,7 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
 
 
-@admin.register(Comment)
+admin.site.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'mainbody', 'added', 'approved')
     list_filter = ('title', 'added', 'mainbody', 'added',  'approved')
@@ -21,3 +22,6 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+
+admin.site.register(Category)
