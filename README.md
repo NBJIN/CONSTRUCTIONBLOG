@@ -1,6 +1,8 @@
 Mobile first version of site pics
 
-Construction Safety Information Blog (CSI) is a blog that focuses on different areas of the contruction industry.  Its a useful information tool for construction companies, employers and employees working in the industry to visit and see current information in relation to Health and Safety, Quality, Legislation, Projects and Holidays.   The main objective is to share information between different users.
+## Introduction 
+
+Construction Safety Information Blog (CSI) is a blog that focuses on different areas of the contruction industry.  Its aim is to provide informative content for the construction sector so that it can build a community who can share knowledge, ideas and experiences which will be separated into different categories.  These categoreis will be Health and Safety, Quality, Legislation, Projects and Holidays.   The main objective is to share information between different users and delveop robost platform for sharing of related content.  
 
 ## Table of Contents
 ---
@@ -13,17 +15,37 @@ Construction Safety Information Blog (CSI) is a blog that focuses on different a
 
     (a) Strategy
         - Project Goals
-          The blog will be a very simple design design so that it doesnt draw attention from the content on the blog 
-          Structure of the blog to be easily understood 
-          Site navigation to be easy 
-          Site user to be able to register for an account so that they can interact with the content 
+          The blog aims to provide users with inforamtion in certain categories in realtion to the Construction Industry.  
+          The blog will be a very simple design design so that it doesnt draw attention from the content on the blog.
+          Structure of the blog to be easily understood.  
+          Site navigation to be simple and easy to use so that a user can easily find their way around the site.
+          Site user to be able to register for an account so that they can log in and  interact with the content in the blog.
 
         - User Goals
-          As an admin user i want to be able to manage the blog conent 
+          As an admin user they will beable to manage the blog posts and comments on the blog. 
+          Adn ad 
           As a site user i want to be able to manage the content that i create
-
+          It will allow logged in user to input a post, change and update their own posts
+          and also view other user posts and to like same.  A logged in user will not be able to change another users post so there will be restrictions on some views.  It will also allow logged in users to leave comments, update and delete their comments and view other users comments.  Again there will be a restriction on views here where a user will not be able to update other user comments.  
 
     Table
+    | User Type | Feature | Importance | Viability | Delivered | MVP |
+    |----------| ----------| ----------| ---------- | ---------- | ---------- |
+    |          | User Roles  | 5 | 5  | - [x] | MVP|
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+
+
 
 
     Scope
@@ -170,6 +192,18 @@ web: gunicorn project-name.wsgi
 ------
 Content
 - Website content written by developer.
+- Code Institute Course Material especially blog walkthough "I Think Therefore I Blog"
+- Stack Overflow to source and read up on soliving problems with code 
+- Tutor Assistance on help to assit errors in code 
+- Websites referenced as follows to read up on the django framwork and use of code and follow tutorials
+  - https://www.javatpoint.com/django-usercreationform
+  - https://realpython.com/
+  - https://learndjango.com/
+  - https://docs.djangoproject.com/
+  - https://ordinarycoders.com/
+  - https://www.w3schools.com/
+  - https://www.geeksforgeeks.org/
+  - https://codemy.com/
 
 Media
 - 
@@ -182,9 +216,10 @@ known Bugs
 
 
 Acknowledgements
-- My tutor for his feedback and guidance.
+- My tutor for his feedback and guidance throughout building this blog project.
 - Code Institute class facilitator, tutor assistance and student support
 - Class on knowlege and guidance
 - Slack community and study groups and CI mentors for providing tips and knowlege.
+- This blog project is for eductional use only and was created for project submittal pp4 for CI.  
 
 
