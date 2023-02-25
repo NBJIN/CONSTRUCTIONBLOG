@@ -1,108 +1,190 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Mobile first version of site pics
 
-Welcome noreen,
+Construction Safety Information Blog (CSI) is a blog that focuses on different areas of the contruction industry.  Its a useful information tool for construction companies, employer and employees working in the industry to visit and see current information in relation to Health and Safety, Quality, Legislation, Projects and Holidays.   The main objective is to share information with different between different users.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
+## Table of Contents
 ------
 
-## Release History
+1. User Experience (UX)
+   (a) Stratgey
+       - Project Goals
+       - User Goals
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    (a) Strategy
+        - Project Goals
+          The blog will be a very simple design design so that it doesnt draw attention from the content on the blog 
+          Structure of the blog to be easily understood 
+          Site navigation to be easy 
+          Site user to be able to register for an account so that they can interact with the content 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+        - User Goals
+          As an admin user i want to be able to manage the blog conent 
+          As a site user i want to be able to manage the content that i create
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    Table
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    Scope
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+    User Stories 
+    GitHub was used in this project to manage and track the user stories.  The Kanban board was used to draw up the individual tasks
+    into different columns namely to do, in progress and done.  As each task was worked on it moved from the to do column to the in progress column
+    to the final column of done. 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    Week 1 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    Structure of Blog Site 
+    diagram of pages and blog site
 
+    Header, footer and navigation bar consistent through all pages.
+    links, buttons and forms provide feedback to the user of the site. 
+    When a user signs up to the blog they have the opportunity to interact with the content by adding, deleting, updating their own posts and comments and  viewing, liking other posts and comments 
+
+    Database Model 
+    The database model is displayed on drawsql.  The type of database being used for this project is relational database which is managaed by PostgreSQL.
+    
+    put in draw sql diagram
+
+    The CSI blog has four Models 
+    Post Model
+    Name - this is the name given to the post by the contributor .
+    Category - the post will fall into a category from the folloiwng list - Health and Safety, Quality, Legislation, Project and Holidays. 
+    Slug - a unique slug to identify the post. 
+    Contributor - the user who is adding the post.  
+    Date - stores the current date of the post.
+    Revised - stores the revision date of a post by contributor.
+    Image - stores the image that will be displayed with the post.
+    Content - content that is inputted by the contributor.  
+    No of Likes - the number of likes that a post has received.
+    Excerpt - snippet of the post.  
+    Status - this will store wheather the post is approved or not approved.  
+
+    Comment Model 
+    Post - a foreign key from the post model storeing post being commented.
+    on.  
+    Title - stores the title of the comment. 
+    Author - a foreign key from the post  model storing the author.
+    Added - date the comment was added.
+    Mainbody - content that is inputted by the author.  
+    Approved - indicates where the comment is approved or not 
+
+    Review Model
+    Score - will store a score ---------come back to 
+
+    Category Model
+    Name - stores the name of each category.  
+
+    Wireframes 
+
+
+    Color Schemes 
+
+    Typography
+
+    Features 
+
+
+    ## Technologies Used 
+    ------
+    Languages Used
+    - HTML5
+    - CSS3
+    - JavaScript
+    - Python
+
+    ## Libraries and Frameworks and Programs Uses 
+    - Django
+      Django was used as a web framework
+    - Django Template was used a a templating language for Django to display backend date to HTML
+    - Bootstrap 5 - used with styling and responsiveness of the blog 
+    - Google Fonts - used to import fonts into base html file 
+     - GitPod was used for writing code, committing and pushing to GitHub
+    - GitHub was used to store the project code after being push from GitPod.
+    - Heroku was used to deploy the blog 
+    - Bootstrap4 - Bootstrap 4 CSS framework to create layout and styling
+    - Python 3.8 - used to code blog
+    - ElephantSQL - used for the applications database.
+
+    ## Packages / Dependecies 
+    - Gunicorn used as a Python WSGI HTTP Server to allow the deployment of Django application
+    - Summernote has been used as WYSIWYG editor 
+    - Cloudinary has been used an an image management platform 
+
+    ## Database
+    - Heroku Postgres was used in production as a service based on PostgresSQL provided by Heroku.
+
+
+    ## Testing 
+
+
+    ## Deployment 
+    This project was developed using a GitPod workspace. The code was commited to Git and pushed to GitHub using the terminal.
+
+Deploying on Heroku
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+
+1 Create the Heroku App:
+
+2 Select "Create new app" in Heroku.
+
+3 Choose a name for your app and select the location.
+
+4 Attach the Postgres database:
+
+5 In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+6 Prepare the environment and settings.py file:
+
+6 In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+7 In your GitPod workspace, create an env.py file in the main directory.
+8 Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+9 Add the SECRET_KEY value to the Config Vars in Heroku.
+10 Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+11 Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
+12 In settings.py add the following sections:
+- Cloudinary to the INSTALLED_APPS list
+- STATICFILE_STORAGE
+- STATICFILES_DIRS
+- STATIC_ROOT
+- MEDIA_URL
+- DEFAULT_FILE_STORAGE
+- TEMPLATES_DIR
+- Update DIRS in TEMPLATES with TEMPLATES_DIR
+- Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+13 Store Static and Media files in Cloudinary and Deploy to Heroku:
+14 Create three directories in the main directory; media, storage and templates.
+15 reate a file named "Procfile" in the main directory and add the following:
+web: gunicorn project-name.wsgi
+16 Go to Deploy tab on Heroku and connect to the GitHub, then to the required recpository. 
+17 Click on Delpoy Branch and wait for the build to load. When the build is complete, the app can be opened through Heroku.
+
+## Finished Product 
+
+# Credits
 ------
+Content
+- Website content written by developer.
 
-## FAQ about the uptime script
+Media
+- 
 
-**Why have you added this script?**
+Code
+- 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+known Bugs
+- 
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Acknowledgements
+- My tutor for his feedback and guidance.
+- Code Institute class facilitator, tutor assistance and student support
+- Class on knowlege and guidance
+- Slack community and study groups and CI mentors for providing tips and knowlege.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
