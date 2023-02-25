@@ -151,10 +151,10 @@ class PostDetailView(DetailView):
     # )
 
 
-class DisplayPage(View):
+class Display(TemplateView):
     model = Comment
     # form_class = CommentForm
-    template_name = "postdetail.html"
+    template_name = "display.html"
     success_url = reverse_lazy('postread.html')
 
 
