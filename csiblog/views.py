@@ -62,7 +62,6 @@ class PostAddView(LoginRequiredMixin, CreateView):
     success_message = "You have successfully added your post.."
     # queryset = Post.objects.filter(status=1).order_by('-date')
 
-
     # def form_valid(self, form):
     #     form.instance.contributor = self.request.user
     #     return super().form_valid(form)
@@ -83,7 +82,6 @@ class PostAddView(LoginRequiredMixin, CreateView):
     #     else:
     #         form = PostForm()
     #     return render(request, 'postread.html', {'form': form})
-
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
@@ -173,6 +171,7 @@ def CommentView(id):
     #         post.likes.add(request.user)
     #         return HttpResponseRedirect(reverse('postdetail', args=[slug]))
 
+
 def CommentAddView(id):
     comment = Comment.queryset.get(id=id)
     comment.addview()
@@ -203,9 +202,11 @@ def CommentAddView(id):
 #         form.instance.comment_id = self.kwargs['pk']
 #         return super().form.valid
 
+
 def CommentUpdate(id):
     comment = Comment.queryset.get(id=id)
     comment.update()
+
 
 def CommentDelete(id):
     comment = Comment.queryset.get(id=id)

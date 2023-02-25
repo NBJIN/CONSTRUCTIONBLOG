@@ -1,9 +1,9 @@
 Mobile first version of site pics
 
-Construction Safety Information Blog (CSI) is a blog that focuses on different areas of the contruction industry.  Its a useful information tool for construction companies, employer and employees working in the industry to visit and see current information in relation to Health and Safety, Quality, Legislation, Projects and Holidays.   The main objective is to share information with different between different users.
+Construction Safety Information Blog (CSI) is a blog that focuses on different areas of the contruction industry.  Its a useful information tool for construction companies, employers and employees working in the industry to visit and see current information in relation to Health and Safety, Quality, Legislation, Projects and Holidays.   The main objective is to share information between different users.
 
 ## Table of Contents
-------
+---
 
 1. User Experience (UX)
    (a) Stratgey

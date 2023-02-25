@@ -2,8 +2,9 @@ from django.contrib import admin
 from .models import Post, Comment, Category, Review
 
 
-
 admin.site.register(Post)
+
+
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'slug', 'contributor', 'date', 'status')
@@ -13,6 +14,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Comment)
+
+
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'mainbody', 'added', 'approved')
     list_filter = ('title', 'added', 'mainbody', 'added',  'approved')
