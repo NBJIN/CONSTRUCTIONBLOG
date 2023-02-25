@@ -31,19 +31,19 @@ Construction Safety Information Blog (CSI) is a blog that focuses on different a
     Table
     | User Type | Feature | Importance | Viability | Delivered | MVP |
     |----------| ----------| ----------| ---------- | ---------- | ---------- |
-    |          | User Roles  | 5 | 5  | - [x] | MVP|
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 2 |
+    |          | User Roles  | 5 | 5  | &check; | MVP|
+    |Site Users and Site Admin | Responsive Design | 5 | 5 | &check; | MVP |
+    |Site Users & Site Admin | Account Registration | 5 | 5 | &check; | MVP |
+    |Site Users & Site Admin | Create, Update and Delete Post  |  5 | 5 | &check; | MVP |
+    |Site Users & Site Admin | Create, Update and Delete Comments |  5 | 5 | &check; | MVP |
+    |Site Users & Site Admin | Search Construction Categories |  5 | 5 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+    | Total  || x | x|  | |
 
 
 
@@ -161,14 +161,21 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 4 Attach the Postgres database:
 
 5 In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+
 6 Prepare the environment and settings.py file:
 
 6 In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+
 7 In your GitPod workspace, create an env.py file in the main directory.
+
 8 Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+
 9 Add the SECRET_KEY value to the Config Vars in Heroku.
+
 10 Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+
 11 Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
+
 12 In settings.py add the following sections:
 - Cloudinary to the INSTALLED_APPS list
 - STATICFILE_STORAGE
@@ -179,11 +186,16 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 - TEMPLATES_DIR
 - Update DIRS in TEMPLATES with TEMPLATES_DIR
 - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+
 13 Store Static and Media files in Cloudinary and Deploy to Heroku:
+
 14 Create three directories in the main directory; media, storage and templates.
+
 15 reate a file named "Procfile" in the main directory and add the following:
 web: gunicorn project-name.wsgi
+
 16 Go to Deploy tab on Heroku and connect to the GitHub, then to the required recpository. 
+
 17 Click on Delpoy Branch and wait for the build to load. When the build is complete, the app can be opened through Heroku.
 
 ## Finished Product 
