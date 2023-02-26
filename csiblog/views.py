@@ -9,13 +9,13 @@ from django.views.generic.edit import (
     DeleteView
 )
 from django.urls import reverse_lazy
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
 from django.views.generic import TemplateView
-from .forms import PostForm, CommentForm, CommentUpdate
+from .forms import PostForm, CommentForm, CommentUpdate, CategoryAddForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -153,7 +153,7 @@ class PostDetailView(DetailView):
 
 class Display(TemplateView):
     model = Comment
-    # form_class = CommentForm
+    form_class = CommentForm
     template_name = "display.html"
     success_url = reverse_lazy('postread.html')
 
@@ -172,9 +172,22 @@ def CommentView(id):
     #         return HttpResponseRedirect(reverse('postdetail', args=[slug]))
 
 
-def CommentAddView(id):
-    comment = Comment.queryset.get(id=id)
-    comment.addview()
+# def CommentAddView(id):
+#     comment = Comment.queryset.get(id=id)
+#     comment.addview()
+
+
+class CommentAddView(CreateView):
+    model = Comment
+    template_name = "commentadd.html"
+#     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
+    form_class = CommentForm
+#     login_url = 'postread'
+#     # permission_denied_message = 'You are not allowed access here please login'
+#     success_url = reverse_lazy('postread')
+#     success_message = "You have successfully added your comment.."
+
+
 
 # class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 #     model = Comment
@@ -203,11 +216,44 @@ def CommentAddView(id):
 #         return super().form.valid
 
 
-def CommentUpdate(id):
-    comment = Comment.queryset.get(id=id)
-    comment.update()
+class CommentUpdate(UpdateView):
+    model = Comment
+    template_name = "commentupdate.html"
+    form_class = CommentUpdate
+    # login_url = 'postread'
+    # success_message = "You have successfully updated your post.."
 
 
-def CommentDelete(id):
-    comment = Comment.queryset.get(id=id)
-    comment.delete()
+def form_valid(self, form):
+    form.instance.author = self.request.user
+    return super().form_valid(form)
+
+    success_url = reverse_lazy('postdetail', kwargs={'pk': self.object.post.pk})
+
+
+# def CommentUpdate(id):
+#     comment = Comment.queryset.get(id=id)
+#     comment.update()
+
+
+class CommentDelete(DetailView):
+    model = Comment
+    template_name = "commentdelete.html"
+    # form_class = CommentUpdate
+    # login_url = 'postread'
+    # success_message = "You have successfully updated your post.."
+    success_url = reverse_lazy('postdetail')
+
+
+# def CommentDelete(id):
+#     comment = Comment.queryset.get(id=id)
+#     comment.delete()
+
+
+class CategoryAddView(CreateView):
+    model = Category
+    template_name = "categoryadd.html"
+    fields = ['name']
+
+    def get_success_url(self):
+        return reverse_lazy('categoryadd', args=[self.object.pk])

@@ -17,11 +17,11 @@ class Category(models.Model):
 
 class Post(models.Model):
     name = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
     slug = models.SlugField(max_length=200, unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_created=True)
     revised = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=5000, blank=True, null=True)
@@ -63,8 +63,8 @@ class Comment(models.Model):
         return self.title + ' | ' + (str(self.author))
 
 
-class Review(models.Model):
-    Score = models.IntegerField()
+# class Review(models.Model):
+#     Score = models.IntegerField()
 
-    def __str__(self):
-        return self.Score
+#     def __str__(self):
+#         return self.Score

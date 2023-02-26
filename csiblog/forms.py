@@ -1,4 +1,4 @@
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from django import forms
 from ckeditor.fields import RichTextField
 from django.contrib.messages.views import SuccessMessageMixin
@@ -55,7 +55,7 @@ class CommentForm(forms.ModelForm):
 
 
 class CommentUpdate(forms.ModelForm):
-   class Meta:
+    class Meta:
         model = Comment
         fields = ['author', 'added', 'mainbody',]
         labels = {
@@ -67,5 +67,18 @@ class CommentUpdate(forms.ModelForm):
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
             'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
             'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+        }
+        success_message = "You have successfully added your comment.."
+
+
+class CategoryAddForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+        labels = {
+            'name': 'Name:'
+                  }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your category name'}),
         }
         success_message = "You have successfully added your comment.."
