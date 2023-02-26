@@ -295,7 +295,7 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 
 ## Testing 
 
-While completing this project i came across a number of errors some exmples of same are below.  
+While completing this project i came across a number of errors and kept a record of same.  Now some of these errors maybe irrelavent due to changes in code or code deletion but below is just a sample of errors that I came across and how i resolved them.  
 
 - When saving models file for the Post Model  got the following error:
   TypeError: __init__() got an unexpected keyword argument 'max_lenght'
@@ -328,12 +328,18 @@ While completing this project i came across a number of errors some exmples of s
         fields = ('name', 'date', 'content',)
         success_url = reverse_lazy('postread.html')
 
-- Add Delete Post functionality  
+- Add Delete Post functionality  - when adding same came across the following  error: 
+TemplateSyntaxError at /delete/4
+Unclosed tag on line 3: 'block'. Looking for one of: endblock.
+To resolve the above error add {% endblock %} to postdelete.html template
 
-  Code for View, url and template
-  Came across the following errors 
-  TemplateSyntaxError at /delete/4
-  Unclosed tag on line 3: 'block'. Looking for one of: endblock.
+- Update a post - received the following error - NoReverseMatch at /update/7
+Reverse for 'postread' with keyword arguments '{'pk': 7}' not found. 1 pattern(s) tried: ['\\Z'] - In views.py  i had the following code to re-direct back to postread.html "success url = reverse_lazy('postread.html')" - i amended postread by deleting the html extension as follows "success url = reverse_lazy('postread)" - Once this was addded was able to update post.
+
+- When deleting a post came across the following error: AttributeError at /csiblog/postdelete/15
+'WSGIRequest' object has no attribute 'contributor' - in my views.py file line 61 in the test function changed code from "request self.request.contributor == self.get_object().user" to "return self.request.user == self.get_obejct().contributor.
+
+
 
 ## Finished Product 
 
