@@ -10,7 +10,7 @@ from .views import (
 )
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
 from .views import CommentAddView,  CommentUpdate, CommentDelete
-from .views import CategoryAddView
+# from .views import CategoryAddView
 
 
 urlpatterns = [
@@ -25,7 +25,7 @@ urlpatterns = [
     path('postdetail/<int:pk>/commentadd/', CommentAddView.as_view(), name='commentadd'),
     path('commentupdate/<int:pk>', CommentUpdate.as_view(), name='commentupdate'),
     path('commentdelete/<int:pk>', CommentDelete.as_view(), name='commentdelete'),
-    path('categoryadd/<int:pk>/', CategoryAddView.as_view(), name='categoryadd'),
+    # path('categoryadd/<int:pk>/', CategoryAddView.as_view(), name='categoryadd'),
 
 
     # path('commentupdate/<int:pk>', CommentUpdate, name='commentupdate'),

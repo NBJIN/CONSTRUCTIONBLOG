@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Category
+from .models import Post, Comment
 
 
 admin.site.register(Post)
@@ -27,8 +27,8 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'name')
-    list_filter = ('name', 'name')
-    search_fields = ('name', 'name')
+# @admin.register(Category)
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'name')
+#     list_filter = ('name', 'name')
+#     search_fields = ('name', 'name')

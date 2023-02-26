@@ -9,13 +9,13 @@ from django.views.generic.edit import (
     DeleteView
 )
 from django.urls import reverse_lazy
-from .models import Post, Comment, Category
+from .models import Post, Comment
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
 from django.views.generic import TemplateView
-from .forms import PostForm, CommentForm, CommentUpdate, CategoryAddForm
+from .forms import PostForm, CommentForm, CommentUpdate
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -250,10 +250,10 @@ class CommentDelete(DetailView):
 #     comment.delete()
 
 
-class CategoryAddView(CreateView):
-    model = Category
-    template_name = "categoryadd.html"
-    fields = ['name']
+# class CategoryAddView(CreateView):
+#     model = Category
+#     template_name = "categoryadd.html"
+#     fields = ['name']
 
-    def get_success_url(self):
-        return reverse_lazy('categoryadd', args=[self.object.pk])
+#     def get_success_url(self):
+#         return reverse_lazy('categoryadd', args=[self.object.pk])
