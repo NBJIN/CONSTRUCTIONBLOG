@@ -50,7 +50,7 @@ and also view other user posts and to like same.  A logged in user will not be a
 
 Each of the above Epics have their own user stories with acceptance criteria.
 
-There are a total of 12 user stories
+There are a total of 12 user stories (note these are numbered 1 to 13)
 
 In relation to the epic for "create workspace for project we have two user stories"
 

@@ -21,7 +21,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     contributor = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
-    date = models.DateField(auto_created=True)
+    date = models.DateField(auto_now_add=True)
     revised = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     content = RichTextField(max_length=5000, blank=True, null=True)
