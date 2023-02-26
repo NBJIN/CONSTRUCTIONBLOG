@@ -52,6 +52,9 @@ and also view other user posts and to like same.  A logged in user will not be a
     There are 12 user stories in total 
   
     In relation to epic for create workspace for project we have two user stories 
+
+    ![image](https://user-images.githubusercontent.com/106515976/221416070-f6ec4570-20c0-46f4-a632-b27d2e6fe4ef.png)
+    
     ![image](https://user-images.githubusercontent.com/106515976/221387101-6543d4fe-78ff-46f2-84bf-1fdfda8a0d55.png)
 
     ![image](https://user-images.githubusercontent.com/106515976/221387125-5aa3c6cd-085d-488c-b51d-b5e547a7e231.png)
@@ -83,11 +86,11 @@ and also view other user posts and to like same.  A logged in user will not be a
    Each of the above user stories have been labelled as a must have in order to have a fully functional project.  
    Each user story has been labelled to indicate that it is a must have for the project. 
 
-   In order to implement the user stories it is hoped that it will be completed in 4 iteratioins assing 1 week to each iteration 
-   Week 1 - Iteration 1
-   ![image](https://user-images.githubusercontent.com/106515976/221387626-08b60603-58ff-4df6-ad7e-f676d852915d.png)
+  In order to implement the user stories it is hoped that it will be completed in 4 iteratioins assing 1 week to each iteration 
+  Week 1 - Iteration 1
+  ![image](https://user-images.githubusercontent.com/106515976/221387626-08b60603-58ff-4df6-ad7e-f676d852915d.png)
 
-   ![image](https://user-images.githubusercontent.com/106515976/221387669-439cd02f-f83b-4b71-aea0-0c178165d733.png)
+  ![image](https://user-images.githubusercontent.com/106515976/221387669-439cd02f-f83b-4b71-aea0-0c178165d733.png)
 
    Week 2 - Iteration 2
   ![image](https://user-images.githubusercontent.com/106515976/221387708-822299fe-6ec4-4be1-80dc-9bd70fd84129.png)
@@ -106,7 +109,7 @@ and also view other user posts and to like same.  A logged in user will not be a
   
   ![image](https://user-images.githubusercontent.com/106515976/221387885-6cac9710-f90f-46fe-8c18-ccad297c2b2e.png)
 
-  The above iterations are only an approximate.  As i am a student and very new to coding languages i found that I would have moved onto other user stories without finishing the previous user story because of errors that were arising and time being spent on a particular user story. 
+  The above iterations are only an approximate.  As i am a student and very new to coding languages i found that when completing this project I would move onto other user stories without finishing the previous user story as i was conscious of time constraints and also trying research better ways and shorter code in getting functionality working.  
 
   ## Scope - Features Table
 
