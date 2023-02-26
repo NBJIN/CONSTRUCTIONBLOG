@@ -44,65 +44,74 @@ and also view other user posts and to like same.  A logged in user will not be a
 ## User Stories
 
  Epics
-    This blog project has 5 epics or milestones which are as follows: Create Workspace For Project, User Authentication, User Login, CRUD Functionality and General Functionality. 
+  This blog project has 5 epics or milestones which are as follows: Create Workspace For Project, User Authentication, User Login, CRUD Functionality and General Functionality. 
    ![image](https://user-images.githubusercontent.com/106515976/221386870-65c76070-7ee1-47c9-adf8-568bf9234ecb.png)
 
-    Each of the above epics have their own user stories with acceptance criteria
 
-    There are 12 user stories in total 
-  
-    In relation to epic for create workspace for project we have two user stories 
+Each of the above Epics have their own user stories with acceptance criteria.
 
-    ![image](https://user-images.githubusercontent.com/106515976/221416070-f6ec4570-20c0-46f4-a632-b27d2e6fe4ef.png)
+There are a total of 12 user stories
+
+In relation to the epic for "create workspace for project we have two user stories"
+
+![image](https://user-images.githubusercontent.com/106515976/221416070-f6ec4570-20c0-46f4-a632-b27d2e6fe4ef.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416415-4d5e5a65-41fe-4a19-bd2d-3097125d8c55.png)
+
+Epic for "User Authentication" has 2 user stories 
+
+![image](https://user-images.githubusercontent.com/106515976/221416486-fc22bda3-0af7-4110-b38b-9de3db30276b.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416530-6f3e0316-541a-471e-b9a2-4d6d6d049b02.png)
+
+Epic for "User Login" has 2 user stories
+
+![image](https://user-images.githubusercontent.com/106515976/221416758-a59ebf26-7511-44da-8931-66681ff16853.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416802-2b2af5cc-6b88-433c-80e3-8f6fe39c3fdf.png)
+
+Epic for "CRUD functionality" has 4 user stories 
+
+![image](https://user-images.githubusercontent.com/106515976/221416858-7af57d16-4c7f-45d5-95ea-15adea598c6c.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416885-7da10b37-2c53-4aad-910c-9ff3086ce895.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416945-b7572e0a-6262-4c72-990c-296bc1c0caa8.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221416988-75972ff6-5cc4-46cb-878c-98c0aeaef7f5.png)
+
+Epic General Functionality Has Two User Stories
+
+![image](https://user-images.githubusercontent.com/106515976/221417143-dc1cca77-7dd8-4a90-8eba-83f36e4177bf.png)
+
+![image](https://user-images.githubusercontent.com/106515976/221417044-ce63a1e7-e2e7-4e8d-abc9-87bc5fc85051.png)
     
-    ![image](https://user-images.githubusercontent.com/106515976/221387101-6543d4fe-78ff-46f2-84bf-1fdfda8a0d55.png)
 
-    ![image](https://user-images.githubusercontent.com/106515976/221387125-5aa3c6cd-085d-488c-b51d-b5e547a7e231.png)
+Each of the above user stories have been labelled as a must have in order to have a fully functional project.  
+Each user story has been labelled to indicate that it is a must have for the project. 
 
-    Epic for user authentication has 2 user stories
-    ![image](https://user-images.githubusercontent.com/106515976/221387169-8d725cd5-c77b-45c2-bf96-87a6ce2857d2.png)
+In order to implement the user stories it is hoped that it will be completed in 4 iteratioins assing 1 week to each iteration.
 
-    ![image](https://user-images.githubusercontent.com/106515976/221387202-8515a1ce-53b1-423e-9afc-3d654db0cc2a.png)
-
-    Epic for User Login has 2 user stories 
-    ![image](https://user-images.githubusercontent.com/106515976/221387240-f4f1b11e-7f32-4091-ab60-f7bb593f6525.png)
-
-    ![image](https://user-images.githubusercontent.com/106515976/221387261-df214247-0da0-402e-924e-74b54aa9e040.png)
-
-    Epic for CRUD functionality has 4 user stories 
-    ![image](https://user-images.githubusercontent.com/106515976/221387325-81b42737-f637-4b60-8a5c-6f91f94f7fa7.png)
-
-    ![image](https://user-images.githubusercontent.com/106515976/221387342-d192e372-a6d3-4c9a-8ca6-4c14b6e61375.png)
-
-    ![image](https://user-images.githubusercontent.com/106515976/221387357-6656ca05-3da9-49a4-a935-e5e2c5ffcc15.png)
-
-    ![image](https://user-images.githubusercontent.com/106515976/221387370-5cfdb85a-a0d1-425f-beb1-c4325a23851d.png)
-
-    Epic for General Functionality has 2 user stories 
-    ![image](https://user-images.githubusercontent.com/106515976/221387401-0b32c1f4-a8ca-433b-a7b1-cf3d44c0ba1f.png)
-
-    ![image](https://user-images.githubusercontent.com/106515976/221387422-38933c43-d0a8-4cda-90cf-65b8b66f6817.png)
-
-   Each of the above user stories have been labelled as a must have in order to have a fully functional project.  
-   Each user story has been labelled to indicate that it is a must have for the project. 
-
-  In order to implement the user stories it is hoped that it will be completed in 4 iteratioins assing 1 week to each iteration 
   Week 1 - Iteration 1
+
   ![image](https://user-images.githubusercontent.com/106515976/221387626-08b60603-58ff-4df6-ad7e-f676d852915d.png)
 
   ![image](https://user-images.githubusercontent.com/106515976/221387669-439cd02f-f83b-4b71-aea0-0c178165d733.png)
 
    Week 2 - Iteration 2
+
   ![image](https://user-images.githubusercontent.com/106515976/221387708-822299fe-6ec4-4be1-80dc-9bd70fd84129.png)
 
   ![image](https://user-images.githubusercontent.com/106515976/221387736-dc3a4a98-4cfa-4eed-98e2-9541f3859de6.png)
 
   Week 3 - Iteration 3 
+
   ![image](https://user-images.githubusercontent.com/106515976/221387791-b6c99f7e-b61a-49d6-96c9-1b3cbc511aed.png)
 
   ![image](https://user-images.githubusercontent.com/106515976/221387809-07040347-a8a6-4c7d-b20a-2b1282303255.png)
 
   Week 4 - Iteration 4
+
   ![image](https://user-images.githubusercontent.com/106515976/221387850-b61082c6-aefa-414f-9314-b44463531ee5.png)
 
   ![image](https://user-images.githubusercontent.com/106515976/221387866-46f4dd04-eefc-47f8-920d-897700133b9e.png)
@@ -113,70 +122,70 @@ and also view other user posts and to like same.  A logged in user will not be a
 
   ## Scope - Features Table
 
-    Features Tables - Here we have a features table which goes through the list of features that are required in order to render an MVP Product.   
-    | User Type | Feature | Importance | Viability | Delivered | MVP |
-    |----------| ----------| ----------| ---------- | ---------- | ---------- |
-    |          | User Roles  | 5 | 5  | &check; | MVP|
-    |Site Users and Site Admin | Responsive Design | 5 | 5 | &check; | MVP |
-    |Site Users & Site Admin | Account Registration | 5 | 5 | &check; | MVP |
-    |Site Users & Site Admin | Create, Update and Delete Post  |  5 | 5 | &check; | MVP |
-    |Site Users & Site Admin | Create, Update and Delete Comments |  5 | 5 | &check; | MVP |
-    |Site Users & Site Admin | Search Construction Categories |  5 | 5 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-    | Total  || x | x|  | |
+  Features Tables - Here we have a features table which goes through the list of features that are required in order to render an MVP Product.   
+  | User Type | Feature | Importance | Viability | Delivered | MVP |
+  |----------| ----------| ----------| ---------- | ---------- | ---------- |
+  |          | User Roles  | 5 | 5  | &check; | MVP|
+  |Site Users and Site Admin | Responsive Design | 5 | 5 | &check; | MVP |
+  |Site Users & Site Admin | Account Registration | 5 | 5 | &check; | MVP |
+  |Site Users & Site Admin | Create, Update and Delete Post  |  5 | 5 | &check; | MVP |
+  |Site Users & Site Admin | Create, Update and Delete Comments |  5 | 5 | &check; | MVP |
+  |Site Users & Site Admin | Search Construction Categories |  5 | 5 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
+  | Total  || x | x|  | |
 
-    Epics / User Stories / Acceptance Criteria
-    Github projects was used in the planning and setting up of this blog project. Here you will see a list of all epics, the user stories connected to these epics and  
-    the acceptance criteria for each user story.  Each user story is catgorised into must haves, should have, could have. The Kanban board was used to draw up the individual tasks into different columns namely to do, in progress, done and and will not have..  As each task was worked on it moved from the to do column to the in progress column
+  Epics / User Stories / Acceptance Criteria
+  Github projects was used in the planning and setting up of this blog project. Here you will see a list of all epics, the user stories connected to these epics and  
+  the acceptance criteria for each user story.  Each user story is catgorised into must haves, should have, could have. The Kanban board was used to draw up the individual tasks into different columns namely to do, in progress, done and and will not have..  As each task was worked on it moved from the to do column to the in progress column
     to the final column of done. 
       
   ## Structure - Database
 
-    Structure of Blog Site 
-    diagram of pages and blog site
+  Structure of Blog Site 
+  diagram of pages and blog site
 
-    Header, footer and navigation bar consistent through all pages.
-    links, buttons and forms provide feedback to the user of the site. 
-    When a user signs up to the blog they have the opportunity to interact with the content by adding, deleting, updating their own posts and comments and  viewing, liking other posts and comments 
+  Header, footer and navigation bar consistent through all pages.
+  links, buttons and forms provide feedback to the user of the site. 
+  When a user signs up to the blog they have the opportunity to interact with the content by adding, deleting, updating their own posts and comments and  viewing, liking other posts and comments 
 
-    Database Model 
-    The database model is displayed on drawsql.  The type of database being used for this project is relational database which is managaed by PostgreSQL.
+  Database Model 
+  The database model is displayed on drawsql.  The type of database being used for this project is relational database which is managaed by PostgreSQL.
     
-    put in draw sql diagram
+  put in draw sql diagram
 
-    The CSI blog has four Models 
-    Post Model
-    Name - this is the name given to the post by the contributor .
-    Category - the post will fall into a category from the folloiwng list - Health and Safety, Quality, Legislation, Project and Holidays. 
-    Slug - a unique slug to identify the post. 
-    Contributor - the user who is adding the post.  
-    Date - stores the current date of the post.
-    Revised - stores the revision date of a post by contributor.
-    Image - stores the image that will be displayed with the post.
-    Content - content that is inputted by the contributor.  
-    No of Likes - the number of likes that a post has received.
-    Excerpt - snippet of the post.  
-    Status - this will store wheather the post is approved or not approved.  
+  The CSI blog has four Models 
+  Post Model
+  Name - this is the name given to the post by the contributor .
+  Category - the post will fall into a category from the folloiwng list - Health and Safety, Quality, Legislation, Project and Holidays. 
+  Slug - a unique slug to identify the post. 
+  Contributor - the user who is adding the post.  
+  Date - stores the current date of the post.
+  Revised - stores the revision date of a post by contributor.
+  Image - stores the image that will be displayed with the post.
+  Content - content that is inputted by the contributor.  
+  No of Likes - the number of likes that a post has received.
+  Excerpt - snippet of the post.  
+  Status - this will store wheather the post is approved or not approved.  
 
-    Comment Model 
-    Post - a foreign key from the post model storeing post being commented.
-    on.  
-    Title - stores the title of the comment. 
-    Author - a foreign key from the post  model storing the author.
-    Added - date the comment was added.
-    Mainbody - content that is inputted by the author.  
-    Approved - indicates where the comment is approved or not 
+  Comment Model 
+  Post - a foreign key from the post model storeing post being commented.
+  on.  
+  Title - stores the title of the comment. 
+  Author - a foreign key from the post  model storing the author.
+  Added - date the comment was added.
+  Mainbody - content that is inputted by the author.  
+  Approved - indicates where the comment is approved or not 
 
-    Review Model
-    Score - will store a score ---------come back to 
+  Review Model
+  Score - will store a score ---------come back to 
 
-    Category Model
-    Name - stores the name of each category.  
+  Category Model
+  Name - stores the name of each category.  
 
 ## Skeleton - Wireframes
 
