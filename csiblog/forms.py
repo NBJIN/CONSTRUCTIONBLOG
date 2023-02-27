@@ -70,15 +70,3 @@ class CommentUpdate(forms.ModelForm):
         }
         success_message = "You have successfully added your comment.."
 
-
-# class CategoryAddForm(forms.ModelForm):
-#     class Meta:
-#         model = Category
-#         fields = ['name']
-#         labels = {
-#             'name': 'Name:'
-#                   }
-#         widgets = {
-#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your category name'}),
-#         }
-#         success_message = "You have successfully added your comment.."

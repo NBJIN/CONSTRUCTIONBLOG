@@ -186,9 +186,6 @@ class CommentAddView(CreateView):
 #     # permission_denied_message = 'You are not allowed access here please login'
 #     success_url = reverse_lazy('postread')
 #     success_message = "You have successfully added your comment.."
-
-
-
 # class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 #     model = Comment
 #     template_name = "commentadd.html"
@@ -248,12 +245,3 @@ class CommentDelete(DetailView):
 # def CommentDelete(id):
 #     comment = Comment.queryset.get(id=id)
 #     comment.delete()
-
-
-# class CategoryAddView(CreateView):
-#     model = Category
-#     template_name = "categoryadd.html"
-#     fields = ['name']
-
-#     def get_success_url(self):
-#         return reverse_lazy('categoryadd', args=[self.object.pk])
