@@ -19,7 +19,7 @@ if os.path.isfile('env.py'):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates'),
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates'),
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,7 +33,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['csiproject.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -78,7 +78,8 @@ ROOT_URLCONF = 'csiproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
