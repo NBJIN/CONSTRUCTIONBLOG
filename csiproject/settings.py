@@ -33,7 +33,10 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['construction-blog-ee8a7cdfc526.herokuapp.com', 'localhost']
+
+
 
 
 # Application definition
