@@ -35,7 +35,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost']
 # ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost', 'construction-blog-ee8a7cdfc526.herokuapp.com']
-ALLOWED_HOSTS = ['construction-blog-ee8a7cdfc526.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['construction-blog-ee8a7cdfc526.herokuapp.com', 'localhost', '8000-nbjin-constructionblog-5hibpduly1u.ws-eu101.gitpod.io']
 
 
 
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'csiblog',
     'djrichtextfield',
     'ckeditor',
+    'django_summernote',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
