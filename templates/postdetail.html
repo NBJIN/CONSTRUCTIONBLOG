@@ -70,8 +70,14 @@
     <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
     <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
     <a href="{% url 'commentdelete' post.pk %}">Delete Comment </a>
+
+ 
 <br>
 {% endif %}
+<form action="{% url 'post_like' post.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit", name="post_like" value="{{ post.id }}", class="btn btn-primary btn-sm">Like</button> - Number of Likes | <strong>{{ no_of_likes }}</strong> 
+</form>
 {% else %}
 <a href="{% url 'postread' %}">Home</a>  
 {% endif %}

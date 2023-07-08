@@ -9,7 +9,7 @@ from .views import (
     PostDelete
 )
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
-from .views import CommentAddView,  CommentUpdate, CommentDelete
+from .views import CommentAddView,  CommentUpdate, CommentDelete, PostlikeView
 
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('postdetail/<int:pk>/commentadd/', CommentAddView.as_view(), name='commentadd'),
     path('commentupdate/<int:pk>', CommentUpdate.as_view(), name='commentupdate'),
     path('commentdelete/<int:pk>', CommentDelete.as_view(), name='commentdelete'),
+    path('likes/<int:pk>', PostlikeView, name='post_like'),
 ]

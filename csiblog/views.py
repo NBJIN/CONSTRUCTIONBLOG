@@ -8,7 +8,7 @@ from django.views.generic.edit import (
     UpdateView,
     DeleteView
 )
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Post, Comment
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
@@ -132,6 +132,15 @@ class PostDetailView(DetailView):
     template_name = "postdetail.html"
     success_url = reverse_lazy('postread.html')
 
+    def get_context_data(self, **kwargs):
+        # like = get_object_or_404(Post, id=self.kwargs['pk'])
+        # post_like = like.post_like()
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        context['no_of_likes'] = post.no_of_likes
+        return context
+
+
     # def get(self, reqeust, slug, *args, **kwargs):
     #     queryset = Post.objects.filter(status=1)
     #     post = get_object_or_404(queryset, slug=slug)
@@ -240,6 +249,12 @@ class CommentDelete(DetailView):
     # login_url = 'postread'
     # success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postdetail')
+
+
+def PostlikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_like'))
+    post.no_of_likes.add(request.user)
+    return HttpResponseRedirect(reverse('postdetail', args=[str(pk)]))
 
 
 # def CommentDelete(id):
