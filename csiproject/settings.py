@@ -34,7 +34,7 @@ DEBUG = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost']
-ALLOWED_HOSTS = ['constructionblog.herokuapp.com', 'localhost', 'construction-blog-ee8a7cdfc526.herokuapp.com']
+ALLOWED_HOSTS = ['construction-blog.herokuapp.com', 'localhost', 'construction-blog-ee8a7cdfc526.herokuapp.com']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+
     # apps
     'crispy_forms',
     'csiblog',
