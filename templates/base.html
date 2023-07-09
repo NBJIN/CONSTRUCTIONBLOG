@@ -118,7 +118,7 @@
   </nav>
 </div>
 <div class="bg-color-main">
-  <img src="{% static 'images/crane.jpg' %}" alt="logo" class="background-image-main" style="width: 100%; height: 100%">
+  <img src="{% static 'images/crane.jpg' %}" alt="logo" class="background-image-main" style="width: 100vw; height: 100vh">
     <div class="overlay"></div>
     <div class="block-content">
     {% block content %}
@@ -127,9 +127,9 @@
 </div>
 </div>
 
-  <footer class="bg-col">
+  <!-- <footer class="bg-col"> -->
     <!-- <div class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
-      <div class="container-fluid">
+      <!-- <div class="container-fluid">
       
 
         <div class="d-flex">
@@ -147,8 +147,23 @@
         </ul> 
     
       </div>
-    </div>
+    </div> -->
    <!-- </div> -->
+  <!-- </footer> -->
+
+  <footer class="container-fluid bg-col">
+    <div id="footer-info" class="row">
+      <!-- <div class="col-sm-4"> -->
+        <H4>Construction Safety Information Blog</H4>
+        <p>Please contribute by posting on our blog. </p>
+      </div>
+      <!-- <div class="col-sm-4"> -->
+        <h5>Social Meida Links</h5>
+        <p><a href="http://www.facebook.com" class="footerstyling-target" target="_blank" rel="noopener" aria-label="find us on facebook link opens in new page"><i class ="fa-brands fa-facebook"></i></a></p>
+        <p><a href="http://www.twitter.com" class="footerstyling-target" target="_blank" rel="noopener" aria-label="find us on twitter link opens in new page"><i class ="fa-brands fa-twitter-square"></i></a></p>
+        <p><a href="http://www.instagram.com" class="footerstyling-target" target="_blank" rel="noopener" aria-label="find us on instagram link opens in new page"><i class ="fa-brands fa-instagram-square"></i></a></p>
+      </div>
+    </div>
   </footer>
 
   <script>
