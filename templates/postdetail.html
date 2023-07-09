@@ -2,28 +2,28 @@
 
 {% block content %}  
 
-{% block title %}<h3>Detailed Post</h3>{% endblock %} 
+{% block title %}<h3 class="detailed-post-title">Detailed Post</h3>{% endblock %} 
            
-        <br> 
-        <strong>  
+        <!-- <br>  -->
+        <!-- <strong>  
         {{ post.name | safe }}</a>
-        </strong>
-         <br>
+        </strong> -->
+         <!-- <br> -->
          <strong>
         {{ post.contributor| safe  }}
         </strong>
-        <br>
+        <!-- <br> -->
         <strong>
         {{ post.date | safe }}
         </strong>
-         <br>
+         <!-- <br> -->
         
          {{ post.content | safe }}
          
+        <!-- <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br> -->
         {% if user.is_authenticated %}
             {% if user.id == post.contributor.id %}
                 <a href="{% url 'postupdate' post.pk %}">Update Post</a>
