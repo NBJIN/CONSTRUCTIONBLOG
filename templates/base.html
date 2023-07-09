@@ -3,77 +3,83 @@
 <!DOCTYPE html>
 <html class="h-100">
 
-<head>
-    <title>CSI Blog</title>
+  <head>
+      <title>CSI Blog</title>
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+      
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+      </script>
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-</head> 
+  </head> 
 
-<body>
+  <body>
   <div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-col">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Construction Safety Information Blog </a>
+      <a class="navbar-brand" href="#">
+      <img src="{% static 'images/Logo.jpg' %}" alt="logo" class="img-fluid" style="width: 300px; height: 150px">
+      </a>
+      
+      <!-- <a class="navbar-brand" href="#">Construction Safety Information Blog </a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      current user: {{ post.contributor.id}}
-        <form class="d-flex">
+        <!-- current user: {{ post.contributor.id}} -->
+      <form class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-4">
            
 
 
-<div>
+          <!-- <div> -->
 
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-    <!-- <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}> -->
-        {{ message | safe  }}
-    <!-- </div> -->
-    {% endfor %}"
-<!-- </div> -->
-{% endif %}
-
-
-<script>
-    setTimeout(function () {
-        let messages = document.getElementById("mess");
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 3000);
-</script>
-
-</div>
-
-
-
-            <div>
-          {% if messages %}
+        {% if messages %}
           <div class="messages">
+            {% for message in messages %}
+            <!-- <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}> -->
+            {{ message | safe  }}
+            <!-- </div> -->
+            {% endfor %}"
+            </div>
+        {% endif %}
+
+
+        <script>
+            setTimeout(function () {
+                let messages = document.getElementById("mess");
+                let alert = new bootstrap.Alert(messages);
+                alert.close();
+            }, 3000);
+        </script>
+
+        </div>
+
+
+
+        <div class="ml-auto">
+          {% if messages %}
+            <div class="messages">
               {% for message in messages %}
               {% if message.tags %}
-              <div class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}>
+                <div class="alert alert-sm alert-{{ message.tags }}" id="mess" {% endif %}>
                   {{ message | safe  }}
-              </div>
+                </div>
               {% endfor %}"
-          </div>
+            </div>
           {% endif %}
-        </div>
-        <div>
-            {% if user.is_authenticated %}
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto justify-content-center">
+           {% if user.is_authenticated %}
             <li>Welcome {{ user.username }}</li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
@@ -98,12 +104,12 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'postread' %}">Home</a>
             </li>
-        
+            
            {% endif %}
-
+          </ul>
             </div>
             
-          </ul> -->
+          </ul> 
           <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button> -->
         </form>
@@ -111,43 +117,40 @@
     </div>
   </nav>
 </div>
-<div>
+<div class="bg-color-main">
+  <img src="{% static 'images/crane.jpg' %}" alt="logo" class="background-image-main" style="width: 100%; height: 100%">
+    <div class="overlay"></div>
+    <div class="block-content">
     {% block content %}
     <!-- Content Goes here -->
-  
+    {% endblock content %}
+</div>
 </div>
 
-</body>
-<footer>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-    </div>
-
-
-  <div class="d-flex">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-4">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
-      </li>
+  <footer class="bg-col">
+    <!-- <div class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
+      <div class="container-fluid">
       
-    </ul> 
-  
-  </div>
-</nav>
-</footer>
 
+        <div class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-4">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+        
+        </ul> 
+    
+      </div>
+    </div>
+   <!-- </div> -->
+  </footer>
 
-  </html>
-
-
-
- <!-- {% endblock content %}
   <script>
     setTimeout(function () {
         let messages = document.getElementById("mess");
@@ -157,5 +160,11 @@
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> --> 
- <!-- </body> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+
+</body>
+
+</html>
+
+
+
