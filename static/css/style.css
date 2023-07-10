@@ -189,3 +189,19 @@ h1 .signin-heading {
 .postcreate-link:hover {
     color: white;
 }
+
+
+/* Create Post Page */
+.create-title {
+    margin: 0;
+}
+
+.center-form {
+    padding-top: 5px;
+}
+
+
+.create-submit {
+    background-color:  rgb(1, 116, 129);
+    padding: 5px;
+}

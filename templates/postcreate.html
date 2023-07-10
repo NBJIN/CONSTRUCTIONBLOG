@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% block title %}<h3>Create Post</h3>{% endblock %} 
+{% block title %}<h3 class="text-center create-title">Create Post</h3>{% endblock %} 
 
 <!-- <h1>Add Post</h1>
 {% for postadd in object_list %}
@@ -12,14 +12,20 @@
 {% endfor %} -->
 <!-- 
 <div> -->
+
+  <div class="container">
+    <div class="center-form col-md-6" style="margin-top: -40px">
   
   {% if user.is_authenticated %}
     {% if user.id == post.contributor.id %}
     Please Login to update post. 
  
   {% else %}
-  <a href="{% url 'postread' %}">    
-    {{ post.name | safe }}</a>
+  <a href="{% url 'postread' %}"> 
+    <!-- <strong>   
+    {{ post.name | safe }}
+  </strong>
+</a>
     <br>
     {{ post.slug | safe }}
     <br>
@@ -31,8 +37,9 @@
     <br>
     {{ post.content | safe }} 
     <br>
+    </strong> -->
    </a>
-
+   
   <form method="POST" enctype="multipart/form-data" >
 
     {% include 'messages.html' %}
@@ -40,10 +47,12 @@
     {% csrf_token %}
     {{ form.as_p }}
    
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" class="create-submit"/>
       <a href="{% url 'postread' %}"> 
        
   </form>
+   </div>
+  </div>
 
   <br>
         {% endif %}
