@@ -1,24 +1,66 @@
 {% extends "base.html" %}
 
-{% block content %}  
+{% block content %} 
+<div class="blockcontent-postdetail"></div> 
 
-{% block title %}<h3 class="detailed-post-title">Detailed Post</h3>{% endblock %} 
+{% block title %}
+    <h3 class="text-center detailed-title">Detailed Post</h3>
+{% endblock %} 
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">     
+            <div class="card text-white bg-special mb-3 shadow-lg mb-6">
+                <div class="text-center card-image">
+                <img src="{{ post.image.url }}" class="card-img" alt="post-image" style="width: 800px; height: 400px">
+                </div>
+                <div class="card-body">  
+
+                <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.slug | safe }}</p>
+                <p class="card-text ms-3"><strong>Author:</strong>&nbsp;{{ post.contributor | safe }}</p>
+                <p class="card-text ms-3"><strong>Date:</strong>&nbsp; {{ post.date | safe }}</p>
+                <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
+                <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | safe }}</p>
+                {% if user.is_authenticated %}
+                {% if user.id == post.contributor.id %}
+                    <a href="{% url 'postupdate' post.pk %}" class="postupdate-link">Update Post</a> &nbsp; 
+    
+                    <a href="{% url 'postdelete' post.pk %}" class="postdelete-link">Delete Post</a> &nbsp; 
+    
+                    <a href="{% url 'postcreate' post.pk %}" class="postcreate-link">Create Post</a> &nbsp; 
+    
+                 {% endif %}   
+                                  
+            {% else %}
+            
+            <a href="{% url 'postread' %}">Home</a>  
+            {% endif %}
+            </div>
+        </div>
+        
+        </div>
+  
+    </div>
+
+</div>
            
         <!-- <br>  -->
         <!-- <strong>  
         {{ post.name | safe }}</a>
         </strong> -->
          <!-- <br> -->
-         <strong>
+         <!-- <strong>
         {{ post.contributor| safe  }}
-        </strong>
+        </strong> -->
         <!-- <br> -->
-        <strong>
+        <!-- <strong>
         {{ post.date | safe }}
-        </strong>
+        </strong> -->
          <!-- <br> -->
-        
-         {{ post.content | safe }}
+<!--         
+         {{ post.content | safe }} -->
          
         <!-- <br>
         <br>
@@ -26,20 +68,7 @@
         <br> -->
 
         
-        {% if user.is_authenticated %}
-            {% if user.id == post.contributor.id %}
-                <a href="{% url 'postupdate' post.pk %}">Update Post</a>
-
-                <a href="{% url 'postdelete' post.pk %}">Delete Post</a> 
-
-                <a href="{% url 'postcreate' post.pk %}">Create Post</a>   
-
-             {% endif %}   
-                              
-        {% else %}
-        
-        <a href="{% url 'postread' %}">Home</a>  
-        {% endif %}
+    
   
    <hr> 
  

@@ -163,3 +163,29 @@ h1 .signin-heading {
     background-color: rgb(1, 116, 129);
   
 }
+
+
+/* postdetail page */
+
+.detailed-title {
+    margin-top: -5px;
+
+}
+
+.blockcontent-postdetail {
+    margin-top: -1100px;
+}
+
+.postupdate-link,
+.postdelete-link,
+.postcreate-link {
+    color: rgb(237,177,79);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.postupdate-link:hover,
+.postdelete-link:hover,
+.postcreate-link:hover {
+    color: white;
+}
