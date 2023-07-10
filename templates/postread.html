@@ -2,35 +2,38 @@
 
 {% block content %}
 
-{% block title %}<h3>List of Blog Posts</h3>{% endblock %} 
+{% block title %}
+    <h3 class="text-center mx-auto">List of Blog Posts</h3>
+{% endblock %} 
 
-<div>
-    <br>
-    {% for post in object_list %}
-    <strong>
-    <a href="{% url 'postdetail' post.pk %}">    
-    {{ post.name | safe }}  
-    </a>
-    </strong>
-    <br>
-    <strong>
-    {{ post.contributor| safe }}  &nbsp; 
-    </strong>
-    <br>
-    <strong>
-    {{ post.date | safe }}  &nbsp;
-    </strong>
-    <br>
-    {{ post.image | safe }}  &nbsp;
-    <br>
-    <p>{{ post.content | slice:":400" | safe }}...</p> 
-    <br>
-    <hr>
-  
 
-   
-   
+    <div class="container">
+        <div class="row">
+            {% for post in object_list %}
+            <div class="col-md-4">
+            
+         
+                <div class="card text-white bg-special mb-3 shadow-lg mb-6">
+                    <div class="text-center card-image">
+                    <img src="{{ post.image.url }}" class="card-img" alt="post-image" style="width: 400px; height: 300px">
+                    </div>
+                    <div class="card-body">  
+
+                    <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.slug | safe }}</p>
+                    <p class="card-text ms-3"><strong>Author:</strong>&nbsp;{{ post.contributor | safe }}</p>
+                    <p class="card-text ms-3"><strong>Date:</strong>&nbsp; {{ post.date | safe }}</p>
+                    <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
+                    <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | slice:":400" | safe }}</p>
+                    <a href="{% url 'postdetail' post.pk %}" class="postdetail-link">Read More </a>
+                </div>
+            </div>
+            
+            </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+            <div class="row">
+        {% endif %}
     {% endfor %}
- 
-
-{% endblock %}
+    </div>
+    </div>
+ {% endblock %}

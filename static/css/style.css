@@ -55,7 +55,7 @@ body {
 
 .block-content {
     position: relative;
-    top: 1%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -129,4 +129,37 @@ h1 .signin-heading {
 .login {
     position: relative;
     z-index: 1000;
+}
+
+/* Home Page */
+.card-text {
+    color: black
+}
+
+.text-center {
+    background-color: rgb(1, 116, 129);
+    padding: 10px;
+  
+}
+
+.card-body {
+    background-color: rgb(1, 116, 129);
+}
+
+.postdetail-link {
+    color:  rgb(237,177,79);
+    text-decoration: none;
+}
+
+.postdetail-link:hover {
+    color: white;
+}
+
+.card-image {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    align-items: center;
+   
+    background-color: rgb(1, 116, 129);
+  
 }
