@@ -18,6 +18,7 @@ from django.views.generic import TemplateView
 from .forms import PostForm, CommentForm, CommentUpdate
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 class UserSignup(SuccessMessageMixin, CreateView):
@@ -139,6 +140,12 @@ class PostDetailView(DetailView):
         post = self.get_object()
         context['no_of_likes'] = post.no_of_likes
         return context
+
+
+class PostListView(ListView):
+    model = Post
+    template_name = "postread.html"
+    paginate_by = 3
 
 
     # def get(self, reqeust, slug, *args, **kwargs):

@@ -2,18 +2,23 @@
 
 {% block content %}
 
-<h1>Construction Safety Information Blog</h1>
-<h3>Add Comment</h3>
+<h3 class="text-center">Add Comment</h3>
+
+<div class="container">
+    <div class="center-form col-md-6" style="margin-top: -40px">
 
 <form method="post">
     {% csrf_token %}
    
     {{ form.as_p }}
     
-    <input type="Submit" value="Submit">
+    <input type="Submit" value="Submit" class="create-submit">
  
 </form>
 <a href="{% url 'postread' %}"> 
+
+</div>
+</div>
 
 {% endblock %}
 
