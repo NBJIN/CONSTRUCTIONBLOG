@@ -1,6 +1,8 @@
 /* Remove horizontal scroll */
 body {
     overflow-x: hidden;
+
+  
 }
 
 .bg-col {
@@ -49,18 +51,18 @@ body {
     height: 170vh;
     background-color: rgb(237,177,79);
     opacity: 0.7;
-    padding-bottom: 2px;
+    /* padding-bottom: 2px; */
 
 }
 
 .block-content {
     position: relative;
-    top: 15%;
+    top: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    margin-top: -350px;
-    margin-bottom: -700px;
+    /* margin-top: -350px;
+    margin-bottom: -700px; */
     padding: 10px;
   
 
@@ -70,7 +72,7 @@ body {
 
 }
 
-.footer-info {
+#footer-info {
     padding-top: 11px;
 }
 
@@ -138,7 +140,10 @@ h1 .signin-heading {
 
 .text-center {
     background-color: rgb(1, 116, 129);
-    padding: 10px;
+    padding: 1rem;
+   
+    font-size: 40px;
+ 
   
 }
 
@@ -162,6 +167,9 @@ h1 .signin-heading {
    
     background-color: rgb(1, 116, 129);
   
+}
+.container-main {
+    /* margin-top: 20%; */
 }
 
 

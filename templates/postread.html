@@ -7,7 +7,7 @@
 {% endblock %} 
 
 
-    <div class="container">
+    <div class="container-main">
         <div class="row">
             {% for post in object_list %}
             <div class="col-md-4">
@@ -23,7 +23,7 @@
                     <p class="card-text ms-3"><strong>Author:</strong>&nbsp;{{ post.contributor | safe }}</p>
                     <p class="card-text ms-3"><strong>Date:</strong>&nbsp; {{ post.date | safe }}</p>
                     <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
-                    <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | slice:":400" | safe }}</p>
+                    <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | slice:":200" | safe }}</p>
                     <a href="{% url 'postdetail' post.pk %}" class="postdetail-link">Read More </a>
                 </div>
             </div>
@@ -47,6 +47,7 @@
             </a> -->
           </li>
           {% endif %}
+          <span>{{ page_obj.number}}</span>
           {% if page_obj.has_next %}
           <li><a class="page-link" href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
           {% endif %}

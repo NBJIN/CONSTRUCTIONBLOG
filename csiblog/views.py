@@ -141,12 +141,26 @@ class PostDetailView(DetailView):
         context['no_of_likes'] = post.no_of_likes
         return context
 
+# class PostListView(ListView):
+#     model = Post
+#     template_name = "postread.html"
+#     paginate_by = 3
 
-class PostListView(ListView):
-    model = Post
-    template_name = "postread.html"
-    paginate_by = 3
 
+def postread(request):
+    posts = Post.objects.all()
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    # is_paginated = paginator.num_pages > 1
+
+    # context = {
+    #     'page_obj': page_obj,
+    #     'is_paginated': is_paginated,
+    # }
+
+    return render(request, 'postread.html', context)
 
     # def get(self, reqeust, slug, *args, **kwargs):
     #     queryset = Post.objects.filter(status=1)
