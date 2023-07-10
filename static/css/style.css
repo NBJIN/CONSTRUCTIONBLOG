@@ -14,7 +14,13 @@ body {
     
 }
 
+.nav-link {
+    color: white !important;
+}
 
+.nav-link:hover {
+    color: rgb(237,177,79) !important; 
+}
 
 .container-logo {
     max-width: 30%;
@@ -72,20 +78,22 @@ body {
     display: inline-block;
 }
 
-.footerstyling-target {
+/* .footerstyling-target {
     width: 30px;
     height: 30px;
     padding: 20px 1px;
     border-radius: 40%;
     font-size: 12px;
     text-align: center;
-    color: rgb(237,177,79);
+    color: rgb(237,177,79); */
     /* background: white; */
 
-}
+/* .i */
 
 h4, h5, .phone, .email, .contribute  {
     color: white;
+    
+    
 }
 
 #footer-info {
@@ -98,3 +106,27 @@ h4, h5, .phone, .email, .contribute  {
 
 /* postdetail page */
 
+
+.fa-facebook, .fa-twitter-square, .fa-instagram-square {
+  font-size: 40px;
+  color: white;
+}
+
+.fa-facebook:hover,
+.fa-twitter-square:hover,
+.fa-instagram-square:hover {
+    color: rgb(237,177,79);
+
+}
+
+
+/*Login Page */
+
+h1 .signin-heading {
+    margin-top: 5px;
+}
+
+.login {
+    position: relative;
+    z-index: 1000;
+}

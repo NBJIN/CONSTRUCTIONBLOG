@@ -24,6 +24,8 @@
         <br>
         <br>
         <br> -->
+
+        
         {% if user.is_authenticated %}
             {% if user.id == post.contributor.id %}
                 <a href="{% url 'postupdate' post.pk %}">Update Post</a>
