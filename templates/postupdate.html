@@ -2,8 +2,11 @@
 
 {% block content %}
 
-  <h1>Construction Safety Information Blog</h1>
-  <h3>Create Update</h3>
+
+  <h3 class="text-center update-title">Update Post</h3>
+
+  <div class="container">
+    <div class
 
   {% if user.is_authenticated %}
     {% if user.id == post.contributor.id %}
