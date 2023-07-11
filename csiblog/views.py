@@ -138,7 +138,8 @@ class PostDetailView(DetailView):
         # post_like = like.post_like()
         context = super().get_context_data(**kwargs)
         post = self.get_object()
-        context['no_of_likes'] = post.no_of_likes
+        context['no_of_likes'] = post.no_of_likes.count()
+        context['liked'] = post.no_of_likes.filter(id=self.request.user.id).exists()
         return context
 
 # class PostListView(ListView):
@@ -192,15 +193,24 @@ def CommentView(id):
     comment = Comment.queryset.get(id=id)
     comment.view()
 
-    # def likes(self, request, slug):
-    #     likes = get_object_or_404(likes)
 
-    #     if post.likes.filter(id=request.user.id).exists():
-    #         post.likes.remove(request.user)
-    #     else:
-    #         post.likes.add(request.user)
-    #         return HttpResponseRedirect(reverse('postdetail', args=[slug]))
+def PostlikesView(request, pk):
+        # likes = get_object_or_404(likes)
 
+        # if post.likes.filter(id=request.user.id).exists():
+        #     post.likes.remove(request.user)
+        # else:
+        #     post.likes.add(request.user)
+        #     return HttpResponseRedirect(reverse('postdetail', args=[slug]))
+    post = get_object_or_404(Post, pk=pk)
+    liked = False
+    if post.no_of_likes.filter(id=request.user.id).exists():
+        post.no_of_likes.remove(request.user)
+        liked = False
+    else:
+        post.no_of_likes.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse("postdetail", args=[str(pk)]))
 
 # def CommentAddView(id):
 #     comment = Comment.queryset.get(id=id)
@@ -272,10 +282,10 @@ class CommentDelete(DetailView):
     success_url = reverse_lazy('postdetail')
 
 
-def PostlikeView(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_like'))
-    post.no_of_likes.add(request.user)
-    return HttpResponseRedirect(reverse('postdetail', args=[str(pk)]))
+# def PostlikeView(request, pk):
+#     post = get_object_or_404(Post, id=request.POST.get('postlikes-button'))
+#     post.no_of_likes.add(request.user)
+#     return HttpResponseRedirect(reverse('postdetail', args=[str(pk)]))
 
 
 # def CommentDelete(id):

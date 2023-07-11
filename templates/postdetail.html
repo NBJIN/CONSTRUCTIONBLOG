@@ -119,21 +119,21 @@
 <br>
 {% endif %}
 <div class="mt-auto text-end">
-<form action="{% url 'post_like' post.pk %}" method="POST">
+<form action="{% url 'post_like' pk=post.pk %}" method="POST">
     {% csrf_token %}
     {% if user.is_authenticated %}
     {% if liked %}
     <div class="col mb-3 px-2">
         <span id="likes_total"><i class="fa-solid fa-heart"></i>{{ no_of_likes }}</span>
     
-    <button type="submit", name="post_like" value="{{ post.id }}", class="btn btn-danger mt-1"><i class="fa-solid fa-heart"></i>
+    <button type="submit", name="postlikes-button" value="{{ post.id }}", class="btn btn-danger mt-1"><i class="fa-solid fa-heart"></i>
         Unlike</button> 
 
 </div>
 {% else %}
-<div class="col mb-3 pex-2">
+<div class="col mb-3 px-2">
     <span id="likes_total"><i class="fa-solid fa-heart"></i>{{ no_of_likes }}</span>
-    <button type="submit" name="postlikebutton" value="{{ post.id }}"
+    <button type="submit" name="postlikebutton" value="{{ post.pk }}"
     class="btn btn-success mt-1"><i class="fa-regular fa-heart"></i>Like</button>
 </div>
 {% endif %}

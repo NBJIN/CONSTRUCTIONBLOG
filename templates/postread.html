@@ -25,6 +25,12 @@
                     <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
                     <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | slice:":200" | safe }}</p>
                     <a href="{% url 'postdetail' post.pk %}" class="postdetail-link">Read More </a>
+                    &nbsp;
+                    <div class="cardlikes">
+                      <a href="{% url 'post_like' pk=post.pk %}">
+                        <i class="fa-solid fa-heart"></i>   {{ post.no_of_likes.all.count }} </a>
+                    </div>
+                 
                 </div>
             </div>
          
