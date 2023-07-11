@@ -121,6 +121,26 @@ h4, h5, .phone, .email, .contribute  {
 
 }
 
+.fa-thumbs-up {
+    font-size: 40px;
+    color: white;
+  }
+
+.fa-thumbs-down {
+    font-size: 40px;
+    color: white;
+}
+
+
+  
+  /* .fa-facebook:hover,
+  .fa-twitter-square:hover,
+  .fa-instagram-square:hover {
+      color: rgb(237,177,79);
+  
+  } */
+
+
 
 /*Login Page */
 
