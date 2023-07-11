@@ -73,16 +73,18 @@
    <hr> 
  
 
-    <h2>Comment On The Post Above....</h2>
+    <h2 class="comment-title">Comment On The Post Above....</h2>
 
     {% if user.is_authenticated %}
     {% if user.id == post.contributor.id %}
 
         {% if not post.csiblog_comment.all %}
-        No Comments Added As Of Yet    
-        <a href="{% url 'commentadd' post.pk %}">
+        <h3>No Comments Added As Of Yet......!</h3>
+
+        <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">
         Add Comment
         </a>
+
         {% else %}
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
        {% for comment in post.csiblog_comment.all %}
@@ -99,8 +101,8 @@
 
 <br>
     <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
-    <a href="{% url 'commentupdate' post.pk %}">Update Comment </a>
-    <a href="{% url 'commentdelete' post.pk %}">Delete Comment </a>
+    <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>
+    <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>
 
  
 <br>
