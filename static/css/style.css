@@ -170,6 +170,7 @@ h1 .signin-heading {
 }
 .container-main {
     /* margin-top: 20%; */
+    justify-content: center;
 }
 
 
@@ -201,23 +202,30 @@ h1 .signin-heading {
 }
 
 .comment-title {
-    text-align: center;
+    text-align: left;
     padding: 4px;
     background: rgb(1, 116, 129);
+}
+
+.add-comment {
+    color: black;
 }
 
 .commentadd-link,
 .commentupdate-link,
 .commentdelete-link {
-    color: rgb(1, 116, 129);
+    background-color: rgb(1, 116, 129);
+    padding: 15px;
     font-size: 20px;
+    color: white;
     text-decoration: none;
+   
 }
 
 .commentadd-link:hover,
 .commentupdate-link:hover,
 .commentdelete-link:hover {
-    color: white;
+    Background-color: rgb(237,177,79);
 }
 
 
@@ -233,6 +241,17 @@ h1 .signin-heading {
 
 .create-submit {
     background-color:  rgb(1, 116, 129);
-    padding: 5px;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+
 }
+
+
+.create-submit:hover {
+    background-color: rgb(237,177,79);
+}
+
+
 

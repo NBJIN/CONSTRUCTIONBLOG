@@ -5,6 +5,7 @@
 
 {% block title %}
     <h3 class="text-center detailed-title">Detailed Post</h3>
+
 {% endblock %} 
 
 
@@ -79,12 +80,19 @@
     {% if user.id == post.contributor.id %}
 
         {% if not post.csiblog_comment.all %}
+        <br>
+        <br>
         <h3>No Comments Added As Of Yet......!</h3>
-
-        <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">
-        Add Comment
-        </a>
-
+        <br>
+            <br>
+            <h5 class="add-comment">
+        <!-- <a href="{% url 'commentadd' post.pk %}" class="commentadd-link"> -->
+            
+        If you would like to add comment select button below.
+        <!-- </a> -->
+            </h5>
+            <br>
+            <br>
         {% else %}
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
        {% for comment in post.csiblog_comment.all %}
@@ -100,19 +108,46 @@
         {% endif %}
 
 <br>
-    <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
-    <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>
-    <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>
+    <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
+    <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp;
+    <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
 
- 
+ <br>
+            <br>
+<br>
+<br>
 <br>
 {% endif %}
+<div class="mt-auto text-end">
 <form action="{% url 'post_like' post.pk %}" method="POST">
     {% csrf_token %}
-    <button type="submit", name="post_like" value="{{ post.id }}", class="btn btn-primary btn-sm">Like</button> - Number of Likes | <strong>{{ no_of_likes }}</strong> 
-</form>
-{% else %}
-<a href="{% url 'postread' %}">Home</a>  
-{% endif %}
+    {% if user.is_authenticated %}
+    {% if liked %}
+    <div class="col mb-3 px-2">
+        <span id="likes_total"><i class="fa-solid fa-heart"></i>{{ no_of_likes }}</span>
+    
+    <button type="submit", name="post_like" value="{{ post.id }}", class="btn btn-danger mt-1"><i class="fa-solid fa-heart"></i>
+        Unlike</button> 
 
+</div>
+{% else %}
+<div class="col mb-3 pex-2">
+    <span id="likes_total"><i class="fa-solid fa-heart"></i>{{ no_of_likes }}</span>
+    <button type="submit" name="postlikebutton" value="{{ post.id }}"
+    class="btn btn-success mt-1"><i class="fa-regular fa-heart"></i>Like</button>
+</div>
+{% endif %}
+{% else %}
+
+<h4>To like this post please <a href="{% url 'register' %}">register</a> or<a href="{% url 'login' %}">login</a>Thank You.  </h4>
+
+
+<a href="{% url 'postread' %}">Home</a>  
+
+{% endif %}
+</form>
+
+
+</div>
+{% endif %}
 {% endblock %}   
