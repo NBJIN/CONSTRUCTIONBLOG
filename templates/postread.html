@@ -28,7 +28,8 @@
                     &nbsp;
                     <div class="cardlikes">
                       <a href="{% url 'post_like' pk=post.pk %}">
-                        <i class="fa-solid fa-heart"></i>   {{ post.no_of_likes.all.count }} </a>
+                        <i class="fas fa-solid fa-thumbs-up"></i>   {{ post.no_of_likes.all.count }} </a>
+                        <p>Please login to like or comment on a post.</p>
                     </div>
                  
                 </div>

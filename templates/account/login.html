@@ -6,14 +6,19 @@
 
 {% block content %}
 
-  <h1 class="signin-heading">{% trans "Sign In" %}</h1>
+  <h1 class="text-center signin-heading">{% trans "Sign In" %}</h1>
 
-</div>
+<div>
 
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<h4 class="text-black">{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</h4>
+<br>
+<br>
+<br>
+
 
 <div class="container">
+  <div class="center-form col-md-6" style="margin-top: -40px">
  
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
@@ -24,5 +29,7 @@
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
  </form>
+</div>
+</div>
 </div>
 {% endblock %}

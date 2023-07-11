@@ -19,6 +19,8 @@ from .forms import PostForm, CommentForm, CommentUpdate
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 
 class UserSignup(SuccessMessageMixin, CreateView):
@@ -194,6 +196,7 @@ def CommentView(id):
     comment.view()
 
 
+@login_required
 def PostlikesView(request, pk):
         # likes = get_object_or_404(likes)
 
@@ -204,13 +207,19 @@ def PostlikesView(request, pk):
         #     return HttpResponseRedirect(reverse('postdetail', args=[slug]))
     post = get_object_or_404(Post, pk=pk)
     liked = False
-    if post.no_of_likes.filter(id=request.user.id).exists():
-        post.no_of_likes.remove(request.user)
-        liked = False
-    else:
-        post.no_of_likes.add(request.user)
-        liked = True
-    return HttpResponseRedirect(reverse("postdetail", args=[str(pk)]))
+    if request.method == 'POST':
+        if post.no_of_likes.filter(id=request.user.id).exists():
+            post.no_of_likes.remove(request.user)
+            liked = False
+        else:
+            post.no_of_likes.add(request.user)
+            liked = True
+    total_no_of_likes = post.no_of_likes.count()
+    return redirect('postdetail', pk=pk)
+
+    # total_no_of_likes = post.no_of_likes.count()
+    # return render(request, 'postdetail.html', {'post': post, 'liked': liked, 'total_no_of_likes': total_no_of_likes})
+    # return HttpResponseRedirect(reverse("postdetail", args=[str(pk)]))
 
 # def CommentAddView(id):
 #     comment = Comment.queryset.get(id=id)

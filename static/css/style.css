@@ -123,14 +123,24 @@ h4, h5, .phone, .email, .contribute  {
 
 .fa-thumbs-up {
     font-size: 40px;
-    color: white;
+    color: rgb(237,177,79);
+    background-color: rgb(1, 116, 129);
+    padding: 15px;
+    
   }
 
-.fa-thumbs-down {
+
+
+.postlikebutton {
     font-size: 40px;
-    color: white;
+    color:  rgb(1, 116, 129);
+
+
 }
 
+#likes_total {
+    color: black;
+}
 
   
   /* .fa-facebook:hover,
@@ -144,14 +154,30 @@ h4, h5, .phone, .email, .contribute  {
 
 /*Login Page */
 
-h1 .signin-heading {
+.signin-heading {
     margin-top: 5px;
+    color: black;
+}
+
+.text-black {
+    color: black;
 }
 
 .login {
     position: relative;
     z-index: 1000;
 }
+
+.primaryAction {
+
+    background-color:  rgb(1, 116, 129);
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    
+    }
+
 
 /* Home Page */
 .card-text {

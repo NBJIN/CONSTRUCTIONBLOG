@@ -120,30 +120,47 @@
 {% endif %}
 <div class="mt-auto text-end">
 <form action="{% url 'post_like' pk=post.pk %}" method="POST">
+
     {% csrf_token %}
-    {% if user.is_authenticated %}
-    {% if liked %}
-    <div class="col mb-3 px-2">
-        <span id="likes_total"><i class="fas fa-solid fa-thumbs-down"></i>{{ no_of_likes }}</span>
+        {% if user.is_authenticated %}
+             {% if liked %}
+
+             <div class="col mb-3 px-2">
+                <span id="likes_total">{{ post.no_of_likes.count }}</span>
+              
+                <button type="submit" name="postlikebutton" class="postlikebutton" value="{{ post.pk }}" class="btn mt-1 float-start">
+                <i class="fas fa-thumbs-up" style="border: 1px solid black; padding: 5px;"></i>
+                Like</button>
+            </div>
+
+
+
+<!-- 
+                <div class="col mb-3 px-2">
+                    <span id="likes_total">{{ total_no_of_likes }}</span>
     
-    <button type="submit", name="postlikes-button" value="{{ post.id }}", class="btn btn-danger mt-1"><i class="fas fa-solid fa-thumbs-down"></i>
-        Unlike</button> 
+                    <button type="submit" name="postlikes-button" value="{{ post.pk }}" class="btn btn-danger mt-1 float-start">
+                    <i class="fas fa-thumbs-down"></i>
+                     like</button>   -->
 
-</div>
-{% else %}
-<div class="col mb-3 px-2">
-    <span id="likes_total"><i class="fas fa-solid fa-thumbs-up"></i>{{ no_of_likes }}</span>
-    <button type="submit" name="postlikebutton" value="{{ post.pk }}"
-    class="btn btn-success mt-1"><i class="fas fa-regular fa-thumbs-up"></i>Like</button>
-</div>
-{% endif %}
-{% else %}
+                </div>
+            {% else %}
+                 <div class="col mb-3 px-2">
+                    
+                  
+                    <button type="submit" name="postlikebutton" class="postlikebutton" value="{{ post.pk }}" class="btn btn-secondary mt-1 float-start">
+                    <i class="fas fa-thumbs-up" style="border: 1px solid black; padding: 5px;"></i>
+                    Like</button>
+                    <span id="likes_total">{{ post.no_of_likes.count }}</span>
+                </div>
+            {% endif %}
+            {% else %}
 
-<h4>To like this post please <a href="{% url 'register' %}">register</a> or<a href="{% url 'login' %}">login</a>Thank You.</h4>
+                <h4>To like this post please <a href="{% url 'register' %}">register</a> or<a href="{% url 'login' %}">login</a>Thank You.</h4>
 
 
-<a href="{% url 'postread' %}">Home</a>  
-
+                <a href="{% url 'postread' %}">Home</a>  
+            
 {% endif %}
 </form>
 
