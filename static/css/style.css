@@ -18,6 +18,11 @@ body {
 
 .nav-link {
     color: white !important;
+    font-size: 30px;
+    justify-content: end;
+   
+
+
 }
 
 .nav-link:hover {
@@ -104,6 +109,44 @@ h4, h5, .phone, .email, .contribute  {
 
 .phone, .email, .contribute {
     font-size: larger;
+}
+
+
+/* postread page */
+
+
+
+.page-item,
+.page-link {
+    color:rgb(1, 116, 129);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.page-item:hover,
+.page-link:hover {
+    color:white;
+
+}
+
+.card {
+    margin: 0 auto;
+}
+
+
+.pagination-number {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pagination-number:hover {
+    color: white;
+}
+
+.welcome,
+.username {
+    font-family: 'Dancing Script';
+    color: rgb(237,177,79);
 }
 
 /* postdetail page */
@@ -216,7 +259,12 @@ h4, h5, .phone, .email, .contribute  {
 }
 .container-main {
     /* margin-top: 20%; */
-    justify-content: center;
+   /* display: flex; */
+    /* padding-left: 280px; */
+   /* justify-content: center;
+   align-items: center;
+   height: 100vh; */
+   /* margin-left: 15%; */
 }
 
 
@@ -298,6 +346,67 @@ h4, h5, .phone, .email, .contribute  {
 .create-submit:hover {
     background-color: rgb(237,177,79);
 }
+
+
+/* Sign out */
+
+
+.signout-heading {
+    margin-top: 5px;
+    color: black;
+}
+
+.signout-button {
+
+    background-color:  rgb(1, 116, 129);
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  
+    margin-top: 200px;
+    
+    }
+
+    .signouth3 {
+        text-align: center;
+    }
+
+    /* signup */
+
+    .center-form {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+
+    .signup {
+        font-size: 30px;
+    }
+
+    .signup input {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 30px;
+       
+    }
+
+    .signup button {
+        background-color:  rgb(1, 116, 129);
+        padding: 10px;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+       
+    }
+
+
+
+
 
 
 

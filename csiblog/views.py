@@ -127,7 +127,7 @@ class PostView(ListView):
     model = Post
     template_name = "postread.html"
     # queryset = Post.objects.filter(status=1).order_by('-date')
-    # # paginate_by = 4
+    paginate_by = 4
 
 
 class PostDetailView(DetailView):
