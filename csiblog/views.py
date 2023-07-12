@@ -21,6 +21,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django import forms
 
 
 class UserSignup(SuccessMessageMixin, CreateView):
@@ -226,11 +227,38 @@ def PostlikesView(request, pk):
 #     comment.addview()
 
 
-class CommentAddView(CreateView):
+class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Comment
-    template_name = "commentadd.html"
+    template_name = "csiblog/commentadd.html"
 #     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = CommentForm
+    # fields = ['author', 'added', 'mainbody']
+    # success_url = reverse_lazy('postread')
+    success_message = "You have successfully added your comment."
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        # kwargs['request'] = self.request
+        kwargs['post_id'] = self.kwargs['pk']
+        return kwargs
+
+    # def get_form(self, form_class=None):
+    #     form = super().get_form(form_class)
+    #     form.request = self.request
+    #     return form
+
+    def form_valid(self, form):
+        # post = get_object_or_404(Post, pk=self.kwargs['pk'])
+        form.instance.post = get_object_or_404(Post, id=self.kwargs['post_id'])
+        # form.instance.author = self.request.user
+        # form.instance.post_id = self.kwargs['pk']
+        # form.instance.post = Post.objects.get(pk=self.kwargs['pk'])
+        # form.instance.post_id = self.kwargs['pk']
+        # form.instance.post = get_object_or_404(Post, pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('postdetail', kwargs={'pk': self.object.post.id})
 #     login_url = 'postread'
 #     # permission_denied_message = 'You are not allowed access here please login'
 #     success_url = reverse_lazy('postread')

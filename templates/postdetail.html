@@ -25,25 +25,59 @@
                 <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
                 <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | safe }}</p>
                 {% if user.is_authenticated %}
-                {% if user.id == post.contributor.id %}
-                    <a href="{% url 'postupdate' post.pk %}" class="postupdate-link">Update Post</a> &nbsp; 
-    
-                    <a href="{% url 'postdelete' post.pk %}" class="postdelete-link">Delete Post</a> &nbsp; 
-    
-                    <a href="{% url 'postcreate' post.pk %}" class="postcreate-link">Create Post</a> &nbsp; 
-    
-                 {% endif %}   
-                                  
-            {% else %}
-            
-            <a href="{% url 'postread' %}">Home</a>  
-            {% endif %}
-            </div>
-        </div>
+                    {% if user.id == post.contributor.id %}
+                        <a href="{% url 'postupdate' post.pk %}" class="postupdate-link">Update Post</a> &nbsp; 
         
+                        <a href="{% url 'postdelete' post.pk %}" class="postdelete-link">Delete Post</a> &nbsp; 
+        
+                        <a href="{% url 'postcreate' post.pk %}" class="postcreate-link">Create Post</a> &nbsp; 
+                    {% else %}
+                    <p> Leave a comment or like this post.</p>
+                    <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
+                    <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp;
+                    <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
+                    {% for comment in post.csiblog_comment.all %}
+                              <strong>
+                              {{ comment.author | safe }} | {{ comment.added | safe }}
+                             </strong>
+                              <br>
+                             <br>
+                             {{ comment.mainbody | safe }}
+                             <br>
+                             <br>
+                     {% endfor %}   
+                     {% endif %}
+                {% else %}
+               
+             
+             <!-- <br>
+                 <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
+                 <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp;
+                 <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
+             
+              <br> -->
+                    </div>     
+                </div>
+     
+                    
+       
+            <h2>Please login to leave a comment or like a post.</h2>
+            <br>
+            <br>
+
+            <a href="{% url 'postread' %}" class="postdetail-home">Home</a> &nbsp;
+            <a href="{% url 'account_signup' %}" class="postdetail-signup">Sign up</a> &nbsp;
+            <a href="{% url 'account_login' %}" class="postdetail-login">Login</a> &nbsp;
+             
+            {% endif %} 
+         
+               
         </div>
-  
-    </div>
+    </div>    
+        
+      
+          
+   
 
 </div>
            
@@ -73,12 +107,12 @@
   
    <hr> 
  
-
-    <h2 class="comment-title">Comment On The Post Above....</h2>
+      
+   
 
     {% if user.is_authenticated %}
     {% if user.id == post.contributor.id %}
-
+    <h2 class="comment-title">Comment On The Post Above....</h2>
         {% if not post.csiblog_comment.all %}
         <br>
         <br>

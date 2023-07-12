@@ -193,6 +193,26 @@ h4, h5, .phone, .email, .contribute  {
   
   } */
 
+  .postdetail-home,
+  .postdetail-signup,
+  .postdetail-login {
+  
+        /* color:  rgb(237,177,79);
+        text-decoration: none;
+        font-weight: bolder; */
+
+        
+            background-color: rgb(1, 116, 129);
+            padding: 15px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+           
+    
+
+
+    }
+
 
 
 /*Login Page */
@@ -309,10 +329,13 @@ h4, h5, .phone, .email, .contribute  {
 .commentupdate-link,
 .commentdelete-link {
     background-color: rgb(1, 116, 129);
-    padding: 15px;
+    padding: 10px;
     font-size: 20px;
     color: white;
     text-decoration: none;
+    /* display: inline-block; */
+    width: auto;
+    height: 50px;
    
 }
 
