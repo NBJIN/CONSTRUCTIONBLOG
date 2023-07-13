@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
+import datetime
 from django.views import generic, View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
@@ -242,14 +243,36 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         kwargs['post_id'] = self.kwargs['pk']
         return kwargs
 
+    def index(request):
+        current_datetime = datetime.datetime.now()
+        html = "<html><body><b> Current Date and Time:</b>%s</body></html>" % current_datetime
+        return HttpResponse(html)
     # def get_form(self, form_class=None):
     #     form = super().get_form(form_class)
     #     form.request = self.request
     #     return form
 
     def form_valid(self, form):
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user.author
+            comment_form.instance.post = request.user.post
+            comment = comment_form.save(commit=False)
+            comment.post = Post
+            comment.save()
+        else:
+            comment_form = commentform()
+
+        return render(
+            request,
+            "postdetail.html",
+            {
+                "post": post,
+                "comment_form": comment_form,
+                
+            },
+        )
         # post = get_object_or_404(Post, pk=self.kwargs['pk'])
-        form.instance.post = get_object_or_404(Post, id=self.kwargs['post_id'])
+        # form.instance.post = get_object_or_404(Post, id=self.kwargs['post_id'])
         # form.instance.author = self.request.user
         # form.instance.post_id = self.kwargs['pk']
         # form.instance.post = Post.objects.get(pk=self.kwargs['pk'])

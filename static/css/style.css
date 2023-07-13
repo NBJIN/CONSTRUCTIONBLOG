@@ -174,7 +174,8 @@ h4, h5, .phone, .email, .contribute  {
 
 }
 
-.fa-thumbs-up {
+.fa-thumbs-up,
+.fa-message {
     font-size: 20px;
     color: rgb(237,177,79);
     background-color: rgb(1, 116, 129);

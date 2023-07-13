@@ -10,7 +10,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ['name',  'contributor', 'date', 'image', 'content', 'no_of_likes']
+        # fields = ['name',  'contributor', 'date', 'image', 'content', 'no_of_likes']
+        
+        fields = ['name',  'contributor', 'date', 'image', 'content']
         # 'slug',
         labels = {
             'name': 'Name of Post:',
@@ -20,7 +22,7 @@ class PostForm(forms.ModelForm):
             'date': 'Date of Post',
             'image': 'Post Image',
             'content': 'Post Content',
-            'no_of_like': 'Likes',
+            # 'no_of_like': 'Likes',
         }
 
         widgets = {
@@ -44,7 +46,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         # fields = ['title', 'mainbody']
-        fields = ['post', 'mainbody']
+        fields = ['mainbody']
         # labels = {
         #     # 'post': 'Post',
         #     'title': 'Title',
@@ -58,7 +60,7 @@ class CommentForm(forms.ModelForm):
             # 'post': forms.HiddenInput(),
             # 'title': forms.TextInput(attrs={'class': 'form-control'}),
             # 'mainbody': forms.Textarea(attrs={'class': 'form-control'})
-            'content': forms.Textarea(attrs={'rows': 4}),
+            'mainbody': forms.Textarea(attrs={'rows': 4}),
         }
     #     success_message = "You have successfully added your comment.."
 
@@ -66,8 +68,8 @@ class CommentForm(forms.ModelForm):
         post_id = kwargs.pop('post_id')
         # self.request = kwargs.pop('request', None)
         super().__init__(*args, **kwargs)
-        self.fields['post'].initial = post_id
-        self.fields['post'].widget = forms.HiddenInput()
+        # self.fields['post'].initial = post_id
+        # self.fields['post'].widget = forms.HiddenInput()
         # self.fields['post'].widget = forms.HiddenInput()
         # self.fields['post'].initial = self.request.POST.get('post_id')
         # self.fields['author'].widget = forms.HiddenInput()

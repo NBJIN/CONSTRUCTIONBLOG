@@ -37,6 +37,7 @@
                     <div class="cardlikes">
                       <a href="{% url 'post_like' pk=post.pk %}" class="alike">
                         <i class="fas fa-solid fa-thumbs-up"></i> <span class="style-no_of_likes">{{ post.no_of_likes.all.count }}</span> </a>
+                        &nbsp &nbsp <i class="fas fa-solid fa-message"></i>
                         {% if user.is_authenticated %}
                         {% else %}
                         <p>Please login to like or comment on a post.</p>

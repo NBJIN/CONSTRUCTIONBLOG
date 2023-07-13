@@ -142,7 +142,9 @@
             <br>
         {% else %}
        <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
-       {% for comment in post.csiblog_comment.all %}
+       
+       
+      
                  <strong>
                  {{ comment.author | safe }} | {{ comment.added | safe }}
                 </strong>
@@ -151,7 +153,7 @@
                 {{ comment.mainbody | safe }}
                 <br>
                 <br>
-        {% endfor %}   
+     
         {% endif %}
 
 <br>
