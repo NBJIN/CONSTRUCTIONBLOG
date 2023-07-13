@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
 import datetime
 from django.views import generic, View
+from django.views.generic.edit import CreateView, FormMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView,
@@ -234,43 +235,51 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 #     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = CommentForm
     # fields = ['author', 'added', 'mainbody']
-    # success_url = reverse_lazy('postread')
+    success_url = reverse_lazy('postread')
     success_message = "You have successfully added your comment."
+
+    def form_valid(self, form):
+        # if comment_form.is_valid():
+            # comment_form.instance.author = request.user.author
+            # comment_form.instance.post = request.user.post
+            # comment = comment_form.save(commit=False)
+            # comment.post = Post
+            # comment.save()
+        # form.instance.post_id = self.kwargs['pk']
+        # form.instance.author = self.request.user
+        # form.request = self.request
+        return super().form_valid(form)
+        # else:
+        #     comment_form = CommentForm()
+
+        # return render(
+        #     request,
+        #     "postdetail.html",
+        #     {
+        #         "post": post,
+
+        #         "comment_form": comment_form,
+                
+        #     },
+        # )
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        # kwargs['request'] = self.request
+     
         kwargs['post_id'] = self.kwargs['pk']
+        kwargs['request'] = self.request
         return kwargs
 
-    def index(request):
-        current_datetime = datetime.datetime.now()
-        html = "<html><body><b> Current Date and Time:</b>%s</body></html>" % current_datetime
-        return HttpResponse(html)
+    # def index(request):
+    #     current_datetime = datetime.datetime.now()
+    #     html = "<html><body><b> Current Date and Time:</b>%s</body></html>" % current_datetime
+    #     return HttpResponse(html)
     # def get_form(self, form_class=None):
     #     form = super().get_form(form_class)
     #     form.request = self.request
     #     return form
 
-    def form_valid(self, form):
-        if comment_form.is_valid():
-            comment_form.instance.author = request.user.author
-            comment_form.instance.post = request.user.post
-            comment = comment_form.save(commit=False)
-            comment.post = Post
-            comment.save()
-        else:
-            comment_form = commentform()
-
-        return render(
-            request,
-            "postdetail.html",
-            {
-                "post": post,
-                "comment_form": comment_form,
-                
-            },
-        )
+ 
         # post = get_object_or_404(Post, pk=self.kwargs['pk'])
         # form.instance.post = get_object_or_404(Post, id=self.kwargs['post_id'])
         # form.instance.author = self.request.user
@@ -278,7 +287,8 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         # form.instance.post = Post.objects.get(pk=self.kwargs['pk'])
         # form.instance.post_id = self.kwargs['pk']
         # form.instance.post = get_object_or_404(Post, pk=self.kwargs['pk'])
-        return super().form_valid(form)
+        # return super().form_valid(form)
+
 
     def get_success_url(self):
         return reverse_lazy('postdetail', kwargs={'pk': self.object.post.id})
@@ -313,12 +323,36 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 #         return super().form.valid
 
 
-class CommentUpdate(UpdateView):
+class CommentUpdate(LoginRequiredMixin, UpdateView):
     model = Comment
     template_name = "commentupdate.html"
     form_class = CommentUpdate
     # login_url = 'postread'
-    # success_message = "You have successfully updated your post.."
+    success_message = "You have successfully updated your comment.."
+
+
+    def get_success_url(self):
+        success_url = reverse_lazy('postdetail', kwargs={'pk': self.object.post.id})
+        return success_url
+
+
+# class PostUpdate(LoginRequiredMixin, UpdateView):
+#     model = Post
+#     template_name = "postupdate.html"
+#     # fields = ('name', 'contributor', 'date', 'content',)
+#     form_class = PostForm
+#     # login_url = 'postread'
+#     success_message = "You have successfully updated your post.."
+#     success_url = reverse_lazy('postread')
+
+    # # test for SuccessMessageMixin
+    # def test_func(self):
+    #     post = self.get_object()
+    #     if self.request.user == post.contributor:
+    #         return True
+    #     return False
+
+
 
 
 def form_valid(self, form):
