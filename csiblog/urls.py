@@ -15,7 +15,7 @@ from .views import CommentAddView,  CommentUpdate, CommentDelete, PostlikesView
 urlpatterns = [
     path('signup/', UserSignup.as_view(), name='signup'),
     path('login/', UserLoginView.as_view(), name="login"),
-    path('', PostView.as_view(), name="postread"),
+    path('', views.PostView.as_view(), name="postread"),
     path('postdetail/<int:pk>', PostDetailView.as_view(), name='postdetail'),
     path('create/<int:pk>', PostAddView.as_view(), name='postcreate'),
     path('update/<int:pk>', PostUpdate.as_view(), name='postupdate'),

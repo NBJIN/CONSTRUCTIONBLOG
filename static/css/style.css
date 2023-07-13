@@ -133,6 +133,16 @@ h4, h5, .phone, .email, .contribute  {
     margin: 0 auto;
 }
 
+.style-no_of_likes {
+    color: rgb(237,177,79);
+    font-size: 20px;
+   
+}
+
+.alike {
+    text-decoration: none;
+}
+
 
 .pagination-number {
     font-weight: bold;
@@ -165,7 +175,7 @@ h4, h5, .phone, .email, .contribute  {
 }
 
 .fa-thumbs-up {
-    font-size: 40px;
+    font-size: 20px;
     color: rgb(237,177,79);
     background-color: rgb(1, 116, 129);
     padding: 15px;
@@ -181,9 +191,14 @@ h4, h5, .phone, .email, .contribute  {
 
 }
 
+.hr-style {
+   border-top: 10px solid white;
+}
+
 #likes_total {
     color: black;
 }
+
 
   
   /* .fa-facebook:hover,

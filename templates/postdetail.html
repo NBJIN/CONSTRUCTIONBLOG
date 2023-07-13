@@ -12,11 +12,18 @@
 
 <div class="container">
     <div class="row">
+        
         <div class="col-md-12">     
+            {% if "placeholder" in post.image.url %}
+
+            <img class="card-img-top" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg">
+
+            {% else %}
             <div class="card text-white bg-special mb-3 shadow-lg mb-6">
                 <div class="text-center card-image">
                 <img src="{{ post.image.url }}" class="card-img" alt="post-image" style="width: 800px; height: 400px">
                 </div>
+            {% endif %}
                 <div class="card-body">  
 
                 <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.slug | safe }}</p>
@@ -36,7 +43,11 @@
                     <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
                     <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp;
                     <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
+                   
+                    <hr class="hr-style">
+                 
                     {% for comment in post.csiblog_comment.all %}
+                    <div class="container">
                               <strong>
                               {{ comment.author | safe }} | {{ comment.added | safe }}
                              </strong>
@@ -45,6 +56,8 @@
                              {{ comment.mainbody | safe }}
                              <br>
                              <br>
+
+                   </div>
                      {% endfor %}   
                      {% endif %}
                 {% else %}
@@ -153,10 +166,11 @@
 <br>
 {% endif %}
 <div class="mt-auto text-end">
+    {% if user.is_authenticated %}
 <form action="{% url 'post_like' pk=post.pk %}" method="POST">
 
     {% csrf_token %}
-        {% if user.is_authenticated %}
+       
              {% if liked %}
 
              <div class="col mb-3 px-2">
@@ -167,17 +181,6 @@
                 Like</button>
             </div>
 
-
-
-<!-- 
-                <div class="col mb-3 px-2">
-                    <span id="likes_total">{{ total_no_of_likes }}</span>
-    
-                    <button type="submit" name="postlikes-button" value="{{ post.pk }}" class="btn btn-danger mt-1 float-start">
-                    <i class="fas fa-thumbs-down"></i>
-                     like</button>   -->
-
-                <!-- </div> -->
             {% else %}
                  <div class="col mb-3 px-2">
                     

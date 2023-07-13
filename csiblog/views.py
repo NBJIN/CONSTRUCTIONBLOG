@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
@@ -215,7 +215,7 @@ def PostlikesView(request, pk):
         else:
             post.no_of_likes.add(request.user)
             liked = True
-    total_no_of_likes = post.no_of_likes.count()
+    # total_no_of_likes = post.no_of_likes.count()
     return redirect('postdetail', pk=pk)
 
     # total_no_of_likes = post.no_of_likes.count()
@@ -229,7 +229,7 @@ def PostlikesView(request, pk):
 
 class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Comment
-    template_name = "csiblog/commentadd.html"
+    template_name = "commentadd.html"
 #     # fields = ['name', 'slug', 'contributor', 'date', 'image', 'content', 'no_of_likes', 'excerpt', 'status']
     form_class = CommentForm
     # fields = ['author', 'added', 'mainbody']

@@ -10,65 +10,69 @@
     <div class="container-main">
         <div class="row">
             {% for post in object_list %}
-            <div class="col-md-4">
-            
-           
+            <div class="col-md-6">
+              {% if "placeholder" in post.image.url %}
+
+                <img class="card-img-top" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg">
+
+                
+                {% else %}
+
+                <!-- <img class="card-img-top" src="{{ post.image.url }}"> -->
+               
                 <div class="card text-white bg-special mb-3 shadow-lg mb-6">
                     <div class="text-center card-image">
                     <img src="{{ post.image.url }}" class="card-img" alt="post-image" style="width: 500px; height: 300px">
                     </div>
+                    {% endif %}
                     <div class="card-body">  
-
+                    
                     <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.slug | safe }}</p>
                     <p class="card-text ms-3"><strong>Author:</strong>&nbsp;{{ post.contributor | safe }}</p>
                     <p class="card-text ms-3"><strong>Date:</strong>&nbsp; {{ post.date | safe }}</p>
-                    <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
+                    <!-- <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p> -->
                     <p class="card-text ms-3"><strong>Content:</strong>&nbsp{{ post.content | slice:":200" | safe }}</p>
                     <a href="{% url 'postdetail' post.pk %}" class="postdetail-link">Read More </a>
                     &nbsp;
                     <div class="cardlikes">
-                      <a href="{% url 'post_like' pk=post.pk %}">
-                        <i class="fas fa-solid fa-thumbs-up"></i>   {{ post.no_of_likes.all.count }} </a>
+                      <a href="{% url 'post_like' pk=post.pk %}" class="alike">
+                        <i class="fas fa-solid fa-thumbs-up"></i> <span class="style-no_of_likes">{{ post.no_of_likes.all.count }}</span> </a>
+                        {% if user.is_authenticated %}
+                        {% else %}
                         <p>Please login to like or comment on a post.</p>
+                        {% endif %}
                     </div>
                  
+                  </div>
                 </div>
-            </div>
          
             </div>
         {% if forloop.counter|divisibleby:2 and not forloop.last %}
 
         </div>
             <div class="row">
-        {% endif %}
-    {% endfor %}
+          {% endif %}
+       
+          {% endfor %}
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
-              <!-- <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a> -->
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" 
+             class="page-link">&laquo; Previous </a>
+            
           </li>
       
 
           {% endif %}
           <span class="pagination-number">&nbsp; {{ page_obj.number}} &nbsp;</span>
           {% if page_obj.has_next %}
-          <li><a class="page-link" href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
+          <li><a class="page-link" href="?page={{ page_obj.next_page_number }}" 
+              class="page-link">Next &raquo;</a></li>
           {% endif %}
-          <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li> -->
+   
         </ul>
       </nav>
       {% endif %}
