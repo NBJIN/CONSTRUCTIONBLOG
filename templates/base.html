@@ -116,7 +116,10 @@
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li> 
          
-            
+            <li class="nav-item">
+
+            <a href="{% url 'postcreate' %}" class="nav-link">Create Post</a> &nbsp; 
+            </li>
             {% else %}
             <li class="nav-item" >
               <a class="nav-link" href="{% url 'account_login' %}">Login</a>
