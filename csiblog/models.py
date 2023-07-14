@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
+from django.contrib import messages
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
@@ -35,11 +36,12 @@ class Post(models.Model):
 
             self.slug = f"{base_slug} - {self.pk}"
         else:
-            if Post.objects.filter(slug=self.slug).exists():
-                messages.error('Please choose a different name for your post name as this already exists. ')
-                return
-                
-        # super(Post, self).save(*args, **kwargs)
+            existing_posts = Post.objects.exclude(pk=self.pk).filter(slug=self.slug)
+            if existing_posts.exists():
+
+            # if Post.objects.filter(slug=self.slug).exists():
+                raise ValueError('Please choose a different name for your post name as this already exists. ')
+                # return
         super().save(*args, **kwargs)
 
     #     if Post.objects.filter(slug=self.slug).exists():
