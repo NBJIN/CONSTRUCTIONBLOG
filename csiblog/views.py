@@ -68,9 +68,9 @@ class PostAddView(LoginRequiredMixin, CreateView):
     success_message = "You have successfully added your post.."
     # queryset = Post.objects.filter(status=1).order_by('-date')
 
-    # def form_valid(self, form):
-    #     form.instance.contributor = self.request.user
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.contributor = self.request.user
+        return super().form_valid(form)
 
     # def get(self, request):
     #     return render(request, 'postread.html')
@@ -89,6 +89,8 @@ class PostAddView(LoginRequiredMixin, CreateView):
     #         form = PostForm()
     #     return render(request, 'postread.html', {'form': form})
 
+    # def form_valid(self, form):
+
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
@@ -98,6 +100,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
     # login_url = 'postread'
     success_message = "You have successfully updated your post.."
     success_url = reverse_lazy('postread')
+
 
     # # test for SuccessMessageMixin
     # def test_func(self):

@@ -29,11 +29,28 @@ class Post(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super(Post, self).save(*args, **kwargs)
+        if not self.slug:
 
-    def get_absolute_url(self):
-        return reverse('postread', kwargs={'pk': self.pk})
+            base_slug = slugify(self.name)
+
+            self.slug = f"{base_slug} - {self.pk}"
+        else:
+            if Post.objects.filter(slug=self.slug).exists():
+                messages.error('Please choose a different name for your post name as this already exists. ')
+                return
+                
+        # super(Post, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
+
+    #     if Post.objects.filter(slug=self.slug).exists():
+    #         # raise Error("Please choose a different name for your post as a post with the same name already exists.  ")
+    #         self.slug = f"{self.slug}-{self.pk}"
+    #     else:
+    #         self.slug = self(self.name)
+    #     super().save(*args, **kwargs)
+     
+    # def get_absolute_url(self):
+    #     return reverse('postread', kwargs={'slug': self.slug})
 
     # def no_of_likes_count(self):
     #     return self.no_of_likes.all().count()

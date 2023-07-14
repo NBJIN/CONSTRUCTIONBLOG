@@ -26,7 +26,7 @@
             {% endif %}
                 <div class="card-body">  
 
-                <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.slug | safe }}</p>
+                <p class="card-text ms-3"><strong>Name:</strong>&nbsp;{{ post.name | safe }}</p>
                 <p class="card-text ms-3"><strong>Author:</strong>&nbsp;{{ post.contributor | safe }}</p>
                 <p class="card-text ms-3"><strong>Date:</strong>&nbsp; {{ post.date | safe }}</p>
                 <p class="card-text ms-3"><strong>Image:</strong>&nbsp; {{ post.image  | safe}}</p>
@@ -63,12 +63,7 @@
                 {% else %}
                
              
-             <!-- <br>
-                 <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
-                 <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp;
-                 <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
-             
-              <br> -->
+    
                     </div>     
                 </div>
      
@@ -94,28 +89,7 @@
 
 </div>
            
-        <!-- <br>  -->
-        <!-- <strong>  
-        {{ post.name | safe }}</a>
-        </strong> -->
-         <!-- <br> -->
-         <!-- <strong>
-        {{ post.contributor| safe  }}
-        </strong> -->
-        <!-- <br> -->
-        <!-- <strong>
-        {{ post.date | safe }}
-        </strong> -->
-         <!-- <br> -->
-<!--         
-         {{ post.content | safe }} -->
-         
-        <!-- <br>
-        <br>
-        <br>
-        <br> -->
-
-        
+     
     
   
    <hr> 
@@ -145,14 +119,14 @@
        
        
       
-                 <strong>
+                 <!-- <strong>
                  {{ comment.author | safe }} | {{ comment.added | safe }}
                 </strong>
                  <br>
                 <br>
                 {{ comment.mainbody | safe }}
                 <br>
-                <br>
+                <br> -->
      
         {% endif %}
 
