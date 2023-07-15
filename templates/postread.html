@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<br>
 {% block title %}
     <h3 class="text-center mx-auto">List of Blog Posts</h3>
 {% endblock %} 
 
 
     <div class="container-main">
-        <div class="row">
+        <div class="row-card-placeholder">
             {% for post in object_list %}
             <div class="col-md-6 card-placeholder">
+             
               {% if "placeholder" in post.image.url %}
-
+              <div class="card text-white bg-special mb-3 shadow-lg mb-6">
                 <img class="card-img-top card-bg-col" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg" style="width: 500px; height: 300px" >
 
                 
@@ -20,7 +21,7 @@
 
                 <!-- <img class="card-img-top" src="{{ post.image.url }}"> -->
                
-                <div class="card text-white bg-special mb-3 shadow-lg mb-6">
+                
                     <div class="text-center card-image">
                     <img src="{{ post.image.url }}" class="card-img" alt="post-image" style="width: 500px; height: 300px">
                     </div>

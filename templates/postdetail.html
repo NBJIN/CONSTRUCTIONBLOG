@@ -13,9 +13,9 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row style-placeholder">
         
-        <div class="col-md-12">     
+        <div class="col-md-12" >     
             {% if "placeholder" in post.image.url %}
 
             <img class="card-img-top" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg">
@@ -74,11 +74,11 @@
             <h2>Please login to leave a comment or like a post.</h2>
             <br>
             <br>
-
+            <div class="display-inline p-3">
             <a href="{% url 'postread' %}" class="postdetail-home">Home</a> &nbsp;
             <a href="{% url 'account_signup' %}" class="postdetail-signup">Sign up</a> &nbsp;
             <a href="{% url 'account_login' %}" class="postdetail-login">Login</a> &nbsp;
-             
+            </div>
             {% endif %} 
          
                

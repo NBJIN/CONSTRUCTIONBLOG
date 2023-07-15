@@ -6,14 +6,15 @@
 
 {% block content %}
 
-
+<br>
+<br>
 
 <h1 class="text-center">{% trans "Sign Up" %}</h1>
 <br>
 <br>
 <br>
 
-<h3>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</h3>
+<h3 class="text-black">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</h3>
 <br>
 <br>
 <br>
@@ -27,7 +28,7 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-  <!-- {% include 'messages.html' %} -->
+ 
 </form>
 </div>
 </div>
