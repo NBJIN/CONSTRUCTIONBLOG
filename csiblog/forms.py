@@ -157,25 +157,29 @@ class CommentForm(forms.ModelForm):
     #     return super().form_valid(form)
 
 
-class CommentUpdate(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['mainbody',]
+# class CommentUpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = Comment
+#         fields = ['mainbody',]
         # labels = {
         #     'author': 'Author of Comment:',
         #     'added': 'Date of Comment',
         #     'mainbody': 'Content',
-        #           }
-        widgets = {
+        # #           }
+        # widgets = {
 
-            'added': forms.DateField(widget=forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'})),
-            # 'post': forms.HiddenInput(),
-            # 'title': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'mainbody': forms.Textarea(attrs={'class': 'form-control'})
-            'mainbody': forms.Textarea(attrs={'rows': 4}),
-        }
-        #     'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
-        #     'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
-        #     'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+        #     'added': forms.DateField(widget=forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'})),
+        #     # 'post': forms.HiddenInput(),
+        #     # 'title': forms.TextInput(attrs={'class': 'form-control'}),
+        #     # 'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+        #     'mainbody': forms.Textarea(attrs={'rows': 4}),
         # }
-        success_message = "You have successfully added your comment.."
+        # #     'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your name'}),
+        # #     'added': forms.DateInput(format='%Y/%m/%d', attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
+        # #     'mainbody': forms.Textarea(attrs={'class': 'form-control'})
+        # # }
+        # # success_message = "You have successfully added your comment.."
+
+        # def form_valid(self, form):
+        #     messages.success(self.request, 'Your comment has been updated')
+        #     return super().form_valid(form)

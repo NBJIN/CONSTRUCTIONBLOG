@@ -129,7 +129,23 @@ h4, h5, .phone, .email, .contribute  {
 
 }
 
-.card {
+.card-bg-col {
+    background-color: rgb(1, 116, 129);
+    display: block;
+    margin: 0 auto;   
+}
+
+.card-img-top,
+.card-placeholder {
+    width: 800px;
+    height: 1000px;
+    justify-content: center;
+    /* background-color: rgb(1, 116, 129); */
+    gap: 10px;
+}
+
+.card,
+ {
     margin: 0 auto;
 }
 
@@ -229,7 +245,18 @@ h4, h5, .phone, .email, .contribute  {
 
     }
 
+.commentadd-black,
+/* .commentupdate-black, */
+.commentdelete-black {
+    color: rgb(237,177,79);
+}
 
+
+.commentadd-hover,
+/* .commentupdate-hover, */
+.commentdelete-hover {
+    color: white;
+}
 
 /*Login Page */
 
@@ -342,7 +369,7 @@ h4, h5, .phone, .email, .contribute  {
 }
 
 .commentadd-link,
-.commentupdate-link,
+/* .commentupdate-link, */
 .commentdelete-link {
     background-color: rgb(1, 116, 129);
     padding: 10px;
@@ -356,7 +383,7 @@ h4, h5, .phone, .email, .contribute  {
 }
 
 .commentadd-link:hover,
-.commentupdate-link:hover,
+/* .commentupdate-link:hover, */
 .commentdelete-link:hover {
     Background-color: rgb(237,177,79);
 }

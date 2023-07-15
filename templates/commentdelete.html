@@ -4,14 +4,20 @@
 
 <h1>Construction Safety Information Blog </h1>
 <h3>Delete Comment</h3>
-
+{% if user.is_authenticated %}
+{% if user.id == post.contributor.id %}
 
 <form method="post">
     {% csrf_token %}
     Are you sure you want to delete "{{ object }}" ?
     <input type="Submit" value="Submit">
+{% else %}
+
+You are not allowed to perform this action.  
+
 
 </form>
-
+{% endif %}
+{% endif %}
 
 {% endblock %}

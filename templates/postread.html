@@ -10,10 +10,10 @@
     <div class="container-main">
         <div class="row">
             {% for post in object_list %}
-            <div class="col-md-6">
+            <div class="col-md-6 card-placeholder">
               {% if "placeholder" in post.image.url %}
 
-                <img class="card-img-top" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg">
+                <img class="card-img-top card-bg-col" src="https://res.cloudinary.com/dc4lcot1r/image/upload/v1689074955/media/placeholder_rsgi8k.jpg" style="width: 500px; height: 300px" >
 
                 
                 {% else %}
