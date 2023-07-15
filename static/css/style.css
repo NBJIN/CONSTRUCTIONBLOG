@@ -359,12 +359,13 @@ h4, h5, .phone, .email, .contribute  {
 /* postdetail page */
 
 .detailed-title {
-    margin-top: -5px;
+    margin-top: 20px;
 
 }
 
 .blockcontent-postdetail {
-    margin-top: -1100px;
+    /* margin-top: 1px; */
+
 }
 
 .postupdate-link,
@@ -433,6 +434,9 @@ h4, h5, .phone, .email, .contribute  {
 .create-submit:hover {
     background-color: rgb(237,177,79);
 }
+
+
+/* Add Comment Page */
 
 
 /* Sign out */
