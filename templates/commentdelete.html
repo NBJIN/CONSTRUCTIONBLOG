@@ -2,15 +2,24 @@
 
 {% block content %}
 
-<h1>Construction Safety Information Blog </h1>
-<h3>Delete Comment</h3>
+<br>
+<br>
+<h1 class="text-center">Delete Comment</h1>
+<br>
+<br>
+<br>
+
 {% if user.is_authenticated %}
 {% if user.id == post.contributor.id %}
 
 <form method="post">
     {% csrf_token %}
-    Are you sure you want to delete "{{ object }}" ?
-    <input type="Submit" value="Submit">
+    <h3 class="delete-post-content">Are you sure you want to delete "{{ object }}" ? </h3>
+    <br>
+    <br>
+    <br>
+
+    <input type="Submit" value="Submit" class="postdelete-submit">
 {% else %}
 
 You are not allowed to perform this action.  
