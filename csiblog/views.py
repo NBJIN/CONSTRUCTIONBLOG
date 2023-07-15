@@ -315,41 +315,6 @@ class CommentAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 #         return super().form_valid(form)
 
 
-# class CommentUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-#     model = Comment
-#     template_name = "commentupdate.html"
-#     form_class = CommentUpdateForm
-# #     # login_url = 'postread'
-#     success_message = "You have successfully updated your comment.."
-#     # success_url = reverse_lazy('postdetail', kwargs={'pk': self.object.post.pk})
-
-    # def test_func(self):
-    #     return self.request.author == self.get_object().user
-
-    # def form_valid(self, form):
-    #     # form.instance.comment_id = self.kwargs['pk']
-    #     messages.success(self.request, self.success_message)
-    #     return super().form.valid(form)
-
-    # def get_success_url(self):
-    #     return reverse_lazy('postdetail', kwargs={'pk': self.object().post.pk})
-
-
-
-
-# class CommentUpdate(LoginRequiredMixin, UpdateView):
-#     model = Comment
-#     template_name = "commentupdate.html"
-#     form_class = CommentUpdate
-#     # login_url = 'postread'
-#     success_message = "You have successfully updated your comment.."
-
-
-#     def get_success_url(self):
-#         success_url = reverse_lazy('postdetail', kwargs={'pk': self.object.post.id})
-#         return success_url
-
-
 # class PostUpdate(LoginRequiredMixin, UpdateView):
 #     model = Post
 #     template_name = "postupdate.html"
@@ -376,15 +341,10 @@ def form_valid(self, form):
     success_url = reverse_lazy('postdetail', kwargs={'pk': self.object.post.pk})
 
 
-# def CommentUpdate(id):
-#     comment = Comment.queryset.get(id=id)
-#     comment.update()
-
-
 class CommentDelete(DeleteView):
     model = Comment
     template_name = "commentdelete.html"
-    # form_class = CommentUpdate
+ 
     # login_url = 'postread'
     # success_message = "You have successfully deleted your comment.."
     success_url = reverse_lazy('postdetail')

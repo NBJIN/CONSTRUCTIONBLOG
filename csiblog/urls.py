@@ -8,7 +8,6 @@ from .views import (
     PostUpdate,
     PostDelete,
     CommentAddView,
-    # CommentUpdateForm,
     CommentDelete
 )
 from .views import UserSignup, UserLoginView, UserLogoutView, CommentView
@@ -33,4 +32,3 @@ urlpatterns = [
     path('likes/<int:pk>', PostlikesView, name='post_like'),
 ]
 
-# path('comment/update/<int:pk>', views.CommentUpdate.as_view(), name='commentupdate'),

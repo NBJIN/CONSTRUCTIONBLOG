@@ -41,7 +41,7 @@
                     {% else %}
                     <p> Leave a comment or like this post.</p>
                     <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
-                    <!-- <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp; -->
+                   
                     <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
                    
                     <hr class="hr-style">
@@ -132,7 +132,7 @@
 
 <br>
     <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
-    <!-- <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp; -->
+   
     <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
 
  <br>

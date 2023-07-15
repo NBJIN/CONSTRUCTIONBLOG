@@ -267,14 +267,12 @@ h4, h5, .phone, .email, .contribute  {
     }
 
 .commentadd-black,
-/* .commentupdate-black, */
 .commentdelete-black {
     color: rgb(237,177,79);
 }
 
 
 .commentadd-hover,
-/* .commentupdate-hover, */
 .commentdelete-hover {
     color: white;
 }
@@ -394,7 +392,6 @@ h4, h5, .phone, .email, .contribute  {
 }
 
 .commentadd-link,
-/* .commentupdate-link, */
 .commentdelete-link {
     background-color: rgb(1, 116, 129);
     padding: 10px;
@@ -408,7 +405,6 @@ h4, h5, .phone, .email, .contribute  {
 }
 
 .commentadd-link:hover,
-/* .commentupdate-link:hover, */
 .commentdelete-link:hover {
     Background-color: rgb(237,177,79);
 }

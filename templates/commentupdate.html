@@ -19,7 +19,7 @@
     <input type="submit" value="Submit"  class="create-submit"/>
 
     <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
-    <!-- <a href="{% url 'commentupdate' post.pk %}" class="commentupdate-link">Update Comment </a>&nbsp; -->
+    
     <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
     <a href="{% url 'postdetail' %}">Detailed Post</a> 
     {% endif %}
