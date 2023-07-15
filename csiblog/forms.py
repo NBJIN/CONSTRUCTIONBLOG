@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
         fields = ['name','date', 'image', 'content']
         # 'slug',
         labels = {
-            'name': 'Post Id:',
+            'name': 'Post Name:',
             # 'slug': 'Slug:',
             # 'contributor': 'Author of Post:',
             # 'cat_name': 'Category',
@@ -86,7 +86,7 @@ class PostForm(forms.ModelForm):
         name = self.cleaned_data.get('name')
         existing_post = Post.objects.filter(name=name).first()
         if existing_post and existing_post.slug != self.instance.slug:
-            raise forms.ValidationError('Error please enter a new name as this has been assigned a post already.')
+            raise forms.ValidationError('Error please enter a new post name as this has been assigned a post already.')
         return name
 
 

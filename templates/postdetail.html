@@ -13,7 +13,7 @@
 
 
 <div class="container">
-    <div class="row style-placeholder">
+    <div class="row" class="style-placeholder">
         
         <div class="col-md-12" >     
             {% if "placeholder" in post.image.url %}
@@ -74,11 +74,11 @@
             <h2>Please login to leave a comment or like a post.</h2>
             <br>
             <br>
-            <div class="display-inline p-3">
-            <a href="{% url 'postread' %}" class="postdetail-home">Home</a> &nbsp;
+
+            <!-- <a href="{% url 'postread' %}" class="postdetail-home">Home</a> &nbsp;
             <a href="{% url 'account_signup' %}" class="postdetail-signup">Sign up</a> &nbsp;
-            <a href="{% url 'account_login' %}" class="postdetail-login">Login</a> &nbsp;
-            </div>
+            <a href="{% url 'account_login' %}" class="postdetail-login">Login</a> &nbsp; -->
+             
             {% endif %} 
          
                
@@ -117,18 +117,9 @@
             <br>
             <br>
         {% else %}
-       <a href="{% url 'commentadd' post.pk %}">Add Comment </a>
+       <!-- <a href="{% url 'commentadd' post.pk %}">Add Comment </a> -->
        
-       
-      
-                 <!-- <strong>
-                 {{ comment.author | safe }} | {{ comment.added | safe }}
-                </strong>
-                 <br>
-                <br>
-                {{ comment.mainbody | safe }}
-                <br>
-                <br> -->
+ 
      
         {% endif %}
 
@@ -171,7 +162,7 @@
             {% endif %}
             {% else %}
 
-                <h4>To like this post please <a href="{% url 'register' %}">register</a> or<a href="{% url 'login' %}">login</a>Thank You.</h4>
+                <h4>To like this post please <a href="{% url 'register' %}">register</a> or<a href="{% url 'login' %}">Sign In</a>Thank You.</h4>
 
 
                 <a href="{% url 'postread' %}">Home</a>  
