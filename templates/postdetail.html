@@ -44,7 +44,7 @@
                     <p> Leave a comment or like this post.</p>
                     <a href="{% url 'commentadd' post.pk %}" class="commentadd-link">Add Comment </a>&nbsp;
                    
-                    <a href="{% url 'commentdelete' post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
+                    <a href="{% url 'commentdelete' pk=post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
                    
                     <hr class="hr-style">
                  
@@ -58,7 +58,10 @@
                              {{ comment.mainbody | safe }}
                              <br>
                              <br>
-
+                           
+                   
+                             <a href="{% url 'commentdelete' pk=post.pk %}" class="commentdelete-link">Delete Comment </a>&nbsp
+                             <hr>
                    </div>
                      {% endfor %}   
                      {% endif %}
