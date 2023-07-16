@@ -624,41 +624,64 @@ Logout contains the same header and footer as all other pages and all features a
 <br>
 Languages Used
 <br>
-  - HTML5 was used to build the structure of all html pages - https://en.wikipedia.org/wiki/HTML5
+
+- HTML5 was used to build the structure of all html pages - https://en.wikipedia.org/wiki/HTML5
+  <br>
   - CSS3 was used to provide styling to the element on the page - https://en.wikipedia.org/wiki/CSS
+  <br>
   - JavaScript was used for some buttons in order to provide functionality - https://en.wikipedia.org/wiki/JavaScript
+  <br>
   - Python was used in conjunction with Django framework - https://en.wikipedia.org/wiki/Python_(programming_language)
 <br>
+
 Libraries and Frameworks and Programs Used
   - Django was used as a web framework to ease the building of this project - https://en.wikipedia.org/wiki/Django_(web_framework)
+  <br>
   - Django Template was used a a templating language for Django to display 
     backend date to HTML
+    <br>
   - Bootstrap 4.1 - used with styling and responsiveness of the blog - https://getbootstrap.com/docs/4.1/getting-started/introduction/
+  </br>
   - GitPod was used for writing code, committing and pushing to GitHub - https://www.gitpod.io/
-  - GitHub was used to store the project code after being push from GitPod. - https://github.com/
+  </br>
+  - GitHub was used to store the project code after being push from GitPod - https://github.com/
+  </br>
   - Heroku was used to deploy the blog - https://dashboard.heroku.com/
-  - Python 3.8 - used to code blog
+  </br>
+  - Python 3.8 - used to code blog - https://en.wikipedia.org/wiki/Python_(programming_language)
+  <br>
   - ElephantSQL - used for the applications database.- https://www.elephantsql.com/
+  <br>
   - Balsamiq was utilised to draw up wireframes for the project - https://balsamiq.com/
+  <br>
   - Google Fonts - used to import fonts into base html file  - https://fonts.google.com/
+  <br>
   -   The following site was used to convert my rgb colors into hex colors - https://www.color-hex.com - in order to generate a color chart in coolors.co. 
+  <br>
   - The color card was drawn up on https://coolors.co/ 
+  <br>
   - I also used an color picker when deciding on my colors for the website and i did some research on - https://imagecolorpicker.com/en
+  <br>
   - The logo for the project was drawn up in canva - https://www.canva.com/
+  <br>
+
   - Pictures for the project were sourced from pexels - https://www.pexels.com/
+  <br>
   - Fontawesome was used for all social media icons and thumbs up icon -  https://fontawesome.com/
+  <br>
   - To generate favicon reference the www.favicon.io website 
 <br>
 <br>
-  Packages / Dependecies 
-  - Gunicorn used as a Python WSGI HTTP Server to allow the deployment of 
-    Django application
-  - Summernote has been used as WYSIWYG editor 
-  - Cloudinary has been used an an image management platform - https://cloudinary.com/
+
+Packages / Dependencies
+- Gunicorn used as a Python WSGI HTTP Server to allow the deployment of Django application
+- Summernote has been used as WYSIWYG editor 
+- Cloudinary has been used an an image management platform - https://cloudinary.com/
 <br>
-  Database
-  - Heroku Postgres was used in production as a service based on PostgresSQL 
-    provided by Heroku.
+
+Database
+
+- Heroku Postgres was used in production as a service based on PostgresSQL provided by Heroku.
 
 ## 13. Deployment 
 #
@@ -668,17 +691,17 @@ Libraries and Frameworks and Programs Used
 - All code was pushed to GitHub and saved on this platform. 
 
 ### Django Project Deployment 
-<br>
+
 - The project was deployed on Github.  
-<br>
+
 - Login to Github repository and navigate to the setting tab. 
-<br>
+
 - Scroll down on this page untill you see GitHub pages.
-<br>
+
 - Form the source section drop-down menau select the main branch.
-<br>
+
 - Once the main branch has been selected click on the save button.
-<br>
+
 - When the page is refreshed there will be a detailed link display to indicate a successful deployment.  
 <br>
 
@@ -728,25 +751,25 @@ Postgres option.
 
 - In settings.py add the following sections:
 
-<br>
-Cloudinary to the INSTALLED_APPS list
-<br>
-STATICFILE_STORAGE
-<br>
-STATICFILES_DIRS
-<br>
-STATIC_ROOT
-<br>
-MEDIA_URL
-<br>
-DEFAULT_FILE_STORAGE
-<br>
-TEMPLATES_DIR
-<br>
-Update DIRS in TEMPLATES with TEMPLATES_DIR
-<br>
-Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
-<br>
+      <br>
+      Cloudinary to the INSTALLED_APPS list
+      <br>
+      STATICFILE_STORAGE
+      <br>
+      STATICFILES_DIRS
+      <br>
+      STATIC_ROOT
+      <br>
+      MEDIA_URL
+      <br>
+      DEFAULT_FILE_STORAGE
+      <br>
+      TEMPLATES_DIR
+      <br>
+      Update DIRS in TEMPLATES with TEMPLATES_DIR
+      <br>
+      Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+      <br>
 
 - Store Static and Media files in Cloudinary and Deploy to Heroku:
 <br>
