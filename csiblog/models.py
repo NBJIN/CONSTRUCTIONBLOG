@@ -39,23 +39,11 @@ class Post(models.Model):
             existing_posts = Post.objects.exclude(pk=self.pk).filter(slug=self.slug)
             if existing_posts.exists():
 
-            # if Post.objects.filter(slug=self.slug).exists():
                 raise ValueError('Please choose a different name for your post name as this already exists. ')
-                # return
+        
         super().save(*args, **kwargs)
 
-    #     if Post.objects.filter(slug=self.slug).exists():
-    #         # raise Error("Please choose a different name for your post as a post with the same name already exists.  ")
-    #         self.slug = f"{self.slug}-{self.pk}"
-    #     else:
-    #         self.slug = self(self.name)
-    #     super().save(*args, **kwargs)
-     
-    # def get_absolute_url(self):
-    #     return reverse('postread', kwargs={'slug': self.slug})
 
-    # def no_of_likes_count(self):
-    #     return self.no_of_likes.all().count()
 
 
 class Comment(models.Model):
@@ -87,6 +75,3 @@ class PostLike(models.Model):
 
     def __str__(self):
         return self.user.username + ' |' + (str(self.post.name))
-
-    # def no_of_likes_count(self):
-    #     return self.no_of_likes.all().count()

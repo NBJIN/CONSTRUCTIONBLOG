@@ -123,26 +123,10 @@ In order to implement the user stories it is hoped that it will be completed in 
 
   ## Scope - Features Table
 
-  Features Tables - Here we have a features table which goes through the list of features that are required in order to render an MVP Product.   
-  | User Type | Feature | Importance | Viability | Delivered | MVP |
-  |----------| ----------| ----------| ---------- | ---------- | ---------- |
-  |          | User Roles  | 5 | 5  | &check; | MVP|
-  |Site Users and Site Admin | Responsive Design | 5 | 5 | &check; | MVP |
-  |Site Users & Site Admin | Account Registration | 5 | 5 | &check; | MVP |
-  |Site Users & Site Admin | Create, Update and Delete Post  |  5 | 5 | &check; | MVP |
-  |Site Users & Site Admin | Create, Update and Delete Comments |  5 | 5 | &check; | MVP |
-  |Site Users & Site Admin | Search Construction Categories |  5 | 5 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Responsive Design | Row 2, Column 2 | Row 2, Column 3 |Row 2, Column 1 | &check; | MVP |
-  | Total  || x | x|  | |
+  Please refer to testing.md file for a full list of features that have been implemented in the project.  
 
   Epics / User Stories / Acceptance Criteria
-  Github projects was used in the planning and setting up of this blog project. Here you will see a list of all epics, the user stories connected to these epics and  
-  the acceptance criteria for each user story.  Each user story is catgorised into must haves, should have, could have. The Kanban board was used to draw up the individual tasks into different columns namely to do, in progress, done and and will not have..  As each task was worked on it moved from the to do column to the in progress column
+  Github projects was used in the planning and setting up of this blog project. Here you will see a list of all epics, the user stories connected to these epics and    the acceptance criteria for each user story.  Each user story is catgorised into must haves, should have, could have. The Kanban board was used to draw up the individual tasks into different columns namely to do, in progress, done and and will not have..  As each task was worked on it moved from the to do column to the in progress column
     to the final column of done. 
       
   ## 6. Structure - Database
@@ -617,6 +601,7 @@ Logout contains the same header and footer as all other pages and all features a
 - Improve styling of pages and forms 
 - display the number of comments
 - Add a dislike button
+- Add functionality for Delete Comments 
 
 
 ## 12. Technologies Used 
@@ -863,7 +848,14 @@ Media
 - pexels.com 
 
 known Bugs
-- 
+- While completing this project i ran out of time and need to address the following 
+  - Html / CSS / JS Validation
+  - Finish Readme File 
+  - Add Functionality for Delete Comment
+  - Address Responsiveness
+  - Bug in admin panel when adding a post
+  - remove commented out code 
+
 
 ## 16. Acknowledgements
 - My tutor for his feedback and guidance throughout building this blog project.
